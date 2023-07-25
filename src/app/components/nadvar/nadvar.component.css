@@ -1,0 +1,46 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    
+
+
+}
+
+ul {
+    align-items: center;
+    font-size: small;
+    
+    list-style: none;
+    position: relative;
+    margin-right: 2px;
+
+}
+
+div {
+    display: flex;
+    align-items: center;
+}
+li{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+button:hover{
+    background-color: rgb(59, 193, 226);
+}
+h5{
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+

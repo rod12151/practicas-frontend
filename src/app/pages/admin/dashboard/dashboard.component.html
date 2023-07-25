@@ -1,0 +1,12 @@
+<h1>bienvenido al panel de administrador</h1>
+<div class="info-user" *ngIf="authService.isLoggedIn()">
+    <a style="font-size:x-small;">{{user}}</a>
+           
+    
+    <button mat-icon-button class="example-icon favorite-icon"
+                    aria-label="Example icon-button">
+                    <mat-icon>person</mat-icon>
+                </button>
+    
+
+</div>

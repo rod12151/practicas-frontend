@@ -1,0 +1,26 @@
+<h2> User List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <!--<th>IUse</th>-->
+            <th>DNI</th>
+            <th>fullName</th>
+            <th>correo</th>
+        </tr>
+    </thead>
+    <!-- El bucle recorre cada usuario de users-->
+    <!-- Este archivo html está asociado a su respectivo .ts -->
+    <!-- users es una propiedad definida en el .ts users: User[]-->
+    <tbody>
+        <tr *ngFor = "let u of users">
+            <!-- {{}} Es interpolación para acceder a los campos -->
+           <!-- <td>{{u.idUser}}</td>-->
+            <td>{{u.dni}}</td>
+            
+            <td>{{u.fullName}}</td>
+            <td>{{u.username}}</td>
+            
+        </tr>
+    </tbody>
+    
+</table>

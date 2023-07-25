@@ -1,0 +1,120 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center " style="min-width: 280px;">
+                    <img src="../../../../assets/icon.png" alt="">
+                    <h1>Agregar Empleado</h1>
+                </div>
+                <div class="container" style="min-width: 280px;">
+                <form (ngSubmit)="onSubmitForm()">
+                    <div class="form-group">
+                        <label for="dni"> DNI</label>
+                        <input  type="text"  class="form-control" id="dni" [(ngModel)]="user.dni" name="dni" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="name"> Name</label>
+                        <input  type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName"> LastName</label>
+                        <input  type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName"
+                            name="lastName" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profesion"> Profesión</label>
+                        <input  type="text" class="form-control" id="profesion" [(ngModel)]="user.profession"
+                            name="profesion" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthDate"> BirthDate</label>
+                        <input type="text" class="form-control" id="birthDate" [(ngModel)]="user.birthDate"
+                            name="birthDate" autocomplete="off">
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Submit</button>
+
+                </form>
+            </div>
+                <br><br><br>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<form [formGroup]="addUserForm">
+    <p class="text-danger"></p>
+    <div class="mb-3">
+        <label for="dni" class="form-label">DNI </label>
+        <input formControlName="dni" type="text" class="form-control" id="dni">
+        <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="text-danger">
+    
+          <div *ngIf="dni.errors?.['required']">
+            El DNI es requerido.
+          </div>
+          <div *ngIf="dni.hasValidator.length">
+            El DNI debe tener 8 caracteres
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input formControlName="nombre" type="text" class="form-control" id="nombre">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+    
+          <div *ngIf="name.errors?.['required']">
+            El nombre es requerido.
+          </div>
+          
+          
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellidos</label>
+        <input formControlName="apellido" type="text" class="form-control" id="apellido">
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+    
+          <div *ngIf="lastName.errors?.['required']">
+            El apellido es requerido.
+          </div>
+          
+          
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="profesion" class="form-label">Profesión</label>
+        <input formControlName="profesion" type="text" class="form-control" id="profesion">
+        <div *ngIf="profession.invalid && (profession.dirty || profession.touched)" class="text-danger">
+    
+          <div *ngIf="profession.errors?.['required']">
+            La profesion es requerida.
+          </div>
+          
+          
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
+        <input formControlName="fechaNacimiento" type="text" class="form-control" id="fechaNacimiento">
+        <div *ngIf="birthDate.invalid && (birthDate.dirty || birthDate.touched)" class="text-danger">
+    
+          <div *ngIf="birthDate.errors?.['required']">
+            La fecha es requeruda.
+          </div>
+          
+          
+        </div>
+      </div>
+    
+      <button type="submit" class="btn btn-primary" (click)="addUser()">Iniciar Sesión</button>
+</form>
+
+-->
