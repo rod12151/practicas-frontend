@@ -9,14 +9,37 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { JefeDashboardComponent } from './pages/jefe/jefe-dashboard/jefe-dashboard.component';
 import { adminGuard } from './guards/admin.guard';
 import { jefeGuard } from './guards/jefe.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
   {path:'home', component:HomeComponent},
-  {path: 'userlist', component:UserListComponent},
-  {path: 'createuser',component:CreateUserComponent,canActivate:[adminGuard]},
+ 
+  
   {path:'login',component:LoginComponent},
-  {path:'admin',component:DashboardComponent,canActivate:[adminGuard]},
+  {
+    path:'admin',
+    component:DashboardComponent,
+    canActivate:[adminGuard],
+    children:[
+      {
+        path:'profile',
+        component:ProfileComponent
+      },
+      {
+        path:'welcome',
+        component: WelcomeComponent
+      },
+      {
+        path: 'userlist',
+        component:UserListComponent
+      },
+      {path: 'createuser',
+      component:CreateUserComponent}
+    ]
+  },
+    
   {path:'user-dashboard',component:UserDashboardComponent},
   {path:'jefe-dashboard', component:JefeDashboardComponent,canActivate:[jefeGuard]}
 

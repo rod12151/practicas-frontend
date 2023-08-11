@@ -1,0 +1,74 @@
+<img class="avatar mat-elevation-z24"
+    src="https://cdn.www.gob.pe/uploads/document/file/2394155/standard_MUNI3-4.jpg.jpg" alt="">
+
+<h4 class="name">Rodmel Calderon</h4>
+<p class="designation">Egresado</p>
+<mat-divider></mat-divider>
+<!--<div class="items">
+<button mat-button routerLink="welcome" class="menu-button">
+    <mat-icon>home</mat-icon>
+    <span>Inicio</span>
+
+</button>
+<button mat-button routerLink="profile" class="menu-button">
+    <mat-icon>person </mat-icon>
+    <span>Perfil</span>
+
+</button>
+<button mat-button routerLink="userlist" class="menu-button">
+    <mat-icon>person </mat-icon>
+    <span>userlist</span>
+
+</button>
+</div>-->
+<div class="items">
+    <div class="menu-button" (click)="toggleSubMenu(1)">
+      <button mat-button >
+        <mat-icon>home</mat-icon>
+        <span>Inicio</span>
+      </button>
+      <ul  [ngClass]="{'sub-menu': true, 'show': showSubMenu === 1}">
+        <li class="sub-item">
+            <button mat-button color="pink" routerLink="profile" class="submenu-button">
+                <mat-icon>person </mat-icon>
+                <span>Perfil</span>
+            
+            </button>
+            <button mat-button routerLink="createuser" class="submenu-button">
+                <mat-icon>person </mat-icon>
+                <span>Bienvenido</span>
+            
+            </button>
+            <button mat-button routerLink="userlist" class="submenu-button">
+                <mat-icon>settings_accessibility </mat-icon>
+                <span>userlist</span>
+            
+            </button>
+        </li>
+        
+      </ul>
+    </div>
+    <mat-divider></mat-divider>
+  
+    <div class="menu-button" (click)="toggleSubMenu(2)">
+      <button mat-button>
+        <mat-icon>person</mat-icon>
+        <span>Perfil</span>
+      </button>
+      <ul [ngClass]="{'sub-menu': true, 'show': showSubMenu === 2}" >
+        <li class="sub-item">
+          <a routerLink="profile">
+            <span>Subbotón A</span>
+          </a>
+        </li>
+        <li class="sub-item">
+          <a routerLink="profile">
+            <span>Subbotón B</span>
+          </a>
+        </li>
+        <!-- Agrega más subbotones según sea necesario -->
+      </ul>
+    </div>
+  
+    <!-- Agrega más botones principales con sus respectivos menús desplegables -->
+ </div>

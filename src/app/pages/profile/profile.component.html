@@ -1,0 +1,46 @@
+<mat-card>
+    <h1>detalles del perfil</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="text-center">
+                    <img src="../../../assets/userDefault.jpg" alt="" class="profile-image">    
+                    <h1 class="mt20">{{ user.fullName}}</h1>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <tr>
+                                <td> Correo</td>
+                                <td>{{user.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>id</td>
+                                <td>{{user.idUser}}</td>
+                            </tr>
+                            <tr>
+                                <td>DNI</td>
+                                <td>{{user.dni}}</td>
+                            </tr>
+                            <tr>
+                                <td>role</td>
+                                <td>admin</td>
+                            </tr>
+                            <tr>
+                                <td>estado</td>
+                                <td>activo</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center">
+            <button mat-raised-button color="primary">Actualizar</button>
+            <button mat-raised-button color="accent">Compartir</button>
+        </div>
+    </mat-card-content>
+</mat-card>
