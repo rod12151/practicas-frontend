@@ -9,12 +9,14 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class DashboardComponent {
   user:any;
   constructor(public authService:AuthService){}
-
+ 
   ngOnInit(){
     //optener
     this.authService.userActual.subscribe(user => {
       this.user = user ? user.fullName : '';
     });
+
+    
     const storedUser = this.authService.getUser();
     if (storedUser) {
       this.user = storedUser.fullName;

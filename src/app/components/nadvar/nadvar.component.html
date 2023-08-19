@@ -1,58 +1,43 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
     <div>
         <a [routerLink]="'/'">
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-                <mat-icon>home</mat-icon>
+            <button mat-icon-button class="example-icon">
+                <mat-icon>local_hospital</mat-icon>
             </button>
         </a>
         <a [routerLink]="'/'">Portal Del Hospital</a>
     </div>
     <span class="example-spacer"></span>
-    <div class="info-user" *ngIf="authService.isLoggedIn()">
-        <a style="font-size:x-small;">{{user}}</a>
-               
-        
-        <button mat-icon-button class="example-icon favorite-icon"
-                        aria-label="Example icon-button" routerLink="/admin/profile">
-                        <mat-icon>person</mat-icon>
-                    </button>
-        
-    
+    <div *ngIf="authService.isLoggedIn()">
+        <a class="etiqueta" routerLink="/admin/profile">{{user}}</a>
+        <a><button mat-icon-button class="example-icon" routerLink="/admin/profile">
+            <mat-icon>person</mat-icon>
+        </button>
+    </a>
     </div>
-    
+
     <div>
         <ul>
 
             <li *ngIf="!authService.isLoggedIn()">
-                <a class="txt-btn" [hidden]="!etiqueta">iniciar Sesion</a>
+                <a class="etiqueta" [hidden]="!etiqueta">iniciar Sesion</a>
 
                 <a [routerLink]="'/login'" (mouseover)="highlightItem()" (mouseout)="resetItem()">
 
 
-                    <button mat-icon-button class="example-icon favorite-icon"
-                        aria-label="Example icon-button with heart icon">
+                    <button mat-icon-button class="example-icon">
                         <mat-icon>login</mat-icon>
                     </button>
 
                 </a>
 
             </li>
-            <!--<li>
 
-            <a [routerLink]="'/createuser'">
-                <span >create user</span>
-
-                <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-                    <mat-icon></mat-icon>
-                  </button></a>
-            
-        </li>-->
 
             <li *ngIf="authService.isLoggedIn()">
-                <a *ngIf="etiqueta">cerrar Sesion</a>
+                <a class="etiqueta" *ngIf="etiqueta">cerrar Sesion</a>
                 <a href="" (click)="logout()" (mouseover)="highlightItem()" (mouseout)="resetItem()">
-                    <button mat-icon-button class="example-icon favorite-icon"
-                        aria-label="Example icon-button with heart icon">
+                    <button mat-icon-button class="example-icon">
                         <mat-icon>exit_to_app</mat-icon>
                     </button>
                 </a>

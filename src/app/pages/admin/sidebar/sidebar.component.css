@@ -1,70 +1,37 @@
 .avatar {
-  margin-top: 16px;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 70px;
   border-radius: 50%;
+  margin-left: 25px;
 }
-
-.name {
-  margin-top: 10px;
-  font-weight: normal;
-
-}
-
-.designation {
-  margin-top: 2px;
-  font-size: 0.7rem;
-  color: lightgray;
-
-}
-
-
 
 mat-divider {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   background-color: white;
-  
+
 }
 
-/*mat-icon,
-span,
-a {
-  margin-right: 8px;
-  color: white;
-}*/
 
 button:hover {
   background-color: rgb(59, 193, 226);
 }
-/*.items {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 50px;
-}*/
-.items {
-  
-  flex-direction: column;
-}
-
-.menu-button {
-  position: relative;
+mat-icon{
+  color: white;
 }
 
 
 .sub-menu {
   display: none;
   position: relative;
-  top: 100%;
-  left: 0;
-  z-index: 1;
-  background: none; /* Color de fondo del menú desplegable */
+  top: 70%;
   padding: 0;
   list-style: none;
-  margin-left: 35px;
+  margin-left: 10px;
   width: 150px;
+  background-color: rgba(224, 192, 228, 0.103);
 }
+
 
 /* Agrega esta clase para mostrar el submenú */
 .show {
@@ -72,12 +39,67 @@ button:hover {
 }
 
 .sub-item {
-  padding: 8px 16px;
+  display: flex;
+  padding: 5px 5px;
 
-  background-color: rgba(241, 239, 239, 0.123);
   
+
 }
-.mat-mdc-button:not(:disabled) {
-    color: #fff;
+.menu-text{
+  color: white;
+  
+
 }
 
+@media (max-width: 768px) {
+
+  .menu-button.responsive .menu-text {
+    display: none;
+    /* Oculta el texto en pantallas pequeñas */
+    padding: none;
+  }
+
+  .menu-button.responsive mat-icon {
+    margin: 0;
+    /* Ajusta el margen del ícono */
+    padding: auto;
+  }
+  .menu-button.responsive button:hover .menu-text {
+    display: inline; /* Mostrar el texto al hacer hover */
+    font-size: xx-small;
+    
+
+  }
+  .menu-button.responsive button:hover .mat-icon{
+    display: none;/*oculta el icono en pantallas pequeñas al pasar el mouse*/
+  }
+
+  .sub-menu {
+    position: relative;
+    padding: 1px;
+    margin-left: 1px;
+    width: 60px;
+
+    .sub-item {/*acomoda los subitems*/
+      display: flex;
+      padding: 0px;
+    }
+  }
+
+
+  .avatar {
+    margin-top: 8px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 0px;
+  }
+
+  mat-divider {
+    margin-top: 5px;
+    margin-bottom: none;
+    background-color: white;
+
+  }
+
+}

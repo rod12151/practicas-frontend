@@ -1,19 +1,14 @@
 .example-spacer {
-    flex: 1 1 auto;
+    flex: 1 1 0;
 }
 
 a {
-    color: white;
     text-decoration: none;
-    
-
-
+    color: white;
 }
 
 ul {
     align-items: center;
-    font-size: small;
-    
     list-style: none;
     position: relative;
     margin-right: 2px;
@@ -24,23 +19,31 @@ div {
     display: flex;
     align-items: center;
 }
-li{
+
+li {
     display: flex;
     align-items: center;
     margin-top: 15px;
 }
-button:hover{
+
+button:hover {
     background-color: rgb(59, 193, 226);
 }
-h5{
-    align-items: center;
+
+mat-toolbar {
+    background-color: #3b4df0;
 }
 
-
-
-
-
-
-
-
-
+mat-icon {
+    color: white;
+}
+.etiqueta{
+    font-size: medium;
+}
+@media screen and (max-width: 768px) {
+    .etiqueta{
+        font-size: xx-small;
+    }
+    
+    
+}
