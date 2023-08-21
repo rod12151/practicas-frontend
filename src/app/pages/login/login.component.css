@@ -1,3 +1,19 @@
-.full-width{
-    width:100%;
+.container-main{
+    height: 100vh;
+    background-image: url("../../../assets/ground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container-auth{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container-auth .container-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 20px;
 }
