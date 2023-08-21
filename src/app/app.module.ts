@@ -39,6 +39,7 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 
 import { AuthInterceptorProviders } from './services/auth/auth.interceptor';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AuthInterceptorProviders } from './services/auth/auth.interceptor';
     JefeDashboardComponent,
     ProfileComponent,
     SidebarComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
