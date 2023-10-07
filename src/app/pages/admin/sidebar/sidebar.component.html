@@ -3,6 +3,7 @@
 <mat-divider></mat-divider>
 
 <div class="items">
+  <!--Inicio-->
   <div class="menu-button responsive" (click)="toggleSubMenu(1)">
     <button mat-button>
       <mat-icon>home</mat-icon>
@@ -11,7 +12,8 @@
     <ul [ngClass]="{'sub-menu': true, 'show': showSubMenu === 1}">
       <li class="sub-item">
         <button mat-button routerLink="createuser" class="submenu-button">
-          <mat-icon>person </mat-icon>
+          <mat-icon >pie_chart</mat-icon>
+          
           <span class="menu-text">Bienvenido</span>
 
         </button>
@@ -36,7 +38,7 @@
   </div>
   <mat-divider></mat-divider>
 
-
+<!--usuarios-->
   <div class="menu-button responsive" (click)="toggleSubMenu(2)">
     <button mat-button>
       <mat-icon>person</mat-icon>
@@ -44,7 +46,7 @@
     </button>
     <ul [ngClass]="{'sub-menu': true, 'show': showSubMenu === 2}">
       <li class="sub-item">
-        <button mat-button routerLink="userlist" class="submenu-button">
+        <button mat-button routerLink="createuser" class="submenu-button">
           <mat-icon>person_add</mat-icon>
           <span class="menu-text">agregar</span>
 
@@ -74,7 +76,7 @@
     </ul>
   </div>
   <mat-divider></mat-divider>
-
+<!--contratos-->
   <div class="menu-button responsive" (click)="toggleSubMenu(3)">
     <button mat-button>
       <mat-icon>tab</mat-icon>
@@ -82,7 +84,7 @@
     </button>
     <ul [ngClass]="{'sub-menu':true,'show':showSubMenu===3}">
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="addContract" class="submenu-button">
           <mat-icon>create </mat-icon>
           <span class="menu-text">Crear</span>
 
@@ -113,6 +115,8 @@
 
   </div>
   <mat-divider></mat-divider>
+
+  <!--Servicios-->
   <div class="menu-button responsive" (click)="toggleSubMenu(4)">
     <button mat-button>
       <mat-icon>note_add</mat-icon>
@@ -120,20 +124,20 @@
     </button>
     <ul [ngClass]="{'sub-menu': true, 'show': showSubMenu === 4}">
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="addServices" class="submenu-button">
           <mat-icon>create </mat-icon>
           <span class="menu-text">Crear</span>
         </button>
       </li>
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="Services" class="submenu-button">
           <mat-icon>find_in_page </mat-icon>
           <span class="menu-text">Buscar</span>
 
         </button>
       </li>
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="addServices" class="submenu-button">
           <mat-icon>update</mat-icon>
           <span class="menu-text">Actualizar</span>
         </button>
@@ -141,6 +145,7 @@
     </ul>
   </div>
   <mat-divider></mat-divider>
+  <!--Condicion Laboral-->
   <div class="menu-button responsive" (click)="toggleSubMenu(5)">
     <button mat-button>
       <mat-icon>work</mat-icon>
@@ -148,13 +153,13 @@
     </button>
     <ul [ngClass]="{'sub-menu': true, 'show': showSubMenu === 5}">
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="addworkcondition" class="submenu-button">
           <mat-icon>create </mat-icon>
           <span class="menu-text">Crear</span>
         </button>
       </li>
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="workcondition" class="submenu-button">
           <mat-icon>find_in_page </mat-icon>
           <span class="menu-text">Buscar</span>
 
@@ -169,6 +174,7 @@
     </ul>
   </div>
   <mat-divider></mat-divider>
+  <!--Regimen Lanoral-->
   <div class="menu-button responsive" (click)="toggleSubMenu(6)">
     <button mat-button>
       <mat-icon>business_center</mat-icon>
@@ -176,13 +182,13 @@
     </button>
     <ul [ngClass]="{'sub-menu': true, 'show': showSubMenu === 6}">
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="addLaborRegime" class="submenu-button">
           <mat-icon>create </mat-icon>
           <span class="menu-text">Crear</span>
         </button>
       </li>
       <li class="sub-item">
-        <button mat-button routerLink="profile" class="submenu-button">
+        <button mat-button routerLink="laborRegime" class="submenu-button">
           <mat-icon>find_in_page </mat-icon>
           <span class="menu-text">Buscar</span>
 

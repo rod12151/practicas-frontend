@@ -12,18 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  /* userErrror:string=""
- 
-   addUserForm = this.formBuilder.group({
-     dni:['',[Validators.required,Validators.minLength(8),Validators.maxLength(8)]],
-     name:['',[Validators.required]],
-     lastName:['',[Validators.required]],
-     profession:['',[Validators.required]],
-     birthDate:['1998-11-25',[Validators.required,Validators.compose]],
- 
- 
-   })*/
-
+  
   //Cramos un nuevo userRequest vacío
   user: UserRequest = new UserRequest();
 
@@ -35,47 +24,11 @@ export class CreateUserComponent implements OnInit {
 
   ) { }
 
-  /*get dni(){
-    return this.addUserForm.controls.dni
-  }
-  get name(){
-    return this.addUserForm.controls.name
-  }
-  get lastName(){
-    return this.addUserForm.controls.lastName
-  }
-  get profession(){
-    return this.addUserForm.controls.profession
-  }
-  get birthDate(){
-    return this.addUserForm.controls.birthDate
-  }*/
+  
   ngOnInit(): void {
 
   }
-  /*
-    addUser(){
-      if(this.addUserForm.valid){
-        this.userService.createUser(this.addUserForm.value as UserRequest).subscribe({
-          next:(userData)=>{
-            console.log(userData);
-          },
-          error:(errorData)=>{
-            console.error(errorData);
-            this.userErrror=errorData;
-          },
-          complete:()=>{
-            console.info("usuario Agregado");
-            this.router.navigateByUrl('/userlist');
-            this.addUserForm.reset();
-          }
-        });
   
-      }else{
-        this.addUserForm.markAllAsTouched();
-        alert("error")
-      }
-    }*/
 
 
   //Este método es llamado desde el formulario

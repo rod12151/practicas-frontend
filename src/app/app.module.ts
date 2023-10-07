@@ -21,6 +21,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
@@ -40,6 +44,14 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 import { AuthInterceptorProviders } from './services/auth/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
+import { ViewWorkConditionComponent } from './pages/admin/entities/view-work-condition/view-work-condition.component';
+import { AddWorkConditionComponent } from './pages/admin/entities/add-work-condition/add-work-condition.component';
+import { ViewLaborRegimeComponent } from './pages/admin/entities/view-labor-regime/view-labor-regime.component';
+import { AddLaborRegimeComponent } from './pages/admin/entities/add-labor-regime/add-labor-regime.component';
+import { AddServiceComponent } from './pages/admin/entities/add-service/add-service.component';
+import { ViewServiceComponent } from './pages/admin/entities/view-service/view-service.component';
+import { AddContractComponent } from './pages/admin/entities/add-contract/add-contract.component';
+import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +68,15 @@ import { FooterComponent } from './components/footer/footer.component';
     ProfileComponent,
     SidebarComponent,
     WelcomeComponent,
-    FooterComponent
+    FooterComponent,
+    ViewWorkConditionComponent,
+    AddWorkConditionComponent,
+    ViewLaborRegimeComponent,
+    AddLaborRegimeComponent,
+    AddServiceComponent,
+    ViewServiceComponent,
+    AddContractComponent,
+    ViewContractComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +95,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
   providers: [AuthInterceptorProviders],

@@ -1,0 +1,54 @@
+mat-icon{
+    color: rgba(1, 8, 8, 0.986);
+    border-bottom: 5px;
+    
+}
+button:hover {
+    background-color: rgb(59, 193, 226);
+}
+.search{background-color: rgba(59, 193, 226, 0.336);
+}
+/* Estilos para la tabla */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Margen superior para separar la tabla de otros elementos */
+  }
+  
+  /* Estilos para las celdas de encabezado */
+  th {
+    background-color: #072fe088;
+    text-align: left;
+    padding: 5px;
+  }
+  
+  /* Estilos para las filas de datos impares */
+  tbody tr:nth-child(odd) {
+    background-color: #0dcce63d;
+  }
+  
+  /* Estilos para las celdas de datos */
+  td {
+    padding: 10px;
+  }
+  
+  /* Estilos para los radio buttons */
+  input[type="radio"] {
+    margin-right: 5px; /* Espaciado a la derecha de los radio buttons */
+  }
+  h1{
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+    font-style: italic;
+    color: blue;
+    background-color: rgba(3, 23, 209, 0.404);
+  }
+  .table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table tr td{
+    padding: 15px 10px;
+    border: 0.5px solid gainsboro;
+}

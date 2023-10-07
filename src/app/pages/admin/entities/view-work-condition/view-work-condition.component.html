@@ -1,0 +1,24 @@
+<h2>CONDICION LABORAL</h2>
+<div *ngFor="let w of workConditions">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Nombre: {{w.name}}</mat-card-title>
+        <mat-card-subtitle>Codigo: {{w.code}}</mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-card-content>Descripción
+        <p>
+            {{w.description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button color="primary">ACTUALIZAR</button>
+        <button mat-button color="warn">ELIMINAR</button>
+    </mat-card-actions>
+    
+</mat-card>
+<mat-divider></mat-divider>
+</div>
+<div class="container text-center mt20">
+    <button mat-raised-button color="primary" routerLink="../addworkcondition">Agregar</button>
+</div>

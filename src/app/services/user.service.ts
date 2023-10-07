@@ -33,4 +33,8 @@ export class UserService {
     return this.httpClient.get<ServicioResponse[]>(`${baserUrl}/service`)
   }*/
 
+  getSuggestions(query: string):Observable<UserResponse[]>{
+    return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/share?query=${query}`)
+  }
+
 }

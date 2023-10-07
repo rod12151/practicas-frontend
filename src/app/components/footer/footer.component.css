@@ -1,3 +1,9 @@
-.container-footer span{
-  text-align: center;
+
+mat-toolbar{
+
+  background-color:#3b4df0;
+  height: 35px;
+  color: white;
+  font-size: small;
+
 }

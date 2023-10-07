@@ -35,7 +35,7 @@
                             name="birthDate" autocomplete="off">
                     </div>
 
-                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-success" type="submit">Crear</button>
 
                 </form>
             </div>
@@ -46,75 +46,3 @@
         </div>
     </div>
 </div>
-
-<!--
-<form [formGroup]="addUserForm">
-    <p class="text-danger"></p>
-    <div class="mb-3">
-        <label for="dni" class="form-label">DNI </label>
-        <input formControlName="dni" type="text" class="form-control" id="dni">
-        <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="text-danger">
-    
-          <div *ngIf="dni.errors?.['required']">
-            El DNI es requerido.
-          </div>
-          <div *ngIf="dni.hasValidator.length">
-            El DNI debe tener 8 caracteres
-          </div>
-          
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input formControlName="nombre" type="text" class="form-control" id="nombre">
-        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
-    
-          <div *ngIf="name.errors?.['required']">
-            El nombre es requerido.
-          </div>
-          
-          
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="apellido" class="form-label">Apellidos</label>
-        <input formControlName="apellido" type="text" class="form-control" id="apellido">
-        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
-    
-          <div *ngIf="lastName.errors?.['required']">
-            El apellido es requerido.
-          </div>
-          
-          
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="profesion" class="form-label">Profesión</label>
-        <input formControlName="profesion" type="text" class="form-control" id="profesion">
-        <div *ngIf="profession.invalid && (profession.dirty || profession.touched)" class="text-danger">
-    
-          <div *ngIf="profession.errors?.['required']">
-            La profesion es requerida.
-          </div>
-          
-          
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
-        <input formControlName="fechaNacimiento" type="text" class="form-control" id="fechaNacimiento">
-        <div *ngIf="birthDate.invalid && (birthDate.dirty || birthDate.touched)" class="text-danger">
-    
-          <div *ngIf="birthDate.errors?.['required']">
-            La fecha es requeruda.
-          </div>
-          
-          
-        </div>
-      </div>
-    
-      <button type="submit" class="btn btn-primary" (click)="addUser()">Iniciar Sesión</button>
-</form>
-
--->
