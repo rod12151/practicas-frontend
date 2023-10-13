@@ -18,6 +18,7 @@ import { AddLaborRegimeComponent } from './pages/admin/entities/add-labor-regime
 import { AddServiceComponent } from './pages/admin/entities/add-service/add-service.component';
 import { ViewServiceComponent } from './pages/admin/entities/view-service/view-service.component';
 import { AddContractComponent } from './pages/admin/entities/add-contract/add-contract.component';
+import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
@@ -71,6 +72,10 @@ const routes: Routes = [
       {
         path:'addContract',
         component:AddContractComponent
+      },
+      {
+        path:'viewContract',
+        component:ViewContractComponent
       }
     ]
   },

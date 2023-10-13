@@ -1,1 +1,255 @@
-<p>view-contract works!</p>
+<h1 class="text-center">Buscar Contratos</h1>
+<br>
+<mat-tab-group>
+    <mat-tab label="Buscar por DNI">
+        <p style="margin-left: 50px;">busca todo los contratos que pertenescana a una persona</p>
+
+        <mat-form-field class="input">
+            <mat-label>Ingrese el DNI</mat-label>
+            <input type="text" matInput [formControl]="dniInput" />
+        </mat-form-field>
+        <button class="search" mat-button (click)="searchContractByDniUser()"><mat-icon>search</mat-icon></button>
+        <br>
+        <p class="text-danger">{{ errorInput }}</p>
+        <mat-card>
+            <mat-card-header *ngIf="contratos[0]">
+                <mat-card-title>{{contratos[0].user.fullName}}</mat-card-title>
+                <mat-card-subtitle>DNI: {{contratos[0].user.dni}}</mat-card-subtitle>
+                <mat-card-subtitle>Correo: {{contratos[0].user.username}}</mat-card-subtitle>
+                <mat-card-subtitle>Profesion: {{contratos[0].user.profession}}</mat-card-subtitle>
+            </mat-card-header>
+
+
+
+        </mat-card>
+        <table class="datos">
+            <thead>
+                <tr>
+
+
+
+                    <th>Puesto</th>
+                    <th>Condicion Laboral</th>
+                    <th>Regimen laboral</th>
+                    <th>Salario</th>
+                    <th>Inicio de contrato</th>
+                    <th>Fin de contrato</th>
+                    <th>Estado</th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contrato of contratos">
+
+                    <td>{{contrato.position}}</td>
+                    <td>{{contrato.workCondition.name}}</td>
+                    <td>{{contrato.laborRegime.name}}</td>
+                    <td>S/. {{contrato.salary}}</td>
+                    <td>{{contrato.startDate}}</td>
+                    <td>{{contrato.finishDate}}</td>
+                    <td>{{contrato.status?'vigente':'terminado'}}</td>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </mat-tab>
+
+    <mat-tab label="buscar por regimen laboral">
+        <p style="margin-left: 50px;">busca todo los contratos que pertenescana una regimen laboral</p>
+
+        <mat-form-field class="input">
+            <mat-label>ingrese el codigo</mat-label>
+            <input type="text" matInput [formControl]="regimenLabInput" />
+        </mat-form-field>
+        <button class="search" mat-button (click)="searchContractByLaborRegime()"><mat-icon>search</mat-icon></button>
+
+        <p class="text-danger">{{ errorInput }}</p>
+
+
+        <mat-card *ngIf="contratosReLa[0]">
+            <mat-card-header>
+                <mat-card-title>{{contratosReLa[0].laborRegime.name}}</mat-card-title>
+                <mat-card-subtitle>codigo: {{contratosReLa[0].laborRegime.code}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Descripcion:</h3>
+                <p>{{contratosReLa[0].laborRegime.description}}</p>
+            </mat-card-content>
+
+
+        </mat-card>
+
+        <br>
+        <table class="datos">
+
+            <thead>
+                <tr>
+
+
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Correo</th>
+                    <th>Profesion</th>
+                    <th>Puesto</th>
+                    <th>Condicion Laboral</th>
+                    <th>Salario</th>
+                    <th>Inicio de contrato</th>
+                    <th>Fin de contrato</th>
+                    <th>Estado</th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contrato of contratosReLa">
+                    <td>{{contrato.user.fullName}}</td>
+                    <td>{{contrato.user.dni}}</td>
+                    <td>{{contrato.user.username}}</td>
+                    <td>{{contrato.user.profession}}</td>
+                    <td>{{contrato.position}}</td>
+                    <td>{{contrato.workCondition.name}}</td>
+                    <td>S/. {{contrato.salary}}</td>
+                    <td>{{contrato.startDate}}</td>
+                    <td>{{contrato.finishDate}}</td>
+                    <td>{{contrato.status?'vigente':'terminado'}}</td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+    </mat-tab>
+    <mat-tab label="condicion laboral ">
+        <p style="margin-left: 50px;">busca todo los contratos que pertenescana una condicion laboral</p>
+
+        <mat-form-field class="input">
+            <mat-label>ingrese el codigo</mat-label>
+            <input type="text" matInput [formControl]="workConditionInput" />
+        </mat-form-field>
+        <button class="search" mat-button (click)="searchContractByworkcondition()"><mat-icon>search</mat-icon></button>
+
+        <p class="text-danger">{{ errorInput }}</p>
+
+
+        <mat-card *ngIf="contratosCoLa[0]">
+            <mat-card-header>
+                <mat-card-title>{{contratosCoLa[0].workCondition.name}}</mat-card-title>
+                <mat-card-subtitle>codigo: {{contratosCoLa[0].workCondition.code}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Descripcion:</h3>
+                <p>{{contratosCoLa[0].workCondition.description}}</p>
+            </mat-card-content>
+
+
+        </mat-card>
+
+        <br>
+        <table class="datos">
+
+            <thead>
+                <tr>
+
+
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Correo</th>
+                    <th>Profesion</th>
+                    <th>Puesto</th>
+                    <th>Regimen Laboral</th>
+                    <th>Salario</th>
+                    <th>Inicio de contrato</th>
+                    <th>Fin de contrato</th>
+                    <th>Estado</th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contrato of contratosCoLa">
+                    <td>{{contrato.user.fullName}}</td>
+                    <td>{{contrato.user.dni}}</td>
+                    <td>{{contrato.user.username}}</td>
+                    <td>{{contrato.user.profession}}</td>
+                    <td>{{contrato.position}}</td>
+                    <td>{{contrato.laborRegime.name}}</td>
+                    <td>S/. {{contrato.salary}}</td>
+                    <td>{{contrato.startDate}}</td>
+                    <td>{{contrato.finishDate}}</td>
+                    <td>{{contrato.status?'vigente':'terminado'}}</td>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </mat-tab>
+
+    <mat-tab label="fecha">
+
+        <mat-tab-group>
+            
+            <mat-tab label="inicio contrato">
+                <p>busca todo los contratos que  que son posteriores al fecha de Inicio de contrato </p>
+
+<br>
+                <mat-form-field color="accent">
+                    <mat-label>Inicio de Contrato</mat-label>
+                    <input matInput [matDatepicker]="picker1" [formControl]="startDate" readonly>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                </mat-form-field>
+                <button class="search" mat-button (click)="getContractAfterStarDate()"><mat-icon>search</mat-icon></button>
+                <br>
+                <app-table-contrato [contratos]="contratosStarDateAfter"></app-table-contrato>
+            </mat-tab>
+
+            <mat-tab label="antes de final contrato">
+                <p>busca todo los contratos que venceran antes de la fecha indicada </p>
+
+                <mat-form-field color="accent">
+                    <mat-label>fin de Contrato</mat-label>
+                    <input matInput [matDatepicker]="picker2" [formControl]="finishDate" readonly>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                </mat-form-field>
+
+                <button class="search" mat-button (click)="getContractBeforeFinishDate()"><mat-icon>search</mat-icon></button>
+                <br>
+                <app-table-contrato [contratos]="contratosFinishDateBefore"></app-table-contrato>
+            </mat-tab>
+            <mat-tab label="entre inicio y fin contrato">
+                <p>busca todo los contratos que enten entre un fecha de inicio y un fin de contrado </p>
+
+                <mat-form-field color="accent">
+                    <mat-label>inicio de Contrato</mat-label>
+                    <input matInput [matDatepicker]="picker3" [formControl]="startDate" readonly>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                    <mat-datepicker #picker3 color="primary"></mat-datepicker>
+                </mat-form-field>
+                
+                <mat-form-field color="accent">
+                    <mat-label>fin de Contrato</mat-label>
+                    <input matInput [matDatepicker]="picker4" [formControl]="finishDate" readonly>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+                    <mat-datepicker #picker4 color="primary"></mat-datepicker>
+                </mat-form-field>
+                
+
+            </mat-tab>
+            
+        </mat-tab-group>
+
+    </mat-tab>
+</mat-tab-group>

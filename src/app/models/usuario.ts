@@ -6,10 +6,12 @@ export class UserRequest {
     birthDate?: string;
   }
   
-  export class UserResponse {
-    idUser?: number;
-    dni?:string;
-    username?:string;
-    fullName?:string;
+  export interface UserResponse {
+    idUser: number;
+    dni:string;
+    username:string;
+    fullName:string;
+    profession:string
   }
+  
   

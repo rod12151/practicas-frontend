@@ -147,9 +147,9 @@ export class AddContractComponent implements OnInit {
 
       const diaInicio = (this.fechaInicio.value?.getDate())?.toString().padStart(2, '0');
       const mesInicio = ((this.fechaInicio.value?.getMonth()) + 1)?.toString().padStart(2, '0');
-      const añoInicio = this.fechaInicio.value?.getFullYear();
+      const anioInicio = this.fechaInicio.value?.getFullYear();
 
-      this.FInicio = (`${añoInicio}-${mesInicio}-${diaInicio}`);
+      this.FInicio = (`${anioInicio}-${mesInicio}-${diaInicio}`);
       this.contracto.startDate = this.FInicio;
       console.log(this.contracto.startDate);
     }
@@ -159,9 +159,9 @@ export class AddContractComponent implements OnInit {
     if (this.fechaFinal.value instanceof Date) {
       const diaFinal = (this.fechaFinal.value?.getDate())?.toString().padStart(2, '0');
       const mesFinal = ((this.fechaFinal.value?.getMonth()) + 1)?.toString().padStart(2, '0');
-      const añoFinal = this.fechaFinal.value?.getFullYear();
+      const anioFinal = this.fechaFinal.value?.getFullYear();
 
-      this.FFinal = (`${añoFinal}-${mesFinal}-${diaFinal}`);
+      this.FFinal = (`${anioFinal}-${mesFinal}-${diaFinal}`);
       this.contracto.finishDate = this.FFinal;
       console.log(this.contracto.finishDate);
     }

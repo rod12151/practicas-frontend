@@ -1,3 +1,7 @@
+import { LaborRegimeResponse } from "./laborRegime";
+import { UserResponse } from "./usuario";
+import { WorkConditionResponse } from "./workCondition";
+
 export class Contrato {
   private _dniUser: string;
   private _codeLaborRegime: string;
@@ -106,3 +110,17 @@ export interface contratoRequest {
   finishDate: string;
 
 }
+
+export interface contratoResponse{
+  idContract:number;
+  position:string;
+  startDate:string;
+  finishDate:string;
+  salary: number;
+  status:boolean;
+  user:UserResponse;
+  workCondition:WorkConditionResponse;
+  laborRegime:LaborRegimeResponse
+  }
+
+
