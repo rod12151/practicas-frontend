@@ -35,4 +35,7 @@ export class ContractService {
   public findByFinishDateBefore(date:string):Observable<contratoResponse[]>{
     return this.http.get<contratoResponse[]>(`${baserUrl}/contract/filter/before?date=${date}`);
   }
+  public findBetwenStartDateAndFinishDate(start:string,finish:string):Observable<contratoResponse[]>{
+    return this.http.get<contratoResponse[]>(`${baserUrl}/contract/filter/between?startDate=${start}&finishDate=${finish}`);
+  }
 }

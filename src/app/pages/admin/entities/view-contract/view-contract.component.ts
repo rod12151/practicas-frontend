@@ -24,10 +24,11 @@ export class ViewContractComponent implements OnInit {
   public contratos: contratoResponse[] = [];
   public contratosReLa: contratoResponse[] = [];
   public contratosCoLa: contratoResponse[] = [];
-  public contratosStarDateAfter:contratoResponse[]=[];
-  public contratosFinishDateBefore:contratoResponse[]=[];
+  public contratosStarDateAfter: contratoResponse[] = [];
+  public contratosFinishDateBefore: contratoResponse[] = [];
+  public contratosBetwen: contratoResponse[] = [];
 
-//busqueda por dni
+  //busqueda por dni
   public dniInput = new FormControl(
 
     '',
@@ -39,7 +40,7 @@ export class ViewContractComponent implements OnInit {
 
   searchContractByDniUser() {
     if (this.dniInput.value && this.dniInput.valid) {
-      this.errorInput="";
+      this.errorInput = "";
       const code: string = this.dniInput.value;
       this._contratoService.findByDniUser(code)
         .pipe(
@@ -48,7 +49,7 @@ export class ViewContractComponent implements OnInit {
           })
         ).subscribe(data => {
           if (data !== null) {
-            
+
             console.log(data);
             this.contratos = data;
           } else {
@@ -56,8 +57,8 @@ export class ViewContractComponent implements OnInit {
             this.contratos = [];
           }
         });
-    }else{
-      this.errorInput="ingrese un dni valido";
+    } else {
+      this.errorInput = "ingrese un dni valido";
     }
   }
   //fin busqueda dni
@@ -71,119 +72,142 @@ export class ViewContractComponent implements OnInit {
     Validators.maxLength(8),
     Validators.minLength(8)
     ]);
-    searchContractByLaborRegime() {
-      if (this.regimenLabInput.value && this.regimenLabInput.valid) {
-        this.errorInput="";
-        const code: string = this.regimenLabInput.value;
-        console.log(code);
-        this._contratoService.findByLaborRegime(code)
-          .pipe(
-            catchError(error => {
-              return of(null);
-            })
-          ).subscribe(data => {
-            if (data !== null) {
-              
-              console.log(data);
-              this.contratosReLa = data;
-            } else {
-              this.errorInput = "no existen resultados para el regimen ingresado";
-              this.contratosReLa = [];
-            }
-          });
-      }else{
-        this.errorInput="ingrese un codigo valido ";
-      }
+  searchContractByLaborRegime() {
+    if (this.regimenLabInput.value && this.regimenLabInput.valid) {
+      this.errorInput = "";
+      const code: string = this.regimenLabInput.value;
+      console.log(code);
+      this._contratoService.findByLaborRegime(code)
+        .pipe(
+          catchError(error => {
+            return of(null);
+          })
+        ).subscribe(data => {
+          if (data !== null) {
+
+            console.log(data);
+            this.contratosReLa = data;
+          } else {
+            this.errorInput = "no existen resultados para el regimen ingresado";
+            this.contratosReLa = [];
+          }
+        });
+    } else {
+      this.errorInput = "ingrese un codigo valido ";
     }
-    //fin
-  
-    // busqueda por condicion laboral
-    public workConditionInput = new FormControl(
+  }
+  //fin
 
-      '',
-      [Validators.required,
-      Validators.nullValidator
-      ]);
-      searchContractByworkcondition() {
-        if (this.workConditionInput.value && this.workConditionInput.valid) {
-          this.errorInput="";
-          const code: string = this.workConditionInput.value;
-          console.log(code);
-          this._contratoService.findByworkCondition(code)
-            .pipe(
-              catchError(error => {
-                return of(null);
-              })
-            ).subscribe(data => {
-              if (data !== null) {
-                
-                console.log(data);
-                this.contratosCoLa = data;
-              } else {
-                this.errorInput = "no existen resultados para el regimen ingresado";
-                this.contratosCoLa = [];
-              }
-            });
-        }else{
-          this.errorInput="ingrese un codigo valido ";
-        }
-      }
+  // busqueda por condicion laboral
+  public workConditionInput = new FormControl(
 
-      //busqueda por fecha
-      
-      public startDate = new FormControl([Validators.required, Validators.nullValidator]);
-      convertirFechaString(date:Date){
+    '',
+    [Validators.required,
+    Validators.nullValidator
+    ]);
+  searchContractByworkcondition() {
+    if (this.workConditionInput.value && this.workConditionInput.valid) {
+      this.errorInput = "";
+      const code: string = this.workConditionInput.value;
+      console.log(code);
+      this._contratoService.findByworkCondition(code)
+        .pipe(
+          catchError(error => {
+            return of(null);
+          })
+        ).subscribe(data => {
+          if (data !== null) {
 
-        const dia:string=(date.getDate())?.toString().padStart(2,'0');
-        const mes:string=((date.getMonth()+1)?.toString().padStart(2,'0'));
-        const anio:string=(date.getFullYear().toString());
-        const fecha:string=(`${anio}-${mes}-${dia}`);
+            console.log(data);
+            this.contratosCoLa = data;
+          } else {
+            this.errorInput = "no existen resultados para el regimen ingresado";
+            this.contratosCoLa = [];
+          }
+        });
+    } else {
+      this.errorInput = "ingrese un codigo valido ";
+    }
+  }
 
-        return fecha
-      }
-      getContractAfterStarDate(){
-        if (this.startDate.value instanceof Date){
-          var fecha =this.convertirFechaString(this.startDate.value);
-          this._contratoService.findByStartDateAfter(fecha)
-          .pipe(
-            catchError(error=>{
-              console.log(error)
-              return of(null);
-            })
-          ).subscribe(data=>{
-            if(data!==null){
-              console.log(data);
-              this.contratosStarDateAfter=data;
-            }else{
-              console.log("fallaste proo")
-            }
-          });
+  //busqueda por fecha
 
-        }
-      }
-      public finishDate = new FormControl([Validators.required, Validators.nullValidator]);
+  public startDate = new FormControl([Validators.required, Validators.nullValidator]);
+  convertirFechaString(date: Date) {
 
-      getContractBeforeFinishDate(){
-        if (this.finishDate.value instanceof Date){
-          var fecha=this.convertirFechaString(this.finishDate.value);
-          this._contratoService.findByFinishDateBefore(fecha)
-          .pipe(
-            catchError(error=>{
-              console.log(error)
-              return of(null);
-            })
-          ).subscribe(data=>{
-            if(data!==null){
-              console.log(data);
-              this.contratosFinishDateBefore=data;
-            }else{
-              console.log("fallaste proo")
-            }
-          });
+    const dia: string = (date.getDate())?.toString().padStart(2, '0');
+    const mes: string = ((date.getMonth() + 1)?.toString().padStart(2, '0'));
+    const anio: string = (date.getFullYear().toString());
+    const fecha: string = (`${anio}-${mes}-${dia}`);
 
-        }
+    return fecha
+  }
+  getContractAfterStarDate() {
+    if (this.startDate.value instanceof Date) {
+      var fecha = this.convertirFechaString(this.startDate.value);
+      this._contratoService.findByStartDateAfter(fecha)
+        .pipe(
+          catchError(error => {
+            console.log(error)
+            return of(null);
+          })
+        ).subscribe(data => {
+          if (data !== null) {
+            console.log(data);
+            this.contratosStarDateAfter = data;
+          } else {
+            console.log("fallaste proo")
+          }
+        });
 
-      }
+    }
+  }
+  public finishDate = new FormControl([Validators.required, Validators.nullValidator]);
+
+  getContractBeforeFinishDate() {
+    if (this.finishDate.value instanceof Date) {
+      var fecha = this.convertirFechaString(this.finishDate.value);
+      this._contratoService.findByFinishDateBefore(fecha)
+        .pipe(
+          catchError(error => {
+            console.log(error)
+            return of(null);
+          })
+        ).subscribe(data => {
+          if (data !== null) {
+            console.log(data);
+            this.contratosFinishDateBefore = data;
+          } else {
+            console.log("fallaste proo")
+          }
+        });
+
+    }
+
+  }
+
+  getContractBetwen() {
+    if (this.startDate.value instanceof Date && this.finishDate.value instanceof Date) {
+      var startdate = this.convertirFechaString(this.startDate.value);
+      var finishdate = this.convertirFechaString(this.finishDate.value);
+      this._contratoService.findBetwenStartDateAndFinishDate(startdate, finishdate)
+        .pipe(
+          catchError(error => {
+            console.log(error);
+            return of(null);
+          })
+        ).subscribe(data => {
+          if (data !== null) {
+            console.log(data);
+            this.contratosBetwen = data;
+          } else{
+            console.log("falta implementar ctvd")
+          }
+
+        })
+
+    }
+  }
 
 
 

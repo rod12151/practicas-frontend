@@ -228,7 +228,7 @@
                 <app-table-contrato [contratos]="contratosFinishDateBefore"></app-table-contrato>
             </mat-tab>
             <mat-tab label="entre inicio y fin contrato">
-                <p>busca todo los contratos que enten entre un fecha de inicio y un fin de contrado </p>
+                <p>busca todo los contratos que esten entre un fecha de inicio y un fin de contrado </p>
 
                 <mat-form-field color="accent">
                     <mat-label>inicio de Contrato</mat-label>
@@ -245,7 +245,10 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
                     <mat-datepicker #picker4 color="primary"></mat-datepicker>
                 </mat-form-field>
-                
+                <button class="search" mat-button (click)="getContractBetwen()"><mat-icon>search</mat-icon></button>
+                <br>
+                <app-table-contrato [contratos]="contratosBetwen" [tableId]="'betwen'"></app-table-contrato>
+                <!--<app-export-table [exportTyp]="'pdf'" [tableId]="'betwen'" [title]="'reporte de contratos del ${startDate} hasta el ${finishDate}'"></app-export-table>-->
 
             </mat-tab>
             

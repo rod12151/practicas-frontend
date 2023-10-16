@@ -26,7 +26,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 
-
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import { UserListComponent } from './components/user/user-list/user-list.component';
@@ -54,6 +53,7 @@ import { ViewServiceComponent } from './pages/admin/entities/view-service/view-s
 import { AddContractComponent } from './pages/admin/entities/add-contract/add-contract.component';
 import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
 import { TableContratoComponent } from './pages/admin/entities/aux/table-contrato/table-contrato.component';
+import { ExportTableComponent } from './pages/admin/entities/aux/export-table/export-table.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +79,8 @@ import { TableContratoComponent } from './pages/admin/entities/aux/table-contrat
     ViewServiceComponent,
     AddContractComponent,
     ViewContractComponent,
-    TableContratoComponent
+    TableContratoComponent,
+    ExportTableComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +103,7 @@ import { TableContratoComponent } from './pages/admin/entities/aux/table-contrat
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTabsModule
+    MatTabsModule,
     
   ],
   providers: [AuthInterceptorProviders],
