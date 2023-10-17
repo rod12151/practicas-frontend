@@ -12,6 +12,7 @@ export class UserRequest {
     username:string;
     fullName:string;
     profession:string
+    status:boolean
   }
   
   

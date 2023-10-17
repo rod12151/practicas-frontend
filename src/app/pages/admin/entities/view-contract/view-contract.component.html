@@ -22,7 +22,7 @@
 
 
         </mat-card>
-        <table class="datos">
+        <table class="datos" id="tableDni">
             <thead>
                 <tr>
 
@@ -56,6 +56,8 @@
                 </tr>
             </tbody>
         </table>
+        <br>
+        <app-export-table [tableId]="'tableDni'" ></app-export-table>
     </mat-tab>
 
     <mat-tab label="buscar por regimen laboral">
@@ -84,7 +86,7 @@
         </mat-card>
 
         <br>
-        <table class="datos">
+        <table class="datos" id="tableregime">
 
             <thead>
                 <tr>
@@ -123,6 +125,8 @@
                 </tr>
             </tbody>
         </table>
+        <br>
+        <app-export-table [tableId]="'tableregime'" ></app-export-table>
 
     </mat-tab>
     <mat-tab label="condicion laboral ">
@@ -151,7 +155,7 @@
         </mat-card>
 
         <br>
-        <table class="datos">
+        <table class="datos" id="tableWork">
 
             <thead>
                 <tr>
@@ -190,16 +194,18 @@
                 </tr>
             </tbody>
         </table>
+        <br>
+        <app-export-table [tableId]="'tableWork'" ></app-export-table>
     </mat-tab>
 
     <mat-tab label="fecha">
 
         <mat-tab-group>
-            
-            <mat-tab label="inicio contrato">
-                <p>busca todo los contratos que  que son posteriores al fecha de Inicio de contrato </p>
 
-<br>
+            <mat-tab label="inicio contrato">
+                <p>busca todo los contratos que que son posteriores al fecha de Inicio de contrato </p>
+
+                <br>
                 <mat-form-field color="accent">
                     <mat-label>Inicio de Contrato</mat-label>
                     <input matInput [matDatepicker]="picker1" [formControl]="startDate" readonly>
@@ -207,9 +213,12 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
                     <mat-datepicker #picker1 color="primary"></mat-datepicker>
                 </mat-form-field>
-                <button class="search" mat-button (click)="getContractAfterStarDate()"><mat-icon>search</mat-icon></button>
+                <button class="search" mat-button
+                    (click)="getContractAfterStarDate()"><mat-icon>search</mat-icon></button>
                 <br>
-                <app-table-contrato [contratos]="contratosStarDateAfter"></app-table-contrato>
+                <app-table-contrato  [tableId]="'inicioContact'" [contratos]="contratosStarDateAfter"></app-table-contrato>
+            <br>
+            <app-export-table [tableId]="'inicioContact'" ></app-export-table>
             </mat-tab>
 
             <mat-tab label="antes de final contrato">
@@ -223,9 +232,12 @@
                     <mat-datepicker #picker2 color="primary"></mat-datepicker>
                 </mat-form-field>
 
-                <button class="search" mat-button (click)="getContractBeforeFinishDate()"><mat-icon>search</mat-icon></button>
+                <button class="search" mat-button
+                    (click)="getContractBeforeFinishDate()"><mat-icon>search</mat-icon></button>
                 <br>
-                <app-table-contrato [contratos]="contratosFinishDateBefore"></app-table-contrato>
+                <app-table-contrato  [tableId]="'finContract'" [contratos]="contratosFinishDateBefore"></app-table-contrato>
+                <br>
+                <app-export-table [tableId]="'finContract'" ></app-export-table>
             </mat-tab>
             <mat-tab label="entre inicio y fin contrato">
                 <p>busca todo los contratos que esten entre un fecha de inicio y un fin de contrado </p>
@@ -237,7 +249,7 @@
                     <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
                     <mat-datepicker #picker3 color="primary"></mat-datepicker>
                 </mat-form-field>
-                
+
                 <mat-form-field color="accent">
                     <mat-label>fin de Contrato</mat-label>
                     <input matInput [matDatepicker]="picker4" [formControl]="finishDate" readonly>
@@ -247,11 +259,12 @@
                 </mat-form-field>
                 <button class="search" mat-button (click)="getContractBetwen()"><mat-icon>search</mat-icon></button>
                 <br>
-                <app-table-contrato [contratos]="contratosBetwen" [tableId]="'betwen'"></app-table-contrato>
-                <!--<app-export-table [exportTyp]="'pdf'" [tableId]="'betwen'" [title]="'reporte de contratos del ${startDate} hasta el ${finishDate}'"></app-export-table>-->
-
+                <app-table-contrato  [tableId]="'betwen'" [contratos]="contratosBetwen" ></app-table-contrato>
+                <br>
+                <app-export-table [tableId]="'betwen'" ></app-export-table>
+                
             </mat-tab>
-            
+
         </mat-tab-group>
 
     </mat-tab>

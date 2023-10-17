@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-
+import { ExportAsModule } from 'ngx-export-as';
 import { AppComponent } from './app.component';
 
 import { NadvarComponent } from './components/nadvar/nadvar.component';
@@ -54,7 +54,6 @@ import { AddContractComponent } from './pages/admin/entities/add-contract/add-co
 import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
 import { TableContratoComponent } from './pages/admin/entities/aux/table-contrato/table-contrato.component';
 import { ExportTableComponent } from './pages/admin/entities/aux/export-table/export-table.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +79,8 @@ import { ExportTableComponent } from './pages/admin/entities/aux/export-table/ex
     AddContractComponent,
     ViewContractComponent,
     TableContratoComponent,
-    ExportTableComponent
+    ExportTableComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -104,6 +104,7 @@ import { ExportTableComponent } from './pages/admin/entities/aux/export-table/ex
     MatDatepickerModule,
     MatNativeDateModule,
     MatTabsModule,
+    ExportAsModule,
     
   ],
   providers: [AuthInterceptorProviders],

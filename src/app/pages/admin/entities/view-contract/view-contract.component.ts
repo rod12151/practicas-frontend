@@ -156,7 +156,7 @@ export class ViewContractComponent implements OnInit {
             console.log(data);
             this.contratosStarDateAfter = data;
           } else {
-            console.log("fallaste proo")
+            console.log("no hay datos")
           }
         });
 
@@ -178,7 +178,7 @@ export class ViewContractComponent implements OnInit {
             console.log(data);
             this.contratosFinishDateBefore = data;
           } else {
-            console.log("fallaste proo")
+            console.log("no hay datos")
           }
         });
 
@@ -201,7 +201,7 @@ export class ViewContractComponent implements OnInit {
             console.log(data);
             this.contratosBetwen = data;
           } else{
-            console.log("falta implementar ctvd")
+            console.log("no hay datos")
           }
 
         })

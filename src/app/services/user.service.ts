@@ -34,7 +34,10 @@ export class UserService {
   }*/
 
   getSuggestions(query: string):Observable<UserResponse[]>{
-    return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/share?query=${query}`)
+    return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/share?query=${query}`);
   }
 
+  changeStatus(dni:string):Observable<any>{
+    return this.httpClient.put<any>(`${baserUrl}/user/${dni}`,'');
+  }
 }

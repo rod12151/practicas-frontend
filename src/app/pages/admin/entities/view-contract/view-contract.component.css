@@ -31,5 +31,22 @@
     overflow-x: auto; /* Permitir el desplazamiento horizontal */
   }
   .input{
-    margin-left: 60px;
+    margin-left: 40px;
+  }
+
+  .search {
+    background-color: #007bff; /* Cambia el color de fondo a tu elección */
+    color: white; /* Cambia el color del texto a tu elección */
+    padding: 10px 20px; /* Ajusta el relleno según tus preferencias */
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; /* Añade bordes redondeados si lo deseas */
+  }
+  
+  .search:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón por encima */
+  }
+  
+  .search .mat-icon {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
   }

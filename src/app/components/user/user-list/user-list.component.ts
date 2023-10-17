@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServicioResponse } from 'src/app/models/servicios';
 import { UserResponse } from 'src/app/models/usuario';
 import { UserService } from 'src/app/services/user.service';
@@ -9,10 +10,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserListComponent implements OnInit{
   users?: UserResponse[]
-  servicios?:ServicioResponse[]
   constructor(
     //Inyectamos el UserService que hemos importado
-    private userService : UserService
+    private _userService : UserService,
+    private router:Router
   ){}
   //De la documentación: A lifecycle hook that is called after Angular 
   //has initialized all data-bound properties of a directive.
@@ -22,18 +23,28 @@ export class UserListComponent implements OnInit{
 
   getUsers(){
     //Utilizamos el servicio inyectado para encontrar los usuarios
-    this.userService.findAllUsers().subscribe(
+    this._userService.findAllUsers().subscribe(
       //Arrow function, funcion anónima similar a expersiones Lambda
       userData => {this.users = userData} 
         
     );
-   /*console.log(this.users?.values)
-    this.userService.findAllServicios().subscribe(
-      serviceData =>{ this.servicios=serviceData}
-      
-    );
-    console.log(this.servicios?.values)*/
+  }
+  changeStatus(dni:string){
+    console.log(dni)
+    this._userService.changeStatus(dni).subscribe(
+      ()=>{
+        this.redirectUserList();
+
+      },
+      (error)=>{
+        console.error('error al eliminar usuario',error)
+      }
+    )
+  
     
+  }
+  redirectUserList() {
+    this.router.navigate(['admin/userlist']);
   }
 
 }
