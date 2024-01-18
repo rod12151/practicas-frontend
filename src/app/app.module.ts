@@ -4,6 +4,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { ExportAsModule } from 'ngx-export-as';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 import { AppComponent } from './app.component';
 
 import { NadvarComponent } from './components/nadvar/nadvar.component';
@@ -54,6 +56,8 @@ import { AddContractComponent } from './pages/admin/entities/add-contract/add-co
 import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
 import { TableContratoComponent } from './pages/admin/entities/aux/table-contrato/table-contrato.component';
 import { ExportTableComponent } from './pages/admin/entities/aux/export-table/export-table.component';
+import { ListJefesComponent } from './pages/admin/entities/list-jefes/list-jefes.component';
+import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +84,8 @@ import { ExportTableComponent } from './pages/admin/entities/aux/export-table/ex
     ViewContractComponent,
     TableContratoComponent,
     ExportTableComponent,
+    ListJefesComponent,
+    AddJefesComponent,
   
   ],
   imports: [
@@ -105,6 +111,7 @@ import { ExportTableComponent } from './pages/admin/entities/aux/export-table/ex
     MatNativeDateModule,
     MatTabsModule,
     ExportAsModule,
+    SweetAlert2Module,
     
   ],
   providers: [AuthInterceptorProviders],

@@ -1,0 +1,64 @@
+/* Estilo para la tabla */
+.tableJefes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Espacio entre la tabla y otros elementos */
+     /* Tamaño de fuente general */
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  .tableJefes th {
+    background-color: #0a67f1de; /* Color de fondo del encabezado */
+    color: white; /* Color del texto en el encabezado */
+    padding: 10px; /* Espaciado interno del encabezado */
+    text-align: left; /* Alineación del texto en el encabezado */
+    font-size: 12px;
+  }
+  
+  /* Estilo para las celdas de datos */
+  .tableJefes td {
+    border: 1px solid #ccc; /* Borde de las celdas de datos */
+    padding: 5px; /* Espaciado interno de las celdas de datos */
+    text-align: left; /* Alineación del texto en las celdas de datos */
+    font-size: 12px;
+    
+  }
+  
+  /* Estilo para las filas impares (alternar colores) */
+  .tableJefes tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Color de fondo de filas impares */
+  }
+  .tableJefes {
+    /* ... otros estilos ... */
+    overflow-x: auto; /* Permitir el desplazamiento horizontal */
+  }
+  .input{
+    margin-left: 60px;
+  }
+  h1 {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
+    color: #072aee; /* Cambia el color según tus preferencias */
+    text-align: center; /* Centra el texto */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    margin-bottom: 20px; /* Espaciado en la parte inferior */
+  }
+  
+  button {
+   
+    
+    padding: 10px; /* Relleno interno (arriba/abajo izquierda/derecha) */
+    font-size: 10px; /* Tamaño de fuente */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+  }
+  
+  .my-button1:hover {
+    background-color: #041be9; /* Cambiar color de fondo al pasar el mouse */
+    color: white;
+  }
+  .my-button2:hover {
+    background-color: #ec0808e7; /* Cambiar color de fondo al pasar el mouse */
+    color: white;
+  }

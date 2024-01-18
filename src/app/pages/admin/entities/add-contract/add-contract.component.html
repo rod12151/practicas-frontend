@@ -13,6 +13,11 @@
             <button class="search" mat-button (click)="searchUsuario()"><mat-icon>search</mat-icon></button>
             
             <button mat-button (click)="navegarAStep(4)" [disabled]="!sonTodasEntradasValidas()">volver</button><br>
+            
+            <br>
+            <div>
+                <button mat-button matStepperNext [disabled]="!uSelected">siguiente</button>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -171,40 +176,40 @@
                         
                         <table class="table text-center">
                             <tr>
-                                <td> DNI Usuario</td>
+                                <td > DNI Usuario</td>
                                 <td>{{contracto.dniUser}}</td>
-                                <td><button mat-button (click)="navegarAStep(0)">editar</button></td>
+                                <td><button mat-button (click)="navegarAStep(0)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
                                 
                             </tr>
                             <tr>
-                                <td>Regimen laboral</td>
+                                <td > Regimen laboral</td>
                                 <td>{{contracto.codeLaborRegime}}</td>
-                                <td><button mat-button (click)="navegarAStep(1)">editar</button></td>
+                                <td><button mat-button (click)="navegarAStep(1)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
                             </tr>
                             <tr>
-                                <td>Condicion Laboral</td>
+                                <td >Condicion Laboral</td>
                                 <td>{{contracto.codeWorkCondition}}</td>
-                                <td><button mat-button (click)="navegarAStep(2)">editar</button></td>
+                                <td><button mat-button (click)="navegarAStep(2)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
                             </tr>
                             <tr>
-                                <td>Puesto</td>
+                                <td >Puesto</td>
                                 <td>{{contracto.position}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)">editar</button></td>
+                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
                             </tr>
                             <tr>
-                                <td>Salario</td>
+                                <td >Salario</td>
                                 <td>{{contracto.salary}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)">editar</button></td>
+                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
                             </tr>
                             <tr>
-                                <td>Inicio de contrato</td>
+                                <td >Inicio de contrato</td>
                                 <td>{{contracto.startDate}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)">editar</button></td>
+                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
                             </tr>
                             <tr>
-                                <td>Fin de Contrato</td>
+                                <td >Fin de Contrato</td>
                                 <td>{{contracto.finishDate}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)">editar</button></td>
+                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
                             </tr>
 
                         </table>

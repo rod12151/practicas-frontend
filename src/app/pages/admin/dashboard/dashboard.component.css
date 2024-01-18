@@ -16,6 +16,7 @@ mat-sidenav {
 mat-sidenav-content {
   position: relative;
   padding: 12px;
+  
 }
 
 .content {
@@ -23,6 +24,7 @@ mat-sidenav-content {
   height: 100%;
   width: 100%;
   border-radius: 10px;
+  background: rgba(178, 236, 236, 0.61);
 }
 
 @media screen and (max-width: 768px) {

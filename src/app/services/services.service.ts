@@ -17,6 +17,9 @@ export class ServicesService {
   public listService(){
     return this.http.get(`${baserUrl}/service`);
   }
+  public listServiceByStatus(query:String){
+    return this.http.get(`${baserUrl}/service/services?query=${query}`)
+  }
 
 
 }

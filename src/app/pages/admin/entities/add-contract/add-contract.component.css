@@ -3,8 +3,9 @@ mat-icon{
     border-bottom: 5px;
     
 }
+
 button:hover {
-    background-color: rgb(59, 193, 226);
+    background-color: rgba(13, 50, 216, 0.87);
 }
 .search{background-color: rgba(59, 193, 226, 0.336);
 }
@@ -50,5 +51,13 @@ table {
 }
 .table tr td{
     padding: 15px 10px;
-    border: 0.5px solid gainsboro;
+    border: 0.5px solid rgb(6, 23, 116);
+}
+.icon-style{
+  font-size: 24px; /* Cambia el tamaño del icono */
+  color: #007BFF; /* Cambia el color del icono */
+  margin-right: 8px; /* Agrega un margen a la derecha del icono */
+}.icon-style:hover{
+  color: aliceblue;
+  cursor: pointer;
 }

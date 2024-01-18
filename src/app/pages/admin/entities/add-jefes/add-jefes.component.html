@@ -1,0 +1,39 @@
+<mat-stepper>
+    <mat-step label="Step 1" state="phone">
+      <p>Seleccione El Servicio.</p>
+      <table >
+        <thead>
+            <tr>
+              <th>selecion</th>
+                <th>Servicio</th>
+                <th>Codigo</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of listServicio">
+              <td><label>
+                <input type="radio" [checked]="usuarioSelect===a"
+                    (change)="usuarioSeleccionado(a)" /></label></td>
+                <td>{{a.name}}</td>
+                <td>{{a.code}}</td>
+            </tr>
+
+        </tbody>
+      </table>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Step 2" state="chat">
+      <p>Asigne Un Jefe al Servicio.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Step 3">
+      <p>You're welcome.</p>
+    </mat-step>
+  
+    

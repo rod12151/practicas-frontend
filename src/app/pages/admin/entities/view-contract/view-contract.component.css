@@ -41,6 +41,7 @@
     border: none;
     cursor: pointer;
     border-radius: 4px; /* Añade bordes redondeados si lo deseas */
+    margin-left: 20px;
   }
   
   .search:hover {

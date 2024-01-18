@@ -19,6 +19,8 @@ import { AddServiceComponent } from './pages/admin/entities/add-service/add-serv
 import { ViewServiceComponent } from './pages/admin/entities/view-service/view-service.component';
 import { AddContractComponent } from './pages/admin/entities/add-contract/add-contract.component';
 import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
+import { ListJefesComponent } from './pages/admin/entities/list-jefes/list-jefes.component';
+import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
@@ -76,6 +78,14 @@ const routes: Routes = [
       {
         path:'viewContract',
         component:ViewContractComponent
+      },
+      {
+        path:'listJefes',
+        component:ListJefesComponent
+      },
+      {
+        path:'addJefes',
+        component:AddJefesComponent
       }
     ]
   },
