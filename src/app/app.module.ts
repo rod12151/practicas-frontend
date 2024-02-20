@@ -54,8 +54,8 @@ import { AddServiceComponent } from './pages/admin/entities/add-service/add-serv
 import { ViewServiceComponent } from './pages/admin/entities/view-service/view-service.component';
 import { AddContractComponent } from './pages/admin/entities/add-contract/add-contract.component';
 import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
-import { TableContratoComponent } from './pages/admin/entities/aux/table-contrato/table-contrato.component';
-import { ExportTableComponent } from './pages/admin/entities/aux/export-table/export-table.component';
+import { TableContratoComponent } from './pages/admin/entities/aux-files/table-contrato/table-contrato.component';
+import { ExportTableComponent } from './pages/admin/entities/aux-files/export-table/export-table.component';
 import { ListJefesComponent } from './pages/admin/entities/list-jefes/list-jefes.component';
 import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.component';
 @NgModule({

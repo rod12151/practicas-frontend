@@ -1,0 +1,37 @@
+/* Estilo para la tabla */
+.datos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Espacio entre la tabla y otros elementos */
+     /* Tamaño de fuente general */
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  .datos th {
+    background-color: #0a67f1de; /* Color de fondo del encabezado */
+    color: white; /* Color del texto en el encabezado */
+    padding: 10px; /* Espaciado interno del encabezado */
+    text-align: left; /* Alineación del texto en el encabezado */
+    font-size: 12px;
+  }
+  
+  /* Estilo para las celdas de datos */
+  .datos td {
+    border: 1px solid #ccc; /* Borde de las celdas de datos */
+    padding: 10px; /* Espaciado interno de las celdas de datos */
+    text-align: left; /* Alineación del texto en las celdas de datos */
+    font-size: 10px;
+    
+  }
+  
+  /* Estilo para las filas impares (alternar colores) */
+  .datos tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Color de fondo de filas impares */
+  }
+  .datos {
+    /* ... otros estilos ... */
+    overflow-x: auto; /* Permitir el desplazamiento horizontal */
+  }
+  .input{
+    margin-left: 60px;
+  }
