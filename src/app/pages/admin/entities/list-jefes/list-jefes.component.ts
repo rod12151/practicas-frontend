@@ -19,7 +19,7 @@ export class ListJefesComponent implements OnInit{
 
   }
   getHeadServices(){
-    this.headService.listHeadService('false').subscribe({
+    this.headService.listHeadService('true').subscribe({
       next:(data)=>{
         this.response=(data)},
       error:(e)=>console.error(e.error),

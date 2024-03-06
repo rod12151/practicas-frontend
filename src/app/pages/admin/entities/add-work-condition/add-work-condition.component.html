@@ -18,6 +18,7 @@
             <input
               formControlName="name"
               name="name"
+              autocomplete="off"
               required
               matInput
               placeholder="digite el nombre de la condicion laboral"
@@ -38,6 +39,7 @@
               formControlName="code"
               name="code"
               required
+              autocomplete="off"
               matInput
               placeholder="digite el codigo"
             />
@@ -59,6 +61,7 @@
               formControlName="description"
               name="description"
               required
+              autocomplete="off"
               matInput
               placeholder="digite la descripción de la condicion laboral"
             />
@@ -71,7 +74,6 @@
               </div>
             </div>
           </mat-form-field>
-          <br /><br />
           <div class="container text-center">
             <button mat-raised-button color="primary" (click)="formSumit()">
               Crear

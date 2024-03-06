@@ -1,8 +1,40 @@
 
-.container-card .container-header{
+.container-header{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 0 20px;
+    padding: 0 0 8px;
 }
+img{
+    height: 100px;
+    width: 100 px;
+    border-radius: 50%;
+    transition: opacity 0.3s ease-in-out;
+}
+mat-form-field{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    
+}
+
+.container-card{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+.container-main{
+    display: flex;
+    justify-content: center;
+    
+}
+mat-form-field{
+    width: 350px;
+    border-radius: 3px;
+}
+

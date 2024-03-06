@@ -139,7 +139,7 @@ export class AddContractComponent implements OnInit {
   FFinal: string = '';
   puesto: string = '';
   salario: number = 0;
-  adicionales: boolean[] = [false, false, false, false]
+  
 
 
   dateI() {

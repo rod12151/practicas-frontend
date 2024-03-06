@@ -10,29 +10,29 @@
                 <form (ngSubmit)="onSubmitForm()">
                     <div class="form-group">
                         <label for="dni"> DNI</label>
-                        <input  type="text"  class="form-control" id="dni" [(ngModel)]="user.dni" name="dni" autocomplete="off">
+                        <input  type="text"  class="form-control" id="dni" [(ngModel)]="user.dni" name="dni" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="name"> Name</label>
-                        <input  type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" autocomplete="off">
+                        <input  type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" autocomplete="off" required>
                     </div>
 
                     <div class="form-group">
                         <label for="lastName"> LastName</label>
                         <input  type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName"
-                            name="lastName" autocomplete="off">
+                            name="lastName" autocomplete="off" required>
                     </div>
 
                     <div class="form-group">
                         <label for="profesion"> Profesión</label>
                         <input  type="text" class="form-control" id="profesion" [(ngModel)]="user.profession"
-                            name="profesion" autocomplete="off">
+                            name="profesion" autocomplete="off" required>
                     </div>
 
                     <div class="form-group">
                         <label for="birthDate"> BirthDate</label>
                         <input type="date" class="form-control" id="birthDate" [(ngModel)]="user.birthDate"
-                            name="birthDate" autocomplete="off">
+                            name="birthDate" autocomplete="off" required>
                     </div>
 
                     <button class="btn btn-success" type="submit">Crear</button>
