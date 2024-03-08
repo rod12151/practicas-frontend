@@ -1,6 +1,8 @@
 <div style="text-align: center;">
+    <div><mat-icon [fontIcon]="getDynamicIcon(data.type)" ></mat-icon></div>
+    <div>{{data.type | titlecase}}</div>
     
-    <mat-icon fontIcon="home" ></mat-icon>
+    
 </div>
 <div class="content-style">
     {{data.message}}

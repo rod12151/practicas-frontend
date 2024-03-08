@@ -58,6 +58,7 @@ import { TableContratoComponent } from './pages/admin/entities/aux-files/table-c
 import { ExportTableComponent } from './pages/admin/entities/aux-files/export-table/export-table.component';
 import { ListJefesComponent } from './pages/admin/entities/list-jefes/list-jefes.component';
 import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.component';
+import { NotifierComponent } from './auxiliares/notifier/notifier/notifier.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +87,7 @@ import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.co
     ExportTableComponent,
     ListJefesComponent,
     AddJefesComponent,
+    NotifierComponent,
   
   ],
   imports: [

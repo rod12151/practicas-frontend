@@ -1,25 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContractService } from 'src/app/services/contract.service';
 
 import { FormBuilder, FormControl, FormGroup, Validators, FormsModule, AbstractControl } from '@angular/forms';
 import { contratoResponse } from 'src/app/models/contrato';
 import { catchError, of } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarnotifierService } from 'src/app/services/notifier/snackbarnotifier.service';
 
 @Component({
   selector: 'app-view-contract',
   templateUrl: './view-contract.component.html',
-  styleUrls: ['./view-contract.component.css']
+  styleUrls: ['./view-contract.component.css'],
 })
 export class ViewContractComponent implements OnInit {
   constructor(
     private router: Router,
-    private _contratoService: ContractService
+    private _contratoService: ContractService,
+    private snackBar: MatSnackBar,
+    private notifierService: SnackbarnotifierService
   ) { }
 
   ngOnInit() {
 
   }
+
+ 
+
   public errorInput = '';
   public contratos: contratoResponse[] = [];
   public contratosReLa: contratoResponse[] = [];
@@ -27,7 +34,6 @@ export class ViewContractComponent implements OnInit {
   public contratosStarDateAfter: contratoResponse[] = [];
   public contratosFinishDateBefore: contratoResponse[] = [];
   public contratosBetwen: contratoResponse[] = [];
-
   //busqueda por dni
   public dniInput = new FormControl(
 
@@ -40,7 +46,7 @@ export class ViewContractComponent implements OnInit {
 
   searchContractByDniUser() {
     if (this.dniInput.value && this.dniInput.valid) {
-      this.errorInput = "";
+      ;
       const code: string = this.dniInput.value;
       this._contratoService.findByDniUser(code)
         .pipe(
@@ -53,12 +59,15 @@ export class ViewContractComponent implements OnInit {
             console.log(data);
             this.contratos = data;
           } else {
-            this.errorInput = "no existen resultados para el dni ingresado";
+
             this.contratos = [];
+            this.notifierService.showNotification("no existen resultados para el dni ingresado", "ok", "alert");
           }
         });
     } else {
-      this.errorInput = "ingrese un dni valido";
+      this.notifierService.showNotification("ingrese un dni valido","ok","error");
+
+      this.notifierService.showNotification('ingrese un dni valido', 'OK', 'error');
     }
   }
   //fin busqueda dni
@@ -74,7 +83,7 @@ export class ViewContractComponent implements OnInit {
     ]);
   searchContractByLaborRegime() {
     if (this.regimenLabInput.value && this.regimenLabInput.valid) {
-      this.errorInput = "";
+      ;
       const code: string = this.regimenLabInput.value;
       console.log(code);
       this._contratoService.findByLaborRegime(code)
@@ -88,12 +97,13 @@ export class ViewContractComponent implements OnInit {
             console.log(data);
             this.contratosReLa = data;
           } else {
-            this.errorInput = "no existen resultados para el regimen ingresado";
+
             this.contratosReLa = [];
+            this.notifierService.showNotification("no existen resultados para el regimen ingresado","ok","alert")
           }
         });
     } else {
-      this.errorInput = "ingrese un codigo valido ";
+      this.notifierService.showNotification("ingrese un codigo valido ","ok","error");
     }
   }
   //fin
@@ -107,7 +117,7 @@ export class ViewContractComponent implements OnInit {
     ]);
   searchContractByworkcondition() {
     if (this.workConditionInput.value && this.workConditionInput.valid) {
-      this.errorInput = "";
+      ;
       const code: string = this.workConditionInput.value;
       console.log(code);
       this._contratoService.findByworkCondition(code)
@@ -121,12 +131,13 @@ export class ViewContractComponent implements OnInit {
             console.log(data);
             this.contratosCoLa = data;
           } else {
-            this.errorInput = "no existen resultados para el regimen ingresado";
+
             this.contratosCoLa = [];
+            this.notifierService.showNotification("no existen resultados para el regimen ingresado","ok","alert")
           }
         });
     } else {
-      this.errorInput = "ingrese un codigo valido ";
+      this.notifierService.showNotification("ingrese un codigo valido ","ok","error");
     }
   }
 
@@ -157,9 +168,16 @@ export class ViewContractComponent implements OnInit {
             this.contratosStarDateAfter = data;
           } else {
             console.log("no hay datos")
+            this.contratosStarDateAfter = []
+
+            this.notifierService.showNotification("no hay contratos para la fecha dada","ok","alert")
           }
         });
 
+    }
+    else{
+      this.notifierService.showNotification("ingrese una fecha","ok","error")
+          
     }
   }
   public finishDate = new FormControl([Validators.required, Validators.nullValidator]);
@@ -179,9 +197,15 @@ export class ViewContractComponent implements OnInit {
             this.contratosFinishDateBefore = data;
           } else {
             console.log("no hay datos")
+            this.contratosFinishDateBefore = []
+
+            this.notifierService.showNotification("no hay contratos para la fecha dada","ok","alert")
           }
         });
 
+    }else{
+      this.notifierService.showNotification("ingrese una fecha","ok","error")
+          
     }
 
   }
@@ -200,12 +224,18 @@ export class ViewContractComponent implements OnInit {
           if (data !== null) {
             console.log(data);
             this.contratosBetwen = data;
-          } else{
+          } else {
             console.log("no hay datos")
+            this.contratosBetwen = []
+
+            this.notifierService.showNotification("no hay contratos para la fecha dada","ok","alert")
           }
 
         })
 
+    }else{
+      this.notifierService.showNotification("ingrese una fecha","ok","error")
+      
     }
   }
 

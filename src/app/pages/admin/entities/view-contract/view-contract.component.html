@@ -1,16 +1,17 @@
 <h1 class="text-center">Buscar Contratos</h1>
 <br>
 <mat-tab-group>
-    <mat-tab label="Buscar por DNI">
+    <mat-tab label="Buscar por DNI" errorInput="">
+
         <p style="margin-left: 50px;">busca todo los contratos que pertenescana a una persona</p>
 
         <mat-form-field class="input">
             <mat-label>Ingrese el DNI</mat-label>
-            <input type="text" matInput [formControl]="dniInput" />
+            <input type="text" matInput [formControl]="dniInput" maxlength="8" minlength="8" />
         </mat-form-field>
         <button class="search" mat-button (click)="searchContractByDniUser()"><mat-icon>search</mat-icon></button>
         <br>
-        <p class="text-danger">{{ errorInput }}</p>
+
         <mat-card>
             <mat-card-header *ngIf="contratos[0]">
                 <mat-card-title>{{contratos[0].user.fullName}}</mat-card-title>
@@ -57,7 +58,7 @@
             </tbody>
         </table>
         <br>
-        <app-export-table [tableId]="'tableDni'" ></app-export-table>
+        <app-export-table [tableId]="'tableDni'"></app-export-table>
     </mat-tab>
 
     <mat-tab label="buscar por regimen laboral">
@@ -65,12 +66,11 @@
 
         <mat-form-field class="input">
             <mat-label>ingrese el codigo</mat-label>
-            <input type="text" matInput [formControl]="regimenLabInput" />
+            <input type="text" matInput [formControl]="regimenLabInput"
+            maxlength="8"
+            minlength="8" />
         </mat-form-field>
         <button class="search" mat-button (click)="searchContractByLaborRegime()"><mat-icon>search</mat-icon></button>
-
-        <p class="text-danger">{{ errorInput }}</p>
-
 
         <mat-card *ngIf="contratosReLa[0]">
             <mat-card-header>
@@ -126,7 +126,7 @@
             </tbody>
         </table>
         <br>
-        <app-export-table [tableId]="'tableregime'" ></app-export-table>
+        <app-export-table [tableId]="'tableregime'"></app-export-table>
 
     </mat-tab>
     <mat-tab label="condicion laboral ">
@@ -134,11 +134,13 @@
 
         <mat-form-field class="input">
             <mat-label>ingrese el codigo</mat-label>
-            <input type="text" matInput [formControl]="workConditionInput" />
+            <input type="text" matInput [formControl]="workConditionInput"
+            maxlength="8"
+            minlength="8" />
         </mat-form-field>
         <button class="search" mat-button (click)="searchContractByworkcondition()"><mat-icon>search</mat-icon></button>
 
-        <p class="text-danger">{{ errorInput }}</p>
+
 
 
         <mat-card *ngIf="contratosCoLa[0]">
@@ -195,7 +197,7 @@
             </tbody>
         </table>
         <br>
-        <app-export-table [tableId]="'tableWork'" ></app-export-table>
+        <app-export-table [tableId]="'tableWork'"></app-export-table>
     </mat-tab>
 
     <mat-tab label="fecha">
@@ -216,9 +218,11 @@
                 <button class="search" mat-button
                     (click)="getContractAfterStarDate()"><mat-icon>search</mat-icon></button>
                 <br>
-                <app-table-contrato  [tableId]="'inicioContact'" [contratos]="contratosStarDateAfter"></app-table-contrato>
-            <br>
-            <app-export-table [tableId]="'inicioContact'" ></app-export-table>
+
+                <app-table-contrato [tableId]="'inicioContact'"
+                    [contratos]="contratosStarDateAfter"></app-table-contrato>
+                <br>
+                <app-export-table [tableId]="'inicioContact'"></app-export-table>
             </mat-tab>
 
             <mat-tab label="antes de final contrato">
@@ -235,9 +239,11 @@
                 <button class="search" mat-button
                     (click)="getContractBeforeFinishDate()"><mat-icon>search</mat-icon></button>
                 <br>
-                <app-table-contrato  [tableId]="'finContract'" [contratos]="contratosFinishDateBefore"></app-table-contrato>
+
+                <app-table-contrato [tableId]="'finContract'"
+                    [contratos]="contratosFinishDateBefore"></app-table-contrato>
                 <br>
-                <app-export-table [tableId]="'finContract'" ></app-export-table>
+                <app-export-table [tableId]="'finContract'"></app-export-table>
             </mat-tab>
             <mat-tab label="entre inicio y fin contrato">
                 <p>busca todo los contratos que esten entre un fecha de inicio y un fin de contrado </p>
@@ -259,10 +265,11 @@
                 </mat-form-field>
                 <button class="search" mat-button (click)="getContractBetwen()"><mat-icon>search</mat-icon></button>
                 <br>
-                <app-table-contrato  [tableId]="'betwen'" [contratos]="contratosBetwen" ></app-table-contrato>
+
+                <app-table-contrato [tableId]="'betwen'" [contratos]="contratosBetwen"></app-table-contrato>
                 <br>
-                <app-export-table [tableId]="'betwen'" ></app-export-table>
-                
+                <app-export-table [tableId]="'betwen'"></app-export-table>
+
             </mat-tab>
 
         </mat-tab-group>
