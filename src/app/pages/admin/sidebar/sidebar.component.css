@@ -16,7 +16,8 @@ mat-divider {
 button:hover {
   background-color: rgb(59, 193, 226);
 }
-mat-icon{
+
+mat-icon {
   color: white;
 }
 
@@ -28,8 +29,13 @@ mat-icon{
   padding: 0;
   list-style: none;
   margin-left: 10px;
-  width: 150px;
+  width: 200px;
   background-color: rgba(224, 192, 228, 0.103);
+
+  .mat-icon {
+    text-shadow: 0 0 5px rgb(253, 2, 2);
+
+  }
 }
 
 
@@ -42,12 +48,13 @@ mat-icon{
   display: flex;
   padding: 5px 5px;
 
-  
+
 
 }
-.menu-text{
+
+.menu-text {
   color: white;
-  
+
 
 }
 
@@ -64,14 +71,18 @@ mat-icon{
     /* Ajusta el margen del ícono */
     padding: auto;
   }
+
   .menu-button.responsive button:hover .menu-text {
-    display: inline; /* Mostrar el texto al hacer hover */
+    display: inline;
+    /* Mostrar el texto al hacer hover */
     font-size: xx-small;
-    
+
 
   }
-  .menu-button.responsive button:hover .mat-icon{
-    display: none;/*oculta el icono en pantallas pequeñas al pasar el mouse*/
+
+  .menu-button.responsive button:hover .mat-icon {
+    display: none;
+    /*oculta el icono en pantallas pequeñas al pasar el mouse*/
   }
 
   .sub-menu {
@@ -80,7 +91,8 @@ mat-icon{
     margin-left: 1px;
     width: 60px;
 
-    .sub-item {/*acomoda los subitems*/
+    .sub-item {
+      /*acomoda los subitems*/
       display: flex;
       padding: 0px;
     }

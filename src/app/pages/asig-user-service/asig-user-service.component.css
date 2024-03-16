@@ -1,0 +1,120 @@
+.material-icons{
+  font-size: 150%;
+}
+.btnAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+  button{
+    color: rgb(252, 252, 252);
+    margin: 5px;
+  }
+
+}
+button{
+  background-color: #072fe088;
+  
+}
+
+button:hover {
+  background-color: #002fff;
+  
+  color: rgb(252, 252, 252);
+  transition: background-color 0.3s ease
+}
+
+mat-form-field {
+  padding: 10px;
+}
+
+table {
+
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  align-items: center;
+  /* Margen superior para separar la tabla de otros elementos */
+}
+
+/* Estilos para las celdas de encabezado */
+th {
+  background-color: #072fe088;
+  text-align: left;
+  padding: 5px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #0dcce63d;
+}
+
+/* Estilos para las celdas de datos */
+td {
+  padding: 10px;
+}
+
+.search {
+  background-color: #072fe088;
+  /* Cambia el color de fondo a tu elección */
+  color: white;
+  /* Cambia el color del texto a tu elección */
+ 
+  cursor: pointer;
+  border-radius: 4px;
+  /* Añade bordes redondeados si lo deseas */
+}
+
+.search:hover {
+  background-color: #002fff;
+  /* Cambia el color de fondo al pasar el ratón por encima */
+}
+
+.search .mat-icon {
+  margin-right: 5px;
+  /* Espacio entre el icono y el texto */
+}
+
+.card {
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(216, 241, 241);
+  border: 2px solid #3b64eb;
+}
+
+.card p {
+  color: rgb(17, 0, 255);
+  text-decoration: double;
+  margin-top: -5px;}
+
+.card h3 {
+  color: #034b07;
+  font-weight: bold;
+  margin-top: 10px;
+
+}
+
+mat-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+mat-card-title {
+  color: rgb(17, 0, 255);
+  font-weight: bold;
+}
+
+mat-stepper {
+  background-color: #70b2fd46;
+
+}
+
+mat-divider {
+  border: 1px solid blue;
+  width: 100%;
+  margin-bottom: 5px;
+}

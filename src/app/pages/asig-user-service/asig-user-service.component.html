@@ -1,0 +1,147 @@
+<mat-stepper>
+  <mat-step label="Servicio">
+    <p>seleccionar Servicio</p>
+    <div>
+      <mat-form-field>
+        <mat-label>nombre servicio</mat-label>
+
+        <input type="text" matInput [formControl]="searchServiceInput" />
+      </mat-form-field>
+      <button class="search" mat-button (click)="optenerServicios()"><mat-icon>search</mat-icon></button>
+
+    </div>
+    <div>
+      <table class="datos">
+        <thead>
+          <tr>
+            <th>selecion</th>
+            <th>Servicio</th>
+            <th>Codigo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of listServicio">
+            <td><label>
+                <input type="radio" [checked]="selectServicio===a" (change)="serviceSeleccionado(a)"
+                  name="servicio" /></label></td>
+            <td>{{a.name}}</td>
+            <td>{{a.code}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="btnAction">
+      <button mat-button matStepperNext [disabled]="!sSelect">siguiente</button>
+    </div>
+  </mat-step>
+
+  <mat-step label="usuario" *ngIf="sSelect">
+    <p>Seleccionar Usuario</p>
+    <div>
+      <mat-form-field>
+        <mat-label>usuario</mat-label>
+
+        <input type="text" matInput [formControl]="searchUserInput" />
+      </mat-form-field>
+      <button class="search" mat-button (click)="optenerUsuario()"><mat-icon>search</mat-icon></button>
+
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>select</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Profesión</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of listUsuarios">
+            <td><label>
+                <input type="radio" [checked]="usuarioSeleccionado===usuario" (change)="usuarioSeleccionado(usuario)"
+                  name="dniUser" /></label></td>
+            <td>{{ usuario.dni }}</td>
+            <td>{{ usuario.fullName }}</td>
+            <td>{{ usuario.profession}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="btnAction">
+      <button mat-button matStepperPrevious>atras</button>
+      <button mat-button matStepperNext [disabled]="!uSelect">siguiente</button>
+    </div>
+
+  </mat-step>
+
+  <mat-step label="Asignar Fecha" *ngIf="uSelect">
+    <p>Ingrese Fechas</p>
+    <div>
+      <mat-form-field color="accent">
+        <mat-label>Inicio de cargo</mat-label>
+        <input matInput [matDatepicker]="picker1" [formControl]="fechaInicio" (ngModelChange)="dateI()" readonly>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1 color="primary"></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field color="accent">
+        <mat-label>Fin de cargo</mat-label>
+        <input matInput [matDatepicker]="picker2" [formControl]="fechaFinal" (ngModelChange)="dateF()" readonly>
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="btnAction">
+      <button mat-button matStepperPrevious>atras</button>
+      <button mat-button matStepperNext [disabled]="!fechasValidas()">siguiente</button>
+
+    </div>
+
+  </mat-step>
+
+
+  <mat-step label="Agregar Usuario" *ngIf="fechasValidas()">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>ASIGNAR USUARIO A SERVICIO</mat-card-title>
+        <h3 style="text-align: center;">Se asignará al usuario {{ nameUser }}, en el servicio de {{nameService}}:</h3>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div>
+          <h3>servico:</h3>
+          <p>{{ nameService }}</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <h3>Usuario:</h3>
+          <p>{{ nameUser }}</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <h3>Fecha Inicio De Cargo:</h3>
+          <p>{{ FInicio }}</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <h3>Fecha Final De Cargo: </h3>
+          <p>{{ FFinal }}</p>
+        </div>
+        <mat-divider></mat-divider>
+
+
+      
+    </mat-card-content>
+    </mat-card>
+    <div class="btnAction">
+      <button mat-button matStepperPrevious>atras</button>
+      <button mat-button (click)="asignarUsuarioServicio()">guardar</button>
+    </div>
+  </mat-step>
+</mat-stepper>

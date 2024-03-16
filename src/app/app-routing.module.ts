@@ -21,6 +21,8 @@ import { AddContractComponent } from './pages/admin/entities/add-contract/add-co
 import { ViewContractComponent } from './pages/admin/entities/view-contract/view-contract.component';
 import { ListJefesComponent } from './pages/admin/entities/list-jefes/list-jefes.component';
 import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.component';
+import { AsigUserServiceComponent } from './pages/asig-user-service/asig-user-service.component';
+import { ListUserServiceComponent } from './pages/list-user-service/list-user-service.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
@@ -86,6 +88,14 @@ const routes: Routes = [
       {
         path:'addJefes',
         component:AddJefesComponent
+      },
+      {
+        path:'addUserService',
+        component:AsigUserServiceComponent
+      },
+      {
+        path:'listUserService',
+        component:ListUserServiceComponent
       }
     ]
   },

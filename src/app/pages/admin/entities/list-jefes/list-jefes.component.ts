@@ -11,7 +11,9 @@ export class ListJefesComponent implements OnInit{
   response : any=[];
   errorResponse:any=[];
   
-  constructor(private headService:HeadServiceServiceService){}
+  constructor(
+    private headService:HeadServiceServiceService
+    ){}
 
   ngOnInit(): void {
     this.getHeadServices()

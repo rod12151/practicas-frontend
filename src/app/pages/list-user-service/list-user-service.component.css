@@ -1,0 +1,116 @@
+h1 {
+    color: rgba(55, 55, 250, 0.973);
+    text-align: center;
+    text-shadow: 0 0 5px rgb(2, 253, 199);
+
+}
+mat-divider {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 100%;
+    background-color: rgb(3, 158, 197);
+  
+  }
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: space-evenly;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.search {
+    background:
+            linear-gradient(135deg,
+                #a9d6e5 0%,
+                #89c2d9 25%,
+                #61a5c2 50%,
+                #468faf 75%,
+                #2c7da0 100%);
+    /* Cambia el color de fondo a tu elección */
+    color: white;
+    /* Cambia el color del texto a tu elección */
+    padding: 10px 20px;
+    /* Ajusta el relleno según tus preferencias */
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    /* Añade bordes redondeados si lo deseas */
+    margin-left: 5px;
+
+}
+
+.search:hover {
+    background-color: #0056b3;
+    /* Cambia el color de fondo al pasar el ratón por encima */
+}
+
+.search .mat-icon {
+    margin-right: 5px;
+    /* Espacio entre el icono y el texto */
+}
+
+mat-form-field {
+    .mdc-text-field {
+        background:
+            linear-gradient(45deg,
+                #a9d6e5 0%,
+                #89c2d9 25%,
+                #61a5c2 50%,
+                #468faf 75%,
+                #2c7da0 100%);
+    }
+
+    mat-label {
+        font-size: medium;
+        color: rgb(3, 1, 95);
+    }
+
+    mat-select {
+        font-size: medium;
+        color: darkgreen;
+
+    }
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+        font-size: medium;
+        color: darkgreen;}
+
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: medium;
+        text-align: center;
+    }
+
+    mat-form-field {
+
+        .mdc-text-field {
+            width: 170px;
+        }
+
+        mat-label {
+            font-size: small;
+            color: rgb(3, 1, 95);
+        }
+
+        mat-select {
+            font-size: small;
+
+        }
+        .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+            font-size: small;}
+    }
+
+    .filter {
+        justify-content: space-around;
+    }
+
+}

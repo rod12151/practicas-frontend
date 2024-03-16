@@ -1,0 +1,75 @@
+/* Estilo básico para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo para las celdas del encabezado */
+th {
+    background-color: #f2f2f2;
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para las celdas del cuerpo */
+td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para filas impares */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para los botones en las celdas */
+td button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para los botones cuando se pasan por encima */
+td button:hover {
+    background-color: #45a049;
+}
+/* Estilos para la tabla cuando el ancho de la pantalla es igual o menor a 768px */
+@media (max-width: 768px) {
+    /* Ajustar el ancho de la tabla para que se adapte al tamaño de la pantalla */
+    table {
+        width: 100%;
+    }
+
+    /* Ocultar el encabezado de la tabla para pantallas pequeñas */
+    thead {
+        display: none;
+    }
+
+    /* Mostrar las celdas de la tabla como bloques para que se apilen verticalmente */
+    td {
+        display: block;
+        border: none;
+    }
+
+    /* Estilo adicional para resaltar las celdas del cuerpo */
+    td {
+        border-bottom: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* Estilo para filas impares */
+    tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    /* Estilo para los botones en las celdas */
+    td button {
+        margin-bottom: 5px; /* Agregar espacio entre los botones */
+        width: 100%; /* Hacer que los botones ocupen todo el ancho de la celda */
+    }
+}

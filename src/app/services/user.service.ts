@@ -15,11 +15,7 @@ export class UserService {
   constructor(
     private httpClient: HttpClient
     ) { }
-  //Methods
-  /*public AddUser(user:any){
-    return this.httpClient.post(`${baserUrl}/user/create`,user)
 
-  }*/
   findAllUsers():Observable<UserResponse[]>{
     
     return this.httpClient.get<UserResponse[]>(`${baserUrl}/user`);
@@ -29,15 +25,15 @@ export class UserService {
     return this.httpClient.post(`${baserUrl}/user/create`,userRequest);
   }
 
-  /*findAllServicios():Observable<ServicioResponse[]>{
-    return this.httpClient.get<ServicioResponse[]>(`${baserUrl}/service`)
-  }*/
-
   getSuggestions(query: string):Observable<UserResponse[]>{
     return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/share?query=${query}`);
   }
 
   changeStatus(dni:string):Observable<any>{
     return this.httpClient.put<any>(`${baserUrl}/user/${dni}`,'');
+  }
+  
+  public findUserSAsingmentsService(query:String):Observable<UserResponse[]>{
+    return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/user/assign?query=${query}`)
   }
 }

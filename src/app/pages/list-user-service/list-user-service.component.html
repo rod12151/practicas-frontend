@@ -1,0 +1,36 @@
+<h1>USUARIOS ASIGNADOS A UN SERVICIO</h1>
+<mat-divider></mat-divider>
+<div class="filter">
+  <div class="item">
+    <mat-form-field>
+      <mat-label>Filtrar</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="selection" (closed)="buscarvalor()" >
+        <mat-option *ngFor="let selection of typeBusqueda" [value]="selection.value">
+          {{selection.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="item" >
+    <mat-form-field>
+      <mat-label>nombre {{ mostrarValueselect}}</mat-label>
+
+      <input type="text" matInput [formControl]="searchServiceInput" />
+    </mat-form-field>
+    <button class="search" mat-button (click)="listarUsuarios()"><mat-icon>search</mat-icon></button>
+
+
+  </div>
+
+</div>
+<mat-divider></mat-divider>
+<div>
+  <app-table-user-asig-servicio [tableId]="'result'"
+  [data]="response"
+                    ></app-table-user-asig-servicio>
+</div>
+<mat-divider></mat-divider>
+<div></div>
+
+<button (click)="datas()">clickme</button>

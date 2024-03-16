@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { HeadserviceRequest } from 'src/app/models/headService';
 import { HeadServiceServiceService } from 'src/app/services/head-service-service.service';
+import { SnackbarnotifierService } from 'src/app/services/notifier/snackbarnotifier.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -16,7 +17,7 @@ export class AddJefesComponent {
     private _userService: UserService,
     private _headService:HeadServiceServiceService,
     private router:Router,
-    private fb: FormBuilder) { }
+    private snackBarMensajes:SnackbarnotifierService) { }
   listServicio: any = [];
   listUser: any = [];
 
@@ -42,8 +43,7 @@ export class AddJefesComponent {
       next: (data) => {
         this.listServicio = (data)
       },
-      error: (e) => console.error(e.error),
-      complete: () => console.log(this.listServicio)
+      error: (e) => this.snackBarMensajes.showNotification('error',e.message,'error')
 
     })
   }
@@ -64,8 +64,7 @@ export class AddJefesComponent {
         this.listUser = data
       
       },
-      error: (e) => console.error(e.error),
-      complete: () => console.log(this.listUser)
+      error: (e) =>this.snackBarMensajes.showNotification('error',e.message,'error')
     })
   }
   usuarioSeleccionado(res: any) {
@@ -123,13 +122,9 @@ export class AddJefesComponent {
   saveHeadService(){
     const data = this.headService.toHeaderServiceRequest()
     this._headService.saveHeadService(data).subscribe({
-      next:(data2)=>{
-        console.info(data2,'creado');
+      next:()=>{this.snackBarMensajes.showNotification("jefe asignado correctamente",'exito','success')
       },
-      error:(errorData)=>{
-        console.log(data.codeService)
-        console.error(errorData);
-        console.log(data)
+      error:(e)=>{this.snackBarMensajes.showNotification(e.error.message,'error','error'),console.log(e)
       },
       complete:()=>{
         this.router.navigate(['/admin/listJefes'])
