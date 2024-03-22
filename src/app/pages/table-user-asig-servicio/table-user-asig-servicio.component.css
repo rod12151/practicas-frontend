@@ -25,12 +25,33 @@ tbody tr:nth-child(odd) {
 }
 
 /* Estilo para los botones en las celdas */
-td button {
-    padding: 5px 10px;
-    background-color: #4CAF50;
+ .btn-ok {
+    background:
+            linear-gradient(45deg,
+                #64dfdf 0%,
+                #56cfe1 25%,
+                #48bfe3 50%,
+                #4ea8de 75%,
+                #5390d9 100%);
+                width: 80px;
+    height: 25px;
     color: white;
-    border: none;
     cursor: pointer;
+    margin: 5px;
+}
+.btn-error {
+    background:
+            linear-gradient(45deg,
+                #f7b267 0%,
+                #f79d65 25%,
+                #f4845f 50%,
+                #f27059 75%,
+                #f25c54 100%);
+                width: 80px;
+    height: 25px;
+    color: white;
+    cursor: pointer;
+    margin: 5px; 
 }
 
 /* Estilo para los botones cuando se pasan por encima */

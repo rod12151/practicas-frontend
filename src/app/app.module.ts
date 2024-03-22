@@ -62,6 +62,7 @@ import { NotifierComponent } from './auxiliares/notifier/notifier/notifier.compo
 import { AsigUserServiceComponent } from './pages/asig-user-service/asig-user-service.component';
 import { TableUserAsigServicioComponent } from './pages/table-user-asig-servicio/table-user-asig-servicio.component';
 import { ListUserServiceComponent } from './pages/list-user-service/list-user-service.component';
+import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +95,7 @@ import { ListUserServiceComponent } from './pages/list-user-service/list-user-se
     AsigUserServiceComponent,
     TableUserAsigServicioComponent,
     ListUserServiceComponent,
+    EditProfileComponent,
   
   ],
   imports: [

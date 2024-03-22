@@ -14,22 +14,30 @@ import Swal from 'sweetalert2';
 export class UserListComponent implements OnInit{
   users: UserResponse[]=[]
   constructor(
-    //Inyectamos el UserService que hemos importado
+    
     private _userService : UserService,
     
   ){}
-  //De la documentación: A lifecycle hook that is called after Angular 
-  //has initialized all data-bound properties of a directive.
+  actualizarUser:boolean=false;
+  userUpdate:any;
   ngOnInit(): void {
       this.getUsers()
   }
 
   getUsers(){
-    //Utilizamos el servicio inyectado para encontrar los usuarios
-    this._userService.findAllUsers().subscribe((userData:UserResponse[])=>{
+   this._userService.findAllUsers().subscribe((userData:UserResponse[])=>{
       this.users = userData;
-  });
+  });}
+
+  updateUser(user:UserResponse){
+    this.userUpdate=user;
+    this.actualizarUser=true;
+
   }
+  finUpdate(){
+    this.actualizarUser=false;
+  }
+  
   changeStatus(dni:string){
     Swal.fire({
       title: '¡Atención!',

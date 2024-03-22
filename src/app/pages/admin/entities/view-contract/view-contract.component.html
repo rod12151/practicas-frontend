@@ -14,7 +14,7 @@
 
         <mat-card>
             <mat-card-header *ngIf="contratos[0]">
-                <mat-card-title>{{contratos[0].user.fullName}}</mat-card-title>
+                <mat-card-title>{{contratos[0].user.name + ' '+ contratos[0].user.lastName}}</mat-card-title>
                 <mat-card-subtitle>DNI: {{contratos[0].user.dni}}</mat-card-subtitle>
                 <mat-card-subtitle>Correo: {{contratos[0].user.username}}</mat-card-subtitle>
                 <mat-card-subtitle>Profesion: {{contratos[0].user.profession}}</mat-card-subtitle>
@@ -110,7 +110,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let contrato of contratosReLa">
-                    <td>{{contrato.user.fullName}}</td>
+                    <td>{{contrato.user.name + ' '+ contrato.user.lastName}}</td>
                     <td>{{contrato.user.dni}}</td>
                     <td>{{contrato.user.username}}</td>
                     <td>{{contrato.user.profession}}</td>
@@ -181,7 +181,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let contrato of contratosCoLa">
-                    <td>{{contrato.user.fullName}}</td>
+                    <td>{{contrato.user.name + ' '+ contrato.user.lastName}}</td>
                     <td>{{contrato.user.dni}}</td>
                     <td>{{contrato.user.username}}</td>
                     <td>{{contrato.user.profession}}</td>

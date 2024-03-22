@@ -1,3 +1,8 @@
+h1{
+  color: #002fff;
+  text-shadow: rebeccapurple;
+ text-align: justify;
+}
 .material-icons{
   font-size: 150%;
 }

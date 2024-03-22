@@ -33,7 +33,12 @@ export class UserService {
     return this.httpClient.put<any>(`${baserUrl}/user/${dni}`,'');
   }
   
-  public findUserSAsingmentsService(query:String):Observable<UserResponse[]>{
+  public findUserSAsingmentsService(query:String):Observable<any>{
     return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/user/assign?query=${query}`)
+  };
+
+  public actualizarUsuario(dni:string,user:UserRequest):Observable<UserResponse>{
+    return this.httpClient.put<UserResponse>(`${baserUrl}/user/user/update?dni=${dni}`,user)
   }
+
 }

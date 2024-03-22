@@ -1,32 +1,35 @@
-<h2> User List</h2>
-<table class = "table table-striped" id="userList">
-    <thead>
-        <tr>
-            <!--<th>IUse</th>-->
-            <th>DNI</th>
-            <th>Nombre y Apellidos</th>
-            <th>correo</th>
-            <th>accion</th>
-        </tr>
-    </thead>
-    <!-- El bucle recorre cada usuario de users-->
-    <!-- Este archivo html está asociado a su respectivo .ts -->
-    <!-- users es una propiedad definida en el .ts users: User[]-->
-    <tbody>
-        <tr *ngFor = "let u of users">
-            <!-- {{}} Es interpolación para acceder a los campos -->
-           <!-- <td>{{u.idUser}}</td>-->
-            <td>{{u.dni}}</td>
+<div *ngIf="!actualizarUser">
+    <h2> USUARIOS ACTIVOS EN LA ORGANIZACIÓN</h2>
+    <table class = "table table-striped" id="userList">
+        <thead>
+            <tr>
             
-            <td>{{u.fullName}}</td>
-            <td>{{u.username}}</td>
-            <td>
-                <button class="btn btn-danger" (click)="changeStatus(u.dni)">delete</button>
-                <button class="btn btn-primary">update</button>
-            </td>
+                <th>DNI</th>
+                <th>Nombre y Apellidos</th>
+                <th>Correo</th>
+                <th>accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let u of users">
             
-        </tr>
-    </tbody>
-    
-</table>
-<app-export-table [tableId]="'userList'"></app-export-table>
+                <td>{{u.dni}}</td>
+                
+                <td>{{u.name + ' '+ u.lastName}}</td>
+                <td>{{u.username}}</td>
+                <td>
+                    <button class="btn-update" (click)="updateUser(u)">update</button>
+                    <button class="btn-delete" (click)="changeStatus(u.dni)">delete</button>
+                    
+                </td>
+                
+            </tr>
+        </tbody>
+        
+    </table>
+    <app-export-table [tableId]="'userList'"></app-export-table>
+</div>
+<div *ngIf="actualizarUser">
+    <app-edit-profile [userEdit]="userUpdate" (actualizacionFinalizada)="finUpdate()"></app-edit-profile>
+
+</div>

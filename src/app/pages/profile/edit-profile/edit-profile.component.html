@@ -1,0 +1,40 @@
+<div class="formDatos">
+    <h1>ACTUALIZAR USUARIO</h1>
+    <div *ngIf="userEdit" class="datos" >
+
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input [(ngModel)]="userAuxUpdate.name" matInput [value]="userEdit.name" type="text" placeholder="Actualizar Nombre">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Apellido</mat-label>
+            <input [(ngModel)]="userAuxUpdate.lastName" matInput [value]="userEdit.lastName" type="text" placeholder="Actualizar apellido">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>DNI</mat-label>
+            <input 
+            [(ngModel)]="userAuxUpdate.dni"
+            maxlength="8"
+            minlength="8"
+            matInput [value]="userEdit.dni" #dni type="text" disabled placeholder="Actualizar DNI">
+            
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Profesión</mat-label>
+            <input [(ngModel)]="userAuxUpdate.profession"  matInput [value]="userEdit.profession" type="text" placeholder="Actualizar Profesión">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Correo</mat-label>
+            <input matInput type="email" [value]="userEdit.username" disabled="" placeholder="Actualizar Correo ">
+        </mat-form-field>
+       
+
+
+    </div>
+    <div>
+        <button class="botonAct" mat-button (click)="GuardarUsuario()">Actualizar</button>
+        <button class="botonCan" mat-button (click)="cancelar()">Cancelar</button>
+    </div>
+
+</div>

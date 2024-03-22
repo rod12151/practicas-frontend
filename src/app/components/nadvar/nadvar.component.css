@@ -27,19 +27,28 @@ li {
 }
 
 button:hover {
-    background-color: rgb(59, 193, 226);
+    background: radial-gradient(
+      #52b69a 0%,
+      #76c893 25%,
+      #99d98c 75%,
+      #b5e48c 100%);
 }
 
 mat-toolbar {
-    background-color: #3b4df0;
+    background: linear-gradient(45deg,
+      #1a38ff 0%,
+      #344efc 25%,
+      #475ef6 75%,
+      #5d71f7 100%);
 }
 
 mat-icon {
     color: white;
 }
 .etiqueta{
-    font-size: medium;
+    font-size: small;
 }
+
 @media screen and (max-width: 768px) {
     .etiqueta{
         font-size: xx-small;

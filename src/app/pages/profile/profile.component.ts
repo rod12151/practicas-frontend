@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserResponse } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { DataUserUpdateService } from 'src/app/services/data/data-user-update.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,9 +12,28 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class ProfileComponent {
   user:any;
-  constructor(private authService: AuthService) { }
+  viewUpdateUser=false;
+  userUpdate:any;
+
+  constructor(private dataUser:DataUserUpdateService,
+    private authService: AuthService,
+
+    private router:Router) { }
 ngOnInit():void{
   this.user=this.authService.getUser()
+
+}
+
+mostrarComponetUpdateUser(user:UserResponse){
+  
+  this.userUpdate=user;
+  
+  this.viewUpdateUser=true;
+  
+  
+}
+ocultarComponentUpdateUser(){
+  this.viewUpdateUser=false;
 }
   
 

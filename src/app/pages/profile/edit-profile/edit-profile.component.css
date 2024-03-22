@@ -1,0 +1,114 @@
+h1{
+    color: rgba(55, 55, 250, 0.973);
+    text-align: center;
+    text-shadow: 0 0 5px rgb(2, 253, 199);
+}
+.datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+    background:
+        linear-gradient(45deg,
+            #4cc9f0 0%,
+            #4895ef 25%,
+            #4361ee 50%,
+            #3f37c9 75%,
+            #3a0ca3 100%);
+    padding: 10px;
+
+
+
+}
+
+.formDatos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #0a9e05;
+}
+
+mat-form-field {
+    .mdc-text-field {
+        background:
+            linear-gradient(45deg,
+                #6b9080 0%,
+                #a4c3b2 25%,
+                #cce3de 50%,
+                #eaf4f4 75%,
+                #f6fff8 100%);
+               
+    }
+
+    mat-label {
+        font-size: medium;
+        color: rgb(11, 31, 214);
+    }
+
+    .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+        font-size: medium;
+        color: darkgreen;
+    }   
+}
+.botones{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+    
+}
+.botonAct{
+     
+    background:
+        linear-gradient(45deg,
+            #64dfdf 0%,
+            #56cfe1 25%,
+            #48bfe3 50%,
+            #4ea8de 75%,
+            #5390d9 100%);
+            width: 80px;
+            margin: 10px;
+            color:white
+
+
+}
+.botonAct:hover{
+     color:black;
+    background:
+        linear-gradient(45deg,
+            #76c893 0%,
+            #168aad 50%,
+            #184e77 100%);
+
+
+}
+.botonCan{
+    background:
+    linear-gradient(45deg,
+        #f7b267 0%,
+        #f79d65 25%,
+        #f4845f 50%,
+        #f27059 75%,
+        #f25c54 100%);
+        width: 80px;
+            margin: 10px;
+            color:white
+
+}
+.botonCan:hover{
+    color: black;
+    background:
+    linear-gradient(45deg,
+        #f72585 0%,
+        #b5179e 50%,
+        #7209b7 100%);
+   
+    
+
+}

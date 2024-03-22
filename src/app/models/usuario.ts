@@ -10,7 +10,8 @@ export class UserRequest {
     idUser: number;
     dni:string;
     username:string;
-    fullName:string;
+    name:string;
+    lastName:string;
     profession:string
     status:boolean
   }

@@ -5,8 +5,8 @@
             <th>Apellidos y Nombres</th>
             <th>Profeción </th>
             <th>Servicio</th>
-            <th>fechaInicio</th>
-            <th>FechaFinal</th>
+            <th>fecha Inicio</th>
+            <th>Fecha Final</th>
             <th>estado</th>
             <th>acción</th>
         </tr>
@@ -15,15 +15,15 @@
         
         <tr *ngFor="let a of data ">
             <td>{{a.user.dni}}</td>
-            <td>{{a.user.fullName}}</td>
+            <td>{{a.user.name + ' ' +a.user.lastName}}</td>
             <td>{{a.user.profession}}</td>
             <td>{{a.service.name}}</td>
             <td>{{a.startDate}}</td>
             <td>{{a.finishDate}}</td>
             <td>{{a.status?'vigente':'finalizado'}}</td>
             <td>
-                <button>actualizar</button>
-                <button>eliminar</button>
+                <button class="btn-ok"  mat-button >actualizar</button>
+                <button class="btn-error"  mat-button >eliminar</button>
             </td>
         </tr>
     </tbody>

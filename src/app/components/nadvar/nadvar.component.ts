@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserResponse } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -9,18 +10,18 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class NadvarComponent {
   etiqueta = false;
   //declarar
-  user:any;
+  user?:UserResponse;
   
   constructor(public authService:AuthService){}
 
   ngOnInit(){
     //optener
     this.authService.userActual.subscribe(user => {
-      this.user = user ? user.fullName : '';
+      this.user = user ? user.name : '';
     });
     const storedUser = this.authService.getUser();
     if (storedUser) {
-      this.user = storedUser.fullName;
+      this.user = storedUser.name;
     }
   }
   

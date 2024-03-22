@@ -43,9 +43,9 @@ export class LoginComponent {
 
       this.authService.login(credencials).subscribe({
         next: (loginData) => {
-          console.log(loginData);
+          
           const dni = loginData['username'].slice(0, 8);
-          console.log(dni);
+          
           const tokenDec = jwt_decode.default(loginData.token) as DecodeToken;
 
 
@@ -59,14 +59,13 @@ export class LoginComponent {
 
         },
         error: (errorData) => {
-          console.error(errorData);
           this.loginError = errorData;
           this.loginForm.controls.password.reset();
 
         },
         complete: () => {
           
-          console.info("loginCompleto")
+          
           if (this.authService.getRole().isAdmin) {
             this.router.navigate(['/admin']);
           } else if (this.authService.getRole().isJefe) {

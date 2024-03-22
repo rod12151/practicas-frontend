@@ -23,7 +23,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let contrato of contratos">
-            <td>{{contrato.user.fullName}}</td>
+            <td>{{contrato.user.name + ' '+contrato.user.lastName}}</td>
             <td>{{contrato.user.dni}}</td>
             <td>{{contrato.user.username}}</td>
             <td>{{contrato.user.profession}}</td>

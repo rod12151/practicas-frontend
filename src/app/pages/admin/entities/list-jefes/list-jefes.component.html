@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let r of response">
-            <td>{{r.user.fullName}}</td>
+            <td>{{r.user.name + ' '+ r.user.lastName}}</td>
             <td>{{r.user.dni}}</td>
             <td>{{r.user.profession}}</td>
             <td>{{r.user.username}}</td>

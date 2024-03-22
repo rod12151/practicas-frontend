@@ -23,6 +23,7 @@ import { ListJefesComponent } from './pages/admin/entities/list-jefes/list-jefes
 import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.component';
 import { AsigUserServiceComponent } from './pages/asig-user-service/asig-user-service.component';
 import { ListUserServiceComponent } from './pages/list-user-service/list-user-service.component';
+import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
@@ -96,6 +97,11 @@ const routes: Routes = [
       {
         path:'listUserService',
         component:ListUserServiceComponent
+      },
+      {
+        path:'editarPerfil',
+        component:EditProfileComponent
+
       }
     ]
   },

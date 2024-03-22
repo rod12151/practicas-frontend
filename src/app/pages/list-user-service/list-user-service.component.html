@@ -4,7 +4,7 @@
   <div class="item">
     <mat-form-field>
       <mat-label>Filtrar</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="selection" (closed)="buscarvalor()" >
+      <mat-select  [(ngModel)]="selectedValue1" name="selection" (closed)="buscarvalor()">
         <mat-option *ngFor="let selection of typeBusqueda" [value]="selection.value">
           {{selection.viewValue}}
         </mat-option>
@@ -12,11 +12,17 @@
     </mat-form-field>
   </div>
 
-  <div class="item" >
+  <div class="item">
     <mat-form-field>
       <mat-label>nombre {{ mostrarValueselect}}</mat-label>
 
-      <input type="text" matInput [formControl]="searchServiceInput" />
+      <input type="text" matInput [formControl]="inputBuscarPorCondicion" [value]="selectedValue2" (input)="buscarPorcondicion()"   />
+      <mat-select #selectedMenu [(ngModel)]="selectedValue2" name="selection" >
+        
+        <mat-option  *ngFor="let selection of responseBusqueda" [value]="selection.name" >
+          {{selection.name}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <button class="search" mat-button (click)="listarUsuarios()"><mat-icon>search</mat-icon></button>
 
@@ -26,11 +32,12 @@
 </div>
 <mat-divider></mat-divider>
 <div>
-  <app-table-user-asig-servicio [tableId]="'result'"
-  [data]="response"
-                    ></app-table-user-asig-servicio>
+  <app-table-user-asig-servicio [tableId]="'result'" [data]="response"></app-table-user-asig-servicio>
 </div>
-<mat-divider></mat-divider>
-<div></div>
+<mat-divider>
+  
+</mat-divider>
+<div>
+  <app-export-table [tableId]="'result'" ></app-export-table>
+</div>
 
-<button (click)="datas()">clickme</button>

@@ -69,6 +69,7 @@ export class AsigUserServiceComponent {
   optenerServicios() {
     if (this.searchServiceInput.valid) {
       this.sSelect = false;
+      this.listServicio = []
       const value: string = this.searchServiceInput.value || '';
       this._serviceServicio.listServiceNameContains(value).subscribe({
         next: (data) => {

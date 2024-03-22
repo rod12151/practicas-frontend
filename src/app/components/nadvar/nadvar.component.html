@@ -8,7 +8,7 @@
         <a [routerLink]="'/'">Portal Del Hospital</a>
     </div>
     <span class="example-spacer"></span>
-    <div *ngIf="authService.isLoggedIn()">
+    <div *ngIf="authService.isLoggedIn()" >
         <a class="etiqueta" routerLink="/admin/profile">{{user}}</a>
         <a><button mat-icon-button class="example-icon" routerLink="/admin/profile">
             <mat-icon>person</mat-icon>

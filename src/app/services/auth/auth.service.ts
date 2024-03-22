@@ -5,7 +5,7 @@ import baserUrl,{Roles} from '../helper';
 import { LoginRequest } from './loginRequest';
 import { LoginResponse } from './loginResponse';
 import { catchError, tap } from 'rxjs/operators';
-import { UserRequest } from 'src/app/models/usuario';
+import { UserRequest, UserResponse } from 'src/app/models/usuario';
 
 
 @Injectable({
@@ -73,7 +73,7 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  public setUser(user:any){
+  public setUser(user:UserResponse){
     localStorage.setItem('user',JSON.stringify(user));
   }
 
@@ -86,7 +86,7 @@ export class AuthService {
       return null;
     }
   }
-public optenerUsuarioActual(dni:any):Observable<any>{
+public optenerUsuarioActual(dni:string):Observable<any>{
   return this.http.get(`${baserUrl}/user/${dni}`).pipe(
     tap((user:any)=>{
       console.log(user)

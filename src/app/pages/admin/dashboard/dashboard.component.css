@@ -4,7 +4,11 @@ mat-sidenav-container {
 
 mat-sidenav {
   width: 220px;
-  background: #3b4df0;
+  background:radial-gradient(
+  #5d71f7 0%,
+  #475ef6 50%,
+  #344efc 75%,
+  #1a38ff 100%);
   padding: 15px;
   margin-right: 5px;
   
@@ -14,7 +18,12 @@ mat-sidenav {
 
 mat-sidenav-content {  
   position: relative;
-  background-color: #70b2fd46;
+  background: radial-gradient(
+  #f6fff8 0%,
+  #eaf4f4 30%,
+  #cce3de 60%,
+  #a4c3b2 100%
+  );
 }
 
 .content {
