@@ -1,48 +1,86 @@
-<div class="bootstrap-wrapper">
-    <div class="container">
-        <div class="row" style="margin-top: 20px;">
-            <div class="col-md-6 offset-md-3">
-                <div class="container text-center " style="min-width: 280px;">
-                    <img src="../../../../assets/icon.png" alt="">
-                    <h1>Agregar Empleado</h1>
-                </div>
-                <div class="container" style="min-width: 280px;">
-                <form (ngSubmit)="onSubmitForm()">
-                    <div class="form-group">
-                        <label for="dni"> DNI</label>
-                        <input  type="text"  class="form-control" id="dni" [(ngModel)]="user.dni" name="dni" autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="name"> Name</label>
-                        <input  type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" autocomplete="off" required>
-                    </div>
+<div class="formulario">
 
-                    <div class="form-group">
-                        <label for="lastName"> LastName</label>
-                        <input  type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName"
-                            name="lastName" autocomplete="off" required>
-                    </div>
+    <div class="image">
+        <div>
+            <img src="../../../../assets/icon.png" alt="">
 
-                    <div class="form-group">
-                        <label for="profesion"> Profesión</label>
-                        <input  type="text" class="form-control" id="profesion" [(ngModel)]="user.profession"
-                            name="profesion" autocomplete="off" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="birthDate"> BirthDate</label>
-                        <input type="date" class="form-control" id="birthDate" [(ngModel)]="user.birthDate"
-                            name="birthDate" autocomplete="off" required>
-                    </div>
-
-                    <button class="btn btn-success" type="submit">Crear</button>
-
-                </form>
-            </div>
-                <br><br><br>
-
-
-            </div>
         </div>
+    </div>
+
+
+    <div class="datos" >
+        <h1>Agregar Empleado</h1>
+        <mat-form-field appearance="outline" class="inputs">
+            <mat-label>DNI</mat-label>
+            <input
+            autocomplete='off'
+            maxlength="8"
+            minlength="8"
+            matInput
+            #dni
+            name="dni"
+            placeholder="Ingrese el DNI"
+            type="text"
+            [formControl]="dniForm"
+            required>
+
+            <mat-hint align="end">{{(dni.value || '').length}} / 8</mat-hint>
+    <mat-error *ngIf="dniForm.invalid && (dniForm.dirty || dniForm.touched)">
+        Ingrese un DNI válido.
+    </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="inputs">
+            <mat-label>NOMBRE</mat-label>
+            <input
+            autocomplete='off'
+            maxlength="20"
+            matInput
+             #name
+            placeholder="Ingrese el Nombre"
+            type="text"
+            [formControl]="nameForm"
+            required>
+            <mat-hint align="end">{{name.value.length}} /20
+            </mat-hint>
+
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="inputs">
+            <mat-label>APELLIDOS</mat-label>
+            <input
+            autocomplete='off'
+            maxlength="40"
+            matInput #lastName
+            placeholder=" Ingrese los Apellidos"
+            type="text"
+            [formControl]="lastNameForm"
+            required>
+            <mat-hint align="end">{{lastName.value.length}} /40
+            </mat-hint>
+            
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="inputs">
+            <mat-label>PROFESIÓN</mat-label>
+            <input
+            maxlength="40"
+            autocomplete='off'
+            matInput
+            placeholder="Ingrese la Profeción"
+            type="text"
+            [formControl]="professionForm"
+            required>
+        </mat-form-field>
+        <mat-form-field appearance="outline"  class="inputs">
+            <mat-label >FECHA DE NACIMIENTO</mat-label>
+            <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker" placeholder="01/01/2024" [formControl]="fechaCumple">
+            <mat-hint>mes/dia/año</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker disabled="false" ></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="botones">
+        <button class="botonAct" mat-button (click)="guardar()" [disabled]="!formularioValid()" >GUARDAR</button>
+        <button class="botonCan" mat-button (click)="redirectUserList()">CANCELAR</button>
     </div>
 </div>

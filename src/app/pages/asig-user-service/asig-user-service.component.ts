@@ -125,7 +125,7 @@ export class AsigUserServiceComponent {
   }
   usuarioSeleccionado(res: any) {
     this.dniUser = res.dni;
-    this.nameUser = res.fullName;
+    this.nameUser = res.name + ' '+ res.lastName;
     this.asigService.dniUser = this.dniUser;
     console.log(this.dniUser);
     this.uSelect = true;
@@ -165,9 +165,9 @@ export class AsigUserServiceComponent {
       const request = this.asigService.toAsigUserServiceRequest();
       console.log(request)
       this._assignmentUserService.saveUsuarioService(request).subscribe({
-        next:()=>{this.snackAlert.showNotification('usuario asignado correctamente','exíto','success')
+        next:()=>{this.snackAlert.showNotification('usuario asignado correctamente','ok','success')
       },
-      error:(error)=>{this.snackAlert.showNotification(error.error.message,'error','error')
+      error:(error)=>{this.snackAlert.showNotification(error.error.message,'ok','error')
     },
     complete:()=>{
       /*this.router.navigate(['/admin/addUserService'],{ replaceUrl: true })*/
