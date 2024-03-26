@@ -1,0 +1,30 @@
+<div class="formDatos">
+    <h1>ACTUALIZAR {{title}}</h1>
+    <div *ngIf="data" class="datos" >
+
+        <mat-form-field>
+            <mat-label>NOMBRE</mat-label>
+            <input [(ngModel)]="dateAuxUpdate.name" matInput [value]="data.name" type="text" placeholder="Actualizar Nombre">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>CODIGO</mat-label>
+            <input 
+            [(ngModel)]="dateAuxUpdate.code"
+            maxlength="8"
+            minlength="8"
+            matInput [value]="data.code" #code type="text"  placeholder="Actualizar codigo">
+            
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>DESCRIPCION</mat-label>
+            <textarea [(ngModel)]="dateAuxUpdate.description" [value]="dateAuxUpdate.description" matInput  type="text" placeholder="Actualizar Descripción"></textarea>
+        </mat-form-field>
+        
+    </div>
+    <div>
+        <button class="botonAct" mat-button (click)="GuardarDato()">Actualizar</button>
+        <button class="botonCan" mat-button (click)="cancelar()">Cancelar</button>
+    </div>
+
+</div>

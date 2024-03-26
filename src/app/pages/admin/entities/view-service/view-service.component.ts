@@ -9,6 +9,9 @@ import { ServicesService } from 'src/app/services/services.service';
 })
 export class ViewServiceComponent implements OnInit{
   service: any=[]
+  viewUpdate:boolean=false;
+  dataUpdate:any=[]
+  dataKey:string='service'
 
   constructor(private serviceService:ServicesService){}
 
@@ -22,5 +25,22 @@ export class ViewServiceComponent implements OnInit{
     )
       
   }
+  mostrarComponetUpdate(data:any){
+    
+  
+    this.dataUpdate=data;
+    console.log(data)
+    console.log(this.dataKey)
+    console.log(this.dataUpdate)
+    
+    this.viewUpdate=true;
+    
+    
+  }
+  ocultarComponentUpdate(){
+    this.viewUpdate=false;
+  }
+
+
 
 }

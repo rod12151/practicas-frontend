@@ -63,6 +63,7 @@ import { AsigUserServiceComponent } from './pages/asig-user-service/asig-user-se
 import { TableUserAsigServicioComponent } from './pages/table-user-asig-servicio/table-user-asig-servicio.component';
 import { ListUserServiceComponent } from './pages/list-user-service/list-user-service.component';
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
+import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-serv-reg-con.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +97,7 @@ import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.
     TableUserAsigServicioComponent,
     ListUserServiceComponent,
     EditProfileComponent,
+    EditServRegConComponent,
   
   ],
   imports: [

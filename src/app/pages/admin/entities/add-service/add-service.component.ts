@@ -19,7 +19,7 @@ export class AddServiceComponent implements OnInit{
   ){}
 
   serviceForm = this.formbulder.group({
-    name:['',[Validators.required,]],
+    name:['',[Validators.required,Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/)]],
     code:['',[Validators.required,Validators.minLength(8),Validators.maxLength(8)]],
     description:['',[Validators.required]]
   })

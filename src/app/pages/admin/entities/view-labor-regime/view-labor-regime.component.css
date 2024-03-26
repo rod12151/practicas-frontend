@@ -1,0 +1,171 @@
+.title{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(33, 33, 235);
+}
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* Ajustar el espacio entre elementos */
+    height: 420px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    
+}
+
+.item {
+    flex: 0 0 200px; /* Tamaño de cada elemento (ajustar según el número de elementos por fila) */
+    height: 250px; /* Espacio entre filas */
+    margin: 5px; 
+}
+.item:hover {
+    border: #5390d9;
+    
+}
+button{
+    width: 80px;
+    height: 30px;
+    border:none;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: xx-small;
+}
+.btn-actions{
+    display: flex;
+    flex-direction: row;
+    
+    background:
+        linear-gradient(0deg,
+            #2c7da0 0%,
+            #61a5c2 50%,
+            #a9d6e5 100%);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    max-height: 80px;
+    border: red;
+    background:
+        linear-gradient(180deg,
+            #2c7da0 0%,
+            #61a5c2 50%,
+            #a9d6e5 100%);
+    mat-card-title{
+        color: blue;
+        text-align: center;
+        font-size: small;
+    }
+    mat-card-subtitle{
+        
+        color: rgb(14, 37, 4);
+        text-align: center;
+        font-size: smaller;
+
+    }
+    
+    
+    
+    
+}
+.mat-mdc-card-header {
+    padding: 5px;
+}
+
+.content {
+    background-image: url('../../../../../assets/papelarrugado.jpg');
+    background-size: cover; /* Ajustar el tamaño de la textura */
+    background-repeat: no-repeat; /* No repetir la textura */
+
+    
+    display: flex;
+    flex-direction: column;
+    height: 200px; 
+    max-height: 200px;
+    
+    overflow-y: auto;
+    
+    scrollbar-width: none;
+    color: rgb(7, 97, 124);
+    mat-card-subtitle{
+        
+        color: rgb(14, 37, 4);
+        text-align: center;
+        font-size: smaller;
+
+    }
+    p{
+        text-align: justify;
+        
+    }
+}
+.btn-update {
+    color: white;
+    background:
+        linear-gradient(45deg,
+            #64dfdf 0%,
+            #56cfe1 25%,
+            #48bfe3 50%,
+            #4ea8de 75%,
+            #5390d9 100%);
+    width: 80px;
+}
+.btn-action {
+    width: 80px;
+    height: 40px;
+    border:none;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: small;
+    color: white;
+
+    background:
+        linear-gradient(45deg,
+            #64dfdf 0%,
+            #56cfe1 25%,
+            #48bfe3 50%,
+            #4ea8de 75%,
+            #5390d9 100%);
+    width: 80px;
+}
+
+.btn-delete {
+    color: white;
+    background:
+        linear-gradient(45deg,
+            #f7b267 0%,
+            #f79d65 25%,
+            #f4845f 50%,
+            #f27059 75%,
+            #f25c54 100%);
+    width: 80px;
+}
+
+button:hover {
+    background: linear-gradient(45deg,
+    #ccff33 0%,
+    #9ef01a 25%,
+    #70e000 50%,
+    #38b000 75%,
+    #008000 100%);
+    border-color: rgb(150, 189, 10);
+    border-bottom: 5px;
+    color: rgb(9, 135, 139);
+    font-weight: bold;
+}
+.btn-crear{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    transition: box-shadow 0.3s ease; /* Aplicar una transición suave a la sombra */
+}
+
+.item:hover {
+    box-shadow: 0px 0px 25px rgb(44, 255, 202); /* Establecer una sombra cuando el mouse pase sobre el card */
+}

@@ -9,8 +9,10 @@ import { WorkConditionService } from 'src/app/services/work-condition.service';
 export class ViewWorkConditionComponent implements OnInit{
 
 
-  workConditions:any = [
-  ];
+  workConditions:any = [];
+  viewUpdate:boolean=false;
+  dataUpdate:any=[]
+  dataKey:string='workCondition'
 
   constructor(private workconditionservice:WorkConditionService){}
   ngOnInit(): void {
@@ -24,5 +26,22 @@ export class ViewWorkConditionComponent implements OnInit{
         }
       )
   }
+  mostrarComponetUpdate(data:any){
+    
+  
+    this.dataUpdate=data;
+    console.log(data)
+    console.log(this.dataKey)
+    console.log(this.dataUpdate)
+    
+    this.viewUpdate=true;
+    
+    
+  }
+  ocultarComponentUpdate(){
+    this.viewUpdate=false;
+  }
+
+
 
 }

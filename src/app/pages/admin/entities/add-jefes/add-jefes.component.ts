@@ -43,7 +43,7 @@ export class AddJefesComponent {
       next: (data) => {
         this.listServicio = (data)
       },
-      error: (e) => this.snackBarMensajes.showNotification('error',e.message,'error')
+      error: (e) => this.snackBarMensajes.showNotification(e.message,'ok','error')
 
     })
   }

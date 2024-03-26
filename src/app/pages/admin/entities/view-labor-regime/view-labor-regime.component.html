@@ -1,24 +1,37 @@
-<h2>REGIMEN LABORAL</h2>
-<div *ngFor="let w of laborRegime">
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Nombre: {{w.name}}</mat-card-title>
+<div *ngIf="!viewUpdate">
+<h2 class="title">REGIMEN LABORAL</h2>
+<div class="items-container">
+<div *ngFor="let w of laborRegime" class="item">
+
+<mat-card class="item" >
+    <mat-card-header class="header">
+        <mat-card-title>{{w.name}}</mat-card-title>
         <mat-card-subtitle>Codigo: {{w.code}}</mat-card-subtitle>
 
     </mat-card-header>
-    <mat-card-content>Descripción
+    <mat-divider></mat-divider>
+    <mat-card-content class="content">
+        <mat-card-subtitle>DESCRIPCION</mat-card-subtitle>
         <p>
             {{w.description}}
         </p>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-button color="primary">ACTUALIZAR</button>
-        <button mat-button color="warn">ELIMINAR</button>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="btn-actions">
+        <button class="btn-update" mat-button (click)="mostrarComponetUpdate(w)">ACTUALIZAR</button>
+        <button class="btn-delete" mat-button>ELIMINAR</button>
     </mat-card-actions>
     
 </mat-card>
+</div>
 <mat-divider></mat-divider>
 </div>
-<div class="container text-center mt20">
-    <button mat-raised-button color="primary" routerLink="../addLaborRegime">Agregar</button>
+<div class="btn-crear">
+    <button class="btn-action" routerLink="../addLaborRegime">AGREGAR</button>
+</div>
+</div>
+
+<div *ngIf="viewUpdate">
+    <app-edit-serv-reg-con [data]="dataUpdate" [option]="dataKey" (actualizacionFinalizada)="ocultarComponentUpdate()"></app-edit-serv-reg-con>
+
 </div>

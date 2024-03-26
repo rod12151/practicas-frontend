@@ -24,6 +24,7 @@ import { AddJefesComponent } from './pages/admin/entities/add-jefes/add-jefes.co
 import { AsigUserServiceComponent } from './pages/asig-user-service/asig-user-service.component';
 import { ListUserServiceComponent } from './pages/list-user-service/list-user-service.component';
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
+import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-serv-reg-con.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
@@ -102,6 +103,10 @@ const routes: Routes = [
         path:'editarPerfil',
         component:EditProfileComponent
 
+      },
+      {
+        path:'editarComp',
+        component:EditServRegConComponent
       }
     ]
   },

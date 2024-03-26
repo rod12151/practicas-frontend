@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { UserRequest } from 'src/app/models/usuario';
 import { UserService } from 'src/app/services/user.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { DateAStringService } from 'src/app/services/data/date-astring.service';
 import { SnackbarnotifierService } from 'src/app/services/notifier/snackbarnotifier.service';
 //import Swal from 'sweetalert2';
@@ -38,9 +37,9 @@ export class CreateUserComponent implements OnInit {
 
   }
   dniForm = new FormControl('',[Validators.required, Validators.nullValidator, Validators.pattern(/^([0-9])*$/)]);
-  nameForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]);
-  lastNameForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]);
-  professionForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[A-Za-z\s\xF1\xD1]+$/)]);
+  nameForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/)]);
+  lastNameForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/)]);
+  professionForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/)]);
   fechaCumple = new FormControl([Validators.required, Validators.nullValidator]);
   
   
@@ -74,11 +73,6 @@ export class CreateUserComponent implements OnInit {
     }
   }
 
-
-  //Este método es llamado desde el formulario
-  //Se encarga de disparar el método de guardado de usuarios
-  
-  //Este método llama al createUser de userService.
   
   guardarUser(user:UserRequest) {
     this._userService.createUser(user).subscribe({
@@ -93,19 +87,6 @@ export class CreateUserComponent implements OnInit {
     })
 
   }
-     /* userData => {
-        console.log(userData);
-        this.redirectUserList();
-       
-
-      },
-      error => {
-        console.log(error);
-        
-      }
-    );*/
-  
-  //Redirección a lista de usuarios
   redirectUserList() {
     this.router.navigate(['admin/userlist']);
   }

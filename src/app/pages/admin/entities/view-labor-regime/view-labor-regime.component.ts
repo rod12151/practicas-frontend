@@ -9,7 +9,9 @@ import { LaborRegimeService } from 'src/app/services/labor-regime.service';
 })
 export class ViewLaborRegimeComponent implements OnInit{
   laborRegime :any=[];
-
+  viewUpdate:boolean=false;
+  dataUpdate:any=[]
+  dataKey:string='laborRegime'
   constructor(private laborRegimeservice:LaborRegimeService){}
   ngOnInit(): void {
       
@@ -21,6 +23,23 @@ export class ViewLaborRegimeComponent implements OnInit{
         console.log(error)
       }
       )
+  }
+
+
+  mostrarComponetUpdate(data:any){
+    
+  
+    this.dataUpdate=data;
+    console.log(data)
+    console.log(this.dataKey)
+    console.log(this.dataUpdate)
+    
+    this.viewUpdate=true;
+    
+    
+  }
+  ocultarComponentUpdate(){
+    this.viewUpdate=false;
   }
 
 }
