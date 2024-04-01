@@ -23,6 +23,9 @@ export class ServicesService {
   public listServiceNameContains(query:String):Observable<ServicioResponse[]>{
     return this.http.get<ServicioResponse[]>(`${baserUrl}/service/services/name?name=${query}`)
   }
+  public updateService(code:string,service:ServicioRequest):Observable<ServicioResponse>{
+    return this.http.put<ServicioResponse>(`${baserUrl}/service/${code}`,service);
+  }
   
 
 

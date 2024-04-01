@@ -49,7 +49,7 @@
                 <input type="radio" [checked]="usuarioSeleccionado===usuario" (change)="usuarioSeleccionado(usuario)"
                   name="dniUser" /></label></td>
             <td>{{ usuario.dni }}</td>
-            <td>{{ usuario.fullName }}</td>
+            <td>{{ usuario.name + ' '+ usuario.lastName }}</td>
           </tr>
         </tbody>
       </table>

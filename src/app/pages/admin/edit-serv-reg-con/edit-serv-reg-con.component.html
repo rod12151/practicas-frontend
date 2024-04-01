@@ -1,26 +1,27 @@
 <div class="formDatos">
     <h1>ACTUALIZAR {{title}}</h1>
-    <div *ngIf="data" class="datos" >
+    <div *ngIf="data" class="datos">
 
         <mat-form-field>
             <mat-label>NOMBRE</mat-label>
-            <input [(ngModel)]="dateAuxUpdate.name" matInput [value]="data.name" type="text" placeholder="Actualizar Nombre">
+            <input [(ngModel)]="dateAuxUpdate.name" #name matInput [value]="data.name" type="text"
+                placeholder="Actualizar Nombre">
+            <mat-hint style="color: white;" align="end">{{name.value.length}}/50</mat-hint>
         </mat-form-field>
-        
+
         <mat-form-field>
             <mat-label>CODIGO</mat-label>
-            <input 
-            [(ngModel)]="dateAuxUpdate.code"
-            maxlength="8"
-            minlength="8"
-            matInput [value]="data.code" #code type="text"  placeholder="Actualizar codigo">
-            
+            <input [(ngModel)]="dateAuxUpdate.code" maxlength="8" minlength="8" matInput [value]="data.code" #code
+                type="text" placeholder="Actualizar codigo">
+            <mat-hint style="color: white;" align="end">{{code.value.length}}/8</mat-hint>
         </mat-form-field>
         <mat-form-field>
             <mat-label>DESCRIPCION</mat-label>
-            <textarea [(ngModel)]="dateAuxUpdate.description" [value]="dateAuxUpdate.description" matInput  type="text" placeholder="Actualizar Descripción"></textarea>
+            <textarea #description [(ngModel)]="dateAuxUpdate.description" [value]="dateAuxUpdate.description" matInput
+                type="text" placeholder="Actualizar Descripción"></textarea>
+            <mat-hint style="color: white;" align="end">{{description.value.length}}/100</mat-hint>
         </mat-form-field>
-        
+
     </div>
     <div>
         <button class="botonAct" mat-button (click)="GuardarDato()">Actualizar</button>

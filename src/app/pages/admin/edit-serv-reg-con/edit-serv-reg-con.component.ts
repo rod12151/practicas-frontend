@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ServicioResponse } from 'src/app/models/servicios';
 import { LaborRegimeService } from 'src/app/services/labor-regime.service';
+import { SnackbarnotifierService } from 'src/app/services/notifier/snackbarnotifier.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { WorkConditionService } from 'src/app/services/work-condition.service';
 
@@ -23,15 +24,18 @@ export class EditServRegConComponent implements OnInit {
   constructor(
     private _serviceService: ServicesService,
     private _laborRegime: LaborRegimeService,
-    private _worckcondition: WorkConditionService) { }
-    typeBusqueda: filterConstant[] = [
-      { value: 'service', viewValue: 'SERVICIO' },
-      { value: 'laborRegime', viewValue: 'REGIMEN LABORAL' },
-      { value: 'workCondition', viewValue: 'CONDICIÓN LABORAL' },
-    ];
-    
+    private _worckcondition: WorkConditionService,
+    private errorAlert:SnackbarnotifierService) { }
+  typeBusqueda: filterConstant[] = [
+    { value: 'service', viewValue: 'SERVICIO' },
+    { value: 'laborRegime', viewValue: 'REGIMEN LABORAL' },
+    { value: 'workCondition', viewValue: 'CONDICIÓN LABORAL' },
+  ];
+
   public dateAuxUpdate: any = {}
-  title:string='';
+  title: string = '';
+  codeoriginal:string=''
+
   dateUpdate: any = {
     name: '',
     code: '',
@@ -44,10 +48,11 @@ export class EditServRegConComponent implements OnInit {
     if (this.data) {
       this.actualData = this.data;
       this.dateAuxUpdate = this.data
-      
+      this.codeoriginal = this.data.code
+
     }
     this.buscarvalor()
-    
+
 
   }
   actualData: any | undefined;
@@ -61,21 +66,46 @@ export class EditServRegConComponent implements OnInit {
 
   GuardarDato() {
     this.asigDate()
-    const dni = this.dateUpdate.dni || '';
-    const user = this.dateUpdate;
-    /*
-    this._userService.actualizarUsuario(dni,user).subscribe({
-      next:(data)=>{
-        console.log(data)
-      },
-      error:(e)=>{
-        console.error(e.error.message)
-      },
-      complete:()=>{
-        this.actualizacionFinalizada.emit();
-      }
-    })  
-  */
+    let option = this.option
+    console.log(option);
+    const code = this.codeoriginal;
+    console.log(code);
+    const data = this.dateUpdate;    
+    console.log(data);
+    switch (option) {
+      case 'service':
+        this._serviceService.updateService(code,data).subscribe({
+          error:(error)=>{
+            this.errorAlert.showNotification(error.error.message,'ok','error');},
+          complete:()=>{
+            this.errorAlert.showNotification("ACTUALIZACIÓN REALIZADA",'ok','success');
+            this.actualizacionFinalizada.emit();
+          }
+        })
+        break;
+      case 'laborRegime':
+        this._laborRegime.updateLaborRegime(code,data).subscribe({
+          error:(error)=>{
+            this.errorAlert.showNotification(error.error.message,'ok','error');},
+          complete:()=>{
+            this.errorAlert.showNotification("ACTUALIZACIÓN REALIZADA",'ok','success');
+            this.actualizacionFinalizada.emit();
+          }
+        })
+        break;
+
+      case 'workCondition':
+        this._worckcondition.updateWorkCondition(code,data).subscribe({
+          error:(error)=>{
+            this.errorAlert.showNotification(error.error.message,'ok','error');},
+          complete:()=>{
+            this.errorAlert.showNotification("ACTUALIZACIÓN REALIZADA",'ok','success');
+            this.actualizacionFinalizada.emit();
+          }
+        })
+        break;
+
+    }
   }
   cancelar() {
     this.actualizacionFinalizada.emit();

@@ -21,5 +21,8 @@ public createLaborRegime(laborRegimeRequest:LaborRegimeRequest):Observable<Objec
 getLaborRegimeByname(query: string):Observable<LaborRegimeResponse[]>{
   return this.http.get<LaborRegimeResponse[]>(`${baserUrl}/laborRegime/share?query=${query}`)
 }
+public updateLaborRegime(code:string,laborRegime:LaborRegimeRequest):Observable<LaborRegimeResponse>{
+  return this.http.put<LaborRegimeResponse>(`${baserUrl}/laborRegime/update/${code}`,laborRegime);
+}
 
 }

@@ -22,4 +22,7 @@ export class WorkConditionService {
   getWorkByname(query: string):Observable<WorkConditionResponse[]>{
     return this.http.get<WorkConditionResponse[]>(`${baserUrl}/workCondition/share?query=${query}`)
   }
+  public updateWorkCondition(code:string,workCondition:WorkConditionRequest):Observable<WorkConditionResponse>{
+    return this.http.put<WorkConditionResponse>(`${baserUrl}/workCondition/update/${code}`,workCondition);
+  }
 }

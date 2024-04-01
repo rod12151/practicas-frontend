@@ -25,7 +25,7 @@
           <mat-label>CODIGO:</mat-label>
           <input formControlName="code" name="code" required matInput placeholder="digite el código del servicio" autocomplete="off"
             maxlength="8" />
-          <mat-hint align="end">{{name.value?.length}}/8</mat-hint>
+          <mat-hint align="end">{{code.value?.length}}/8</mat-hint>
           <div *ngIf="code.invalid && (code.dirty || code.touched)" class="text-danger">
             <div *ngIf="code.errors?.['required']">
               El codigo es requerido.

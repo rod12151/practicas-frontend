@@ -1,36 +1,48 @@
-<h1>Jefes De Servico</h1>
+<h1 class="main-title">Jefes De Servicio</h1>
+<div class="main">
+    
+    <section class="table-container">
+
+
+        <!--<h1>Jefes De Servicio</h1>-->
 
 
 
-<table class="tableJefes" id="jefes">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>DNI</th>
-            <th>Profesion</th>
-            <th>Correo</th>
-            <th>Servicio</th>
-            <th>Codigo Servicio</th>
-            <th>Inicio de cargo</th>
-            <th>Fin de cargo </th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let r of response">
-            <td>{{r.user.name + ' '+ r.user.lastName}}</td>
-            <td>{{r.user.dni}}</td>
-            <td>{{r.user.profession}}</td>
-            <td>{{r.user.username}}</td>
-            <td>{{r.service.name}}</td>
-            <td>{{r.service.code}}</td>
-            <td>{{r.startDate}}</td>
-            <td>{{r.finishDate}}</td>
-            <td><button class="my-button1"  mat-button color="primary">ACTUALIZAR</button>
-                <button class="my-button2" (click)="changeStatus(r.service.code,r.user.dni)" mat-button color="warn">ELIMINAR</button>
-            </td>
-        </tr>
-    </tbody>
+        <table class="tableJefes" id="jefes">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Profesion</th>
+                    <th>Correo</th>
+                    <th>Servicio</th>
+                    <th>Codigo Servicio</th>
+                    <th>Inicio de cargo</th>
+                    <th>Fin de cargo </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of response">
+                    <td data-title="Nombre :">{{r.user.name + ' '+ r.user.lastName}}</td>
+                    <td data-title="DNI :">{{r.user.dni}}</td>
+                    <td data-title="Profesion :">{{r.user.profession}}</td>
+                    <td data-title="Correo :">{{r.user.username}}</td>
+                    <td data-title="Servicio :">{{r.service.name}}</td>
+                    <td data-title="Codigo Servicio :">{{r.service.code}}</td>
+                    <td data-title="Inicio de cargo :">{{r.startDate}}</td>
+                    <td data-title="Fin de cargo  :">{{r.finishDate}}</td>
+                    <td class="btnTd" ><button class="my-button1"  ><mat-icon>
+                        edit</mat-icon></button>
+                        <button class="my-button2" (click)="changeStatus(r.service.code,r.user.dni)" 
+                            ><mat-icon> 
+                                delete
+                                </mat-icon></button>
+                    </td>
+                </tr>
+            </tbody>
 
-</table>
-<app-export-table [tableId]="'jefes'" ></app-export-table>
+        </table>
+    </section>
+</div>
+<app-export-table [tableId]="'jefes'"></app-export-table>

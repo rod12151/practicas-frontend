@@ -38,6 +38,12 @@ export class ViewServiceComponent implements OnInit{
     
   }
   ocultarComponentUpdate(){
+    this.serviceService.listService().subscribe({
+      next:(data)=>this.service=data,
+      error:(e)=>console.error(e),
+      complete:()=>console.info('complete')
+    }
+    )
     this.viewUpdate=false;
   }
 
