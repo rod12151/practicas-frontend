@@ -17,7 +17,7 @@ export class ContractService {
   }
 
   public findByDniUser(dni:string):Observable<contratoResponse[]>{
-    return this.http.get<contratoResponse[]>(`${baserUrl}/contract/filter/${dni}`);
+    return this.http.get<contratoResponse[]>(`${baserUrl}/contract/filter?dni=${dni}`);
 
   }
 
@@ -37,5 +37,8 @@ export class ContractService {
   }
   public findBetwenStartDateAndFinishDate(start:string,finish:string):Observable<contratoResponse[]>{
     return this.http.get<contratoResponse[]>(`${baserUrl}/contract/filter/between?startDate=${start}&finishDate=${finish}`);
+  }
+  public terminateContract(id:string):Observable<any>{
+    return this.http.put<any>(`${baserUrl}/contract/terminate/${id}`,null)
   }
 }

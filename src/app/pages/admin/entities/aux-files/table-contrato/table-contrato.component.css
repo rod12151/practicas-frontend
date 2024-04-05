@@ -1,37 +1,135 @@
-/* Estilo para la tabla */
-.datos {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px; /* Espacio entre la tabla y otros elementos */
-     /* Tamaño de fuente general */
-  }
+
+button {
+
+
+  padding: 0.5em;
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  background: none;
+
+}
+mat-icon:hover {
+  background:
+    linear-gradient(45deg,
+      #f7b267 0%,
+      #f79d65 25%,
+      #f4845f 50%,
+      #f27059 75%,
+      #f25c54 100%);
+      width: 30px;
+      height: 30px;
+  color: white;
+  font-size: 30px;
+  border-radius: 50%;
   
-  /* Estilo para las celdas de encabezado */
-  .datos th {
-    background-color: #0a67f1de; /* Color de fondo del encabezado */
-    color: white; /* Color del texto en el encabezado */
-    padding: 10px; /* Espaciado interno del encabezado */
-    text-align: left; /* Alineación del texto en el encabezado */
-    font-size: 12px;
+}
+
+.main {
+  max-width: 1000px;
+  max-height: 300px;
+  margin:5px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+
+.main::-webkit-scrollbar {
+  width: 5px; /* Ancho del scrollbar */
+}
+
+/* Estilizar el scrollbar thumb */
+.main::-webkit-scrollbar-thumb {
+  background-color: #44b6eb; /* Color del thumb */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor:pointer ;
+}
+
+/* Cambiar el color del track */
+.main::-webkit-scrollbar-track {
+  background-color: #99b4b0; /* Color del track */
+}
+
+/* Cambiar el color del thumb cuando está siendo arrastrado */
+.main::-webkit-scrollbar-thumb:hover {
+  background-color: #064394;
+   /* Color del thumb al pasar el mouse */
+}
+.main table thead th{
+  position: sticky;
+  top: 0; /* Fija el encabezado en la parte superior del contenedor */
+  z-index: 1; /* Asegura que el encabezado esté por encima del contenido de la tabla */
+  background-color: white;}
+
+.main table tbody td:first-child{
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #b1eaff;/* Ajusta el color de fondo según tu diseño */
+}
+.main table thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2; 
+}
+
+
+h1 {
+  text-align: center;
+  margin-top: 1em;
+  color: #0f5298;
+  position: relative;
+}
+
+
+
+.table-container table {
+  width: auto;
+  table-layout: auto;
+}
+
+.table-container table thead th {
+  padding: 0.5em;
+  background: #0f5298;
+  font-size: smaller;
+  color: #fff;
+}
+
+.table-container table tbody td {
+  padding: 0.5em;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.table-container table tbody tr:nth-child(even) {
+  background: #b1eaff
+}
+
+.table-container table tbody tr:nth-child(odd) {
+  background: #d5f3fe
+}
+
+@media (max-width: 768px) {
+  .table-container table thead th {
+    display: none;
   }
-  
-  /* Estilo para las celdas de datos */
-  .datos td {
-    border: 1px solid #ccc; /* Borde de las celdas de datos */
-    padding: 10px; /* Espaciado interno de las celdas de datos */
-    text-align: left; /* Alineación del texto en las celdas de datos */
-    font-size: 10px;
-    
+
+  .table-container table tbody td {
+
+    display: block;
+    padding: 0.5em;
   }
-  
-  /* Estilo para las filas impares (alternar colores) */
-  .datos tbody tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Color de fondo de filas impares */
+
+  .table-container table tbody td::before {
+    content: attr(data-title) " ";
+    color: #0086b7;
+    display: inline;
   }
-  .datos {
-    /* ... otros estilos ... */
-    overflow-x: auto; /* Permitir el desplazamiento horizontal */
+
+  .table-container table tbody tr {
+    margin-bottom: 1em;
+    padding: 1em;
+    display:block;
+    width: 300px;
   }
-  .input{
-    margin-left: 60px;
-  }
+}

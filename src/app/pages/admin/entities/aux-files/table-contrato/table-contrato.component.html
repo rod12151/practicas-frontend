@@ -1,41 +1,48 @@
-<table class="datos" [attr.id]="tableId">
+<div class="main">
+    <section class="table-container">
+        <table class="datos" [attr.id]="tableId">
 
-    <thead>
-        <tr>
-
-
-            <th>Nombre</th>
-            <th>DNI</th>
-            <th>Correo</th>
-            <th>Profesion</th>
-            <th>Puesto</th>
-            <th>Condicion Laboral</th>
-            <th>Regimen Laboral</th>
-            <th>Salario</th>
-            <th>Inicio de contrato</th>
-            <th>Fin de contrato</th>
-            <th>Estado</th>
+            <thead>
+                <tr>
 
 
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Correo</th>
+                    <th>Profesion</th>
+                    <th>Puesto</th>
+                    <th>Condicion Laboral</th>
+                    <th>Regimen Laboral</th>
+                    <th>Salario</th>
+                    <th>Inicio de contrato</th>
+                    <th>Fin de contrato</th>
+                    <th>Estado</th>
+                    <th>Accion</th>
 
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let contrato of contratos">
-            <td>{{contrato.user.name + ' '+contrato.user.lastName}}</td>
-            <td>{{contrato.user.dni}}</td>
-            <td>{{contrato.user.username}}</td>
-            <td>{{contrato.user.profession}}</td>
-            <td>{{contrato.position}}</td>
-            <td>{{contrato.workCondition.name}}</td>
-            <td>{{contrato.laborRegime.name}}</td>
-            <td>S/.{{contrato.salary}}</td>
-            <td>{{contrato.startDate}}</td>
-            <td>{{contrato.finishDate}}</td>
-            <td>{{contrato.status?'vigente':'terminado'}}</td>
 
 
-        </tr>
-    </tbody>
-</table>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contrato of contratos">
+                    <td data-title="Nombre:">{{contrato.user.name + ' '+contrato.user.lastName}}</td>
+                    <td data-title="DNI:">{{contrato.user.dni}}</td>
+                    <td data-title="Correo:">{{contrato.user.username}}</td>
+                    <td data-title="Profesion:">{{contrato.user.profession}}</td>
+                    <td data-title="Puesto:">{{contrato.position}}</td>
+                    <td data-title="Condicion Laboral:">{{contrato.workCondition.name}}</td>
+                    <td data-title="Regimen Laboral:">{{contrato.laborRegime.name}}</td>
+                    <td data-title="Salario:">S/.{{contrato.salary}}</td>
+                    <td data-title="Inicio Contrato:">{{contrato.startDate}}</td>
+                    <td data-title="Fin Contrato:">{{contrato.finishDate}}</td>
+                    <td data-title="Estado">{{contrato.status?'vigente':'terminado'}}</td>
+                    <td ><button (click)=" terminarcontrato(contrato.idContract)"><mat-icon>delete</mat-icon></button></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+</div>

@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 import { WorkConditionService } from 'src/app/services/work-condition.service';
 import { ContractService } from 'src/app/services/contract.service';
 import { Router } from '@angular/router';
+import { SnackbarnotifierService } from 'src/app/services/notifier/snackbarnotifier.service';
 
 @Component({
   selector: 'app-add-contract',
@@ -27,7 +28,8 @@ export class AddContractComponent implements OnInit {
     private _workService: WorkConditionService,
     private _laborRegimeService: LaborRegimeService,
     private _contratoService:ContractService,
-    private router:Router
+    private router:Router,
+    private notificacion:SnackbarnotifierService
   ) { }
 
   ngOnInit() {
@@ -51,6 +53,7 @@ export class AddContractComponent implements OnInit {
 
   public usuarios: UserResponse[] = [];
   public UserSelect: any = null;
+  public nameUser:string ="";
   uSelected = false;
 
   searchUsuario() {
@@ -60,18 +63,17 @@ export class AddContractComponent implements OnInit {
       .subscribe(data => {
         this.usuarios = data;
 
-        console.log(this.usuarios);
       });
-    console.log(value);
+    
   }
   usuarioSeleccionado(resultado: any) {
 
     this.UserSelect = resultado;
-    console.log(this.contracto.dniUser)
     this.contracto.dniUser = this.UserSelect.dni;
-    console.log(this.contracto.dniUser)
-    console.log(resultado);
+    
     this.uSelected = true;
+    this.nameUser=this.UserSelect.name + " "+ this.UserSelect.lastName;
+    
 
   }
   //condicion Laboral
@@ -79,6 +81,7 @@ export class AddContractComponent implements OnInit {
 
   public workCondition: WorkConditionResponse[] = [];
   public workConditionSelect: any = null;
+  public nameWork:string ="";
   wSelected = false;
 
   searchworkCondition() {
@@ -87,18 +90,15 @@ export class AddContractComponent implements OnInit {
     this._workService.getWorkByname(value)
       .subscribe(data => {
         this.workCondition = data;
-
-        console.log(this.workCondition);
       });
     console.log(value);
   }
   workConditionSeleccionado(resultado: any) {
 
     this.workConditionSelect = resultado;
-    console.log(this.contracto.codeWorkCondition)
     this.contracto.codeWorkCondition = this.workConditionSelect.code;
-    console.log(this.contracto.codeWorkCondition)
-    console.log(resultado);
+    this.nameWork=resultado.name
+  
     this.wSelected = true;
 
   }
@@ -107,6 +107,7 @@ export class AddContractComponent implements OnInit {
 
   public laborRegime: WorkConditionResponse[] = [];
   public laborRegimeSelect: any = null;
+  public nameRegimen:string="";
   lRSelected = false;
 
   searchLaborRegime() {
@@ -115,18 +116,14 @@ export class AddContractComponent implements OnInit {
     this._laborRegimeService.getLaborRegimeByname(value)
       .subscribe(data => {
         this.laborRegime = data;
-
-        console.log(this.laborRegime);
       });
     console.log(value);
   }
   laborRegimeSeleccionado(resultado: any) {
 
     this.laborRegimeSelect = resultado;
-    console.log(this.contracto.codeLaborRegime)
     this.contracto.codeLaborRegime = this.laborRegimeSelect.code;
-    console.log(this.contracto.codeLaborRegime);
-    console.log(resultado);
+    this.nameRegimen=resultado.name;
     this.lRSelected = true;
 
   }
@@ -206,20 +203,20 @@ export class AddContractComponent implements OnInit {
     );
   }
 
-  formError: string = "";
+  
   guardarContrato() {
     
     const data = this.contracto.toContractoRequest();
 
     this._contratoService.createContrato(data).subscribe({
       next:(data2)=>{
-        console.info(data2,'creado');
+        const mensaje:string=" Contrato del usuario: "+ this.nameUser+ " creado con exito";
+        this.notificacion.showNotification(mensaje,"ok","success" )
+        
       },error:(errorData)=>{
-        console.error(errorData);
-        this.formError = errorData.error.message;
-        console.log(data)
+        this.notificacion.showNotification(errorData.error.message,"ok","error")
       },complete:()=>{
-        this.router.navigate(['/admin/laborRegime'])
+        this.router.navigate(['/admin/viewContract'])
       }
     })
 

@@ -1,0 +1,108 @@
+<div class="main">
+    <h3 class="titulo">Buscar Contratos</h3>
+    <div class="grupo">
+        <mat-tab-group>
+
+            <mat-tab label="inicio contrato">
+                <p class="title">busca todo los contratos que que son posteriores al fecha de Inicio de contrato </p>
+                <div class="encabezado">
+                    
+                
+                    <div class="buscar">
+                        <mat-form-field>
+                            <mat-label>Inicio de Contrato</mat-label>
+                            <input matInput [matDatepicker]="picker1" [formControl]="startDate" readonly>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                        </mat-form-field>
+                        <button class="search" 
+                            (click)="getContractAfterStarDate()"><mat-icon>search</mat-icon></button>
+
+                    </div>
+
+                </div>
+
+                <div class="data">
+                    <app-table-contrato [tableId]="'inicioContact'" [contratos]="contratosStarDateAfter">
+                    </app-table-contrato>
+
+                </div>
+                <div class="exportData">
+                    <app-export-table [tableId]="'inicioContact'"></app-export-table>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="antes de final contrato">
+                <p class="title">busca todo los contratos que venceran antes de la fecha indicada </p>
+                <div class="encabezado">
+                    
+                    <div class="buscar">
+                        <mat-form-field color="accent">
+                            <mat-label>fin de Contrato</mat-label>
+                            <input matInput [matDatepicker]="picker2" [formControl]="finishDate" readonly>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                        </mat-form-field>
+
+                        <button class="search" 
+                            (click)="getContractBeforeFinishDate()"><mat-icon>search</mat-icon></button>
+
+                    </div>
+
+                </div>
+                <div class="data">
+                    <app-table-contrato [tableId]="'finContract'"
+                        [contratos]="contratosFinishDateBefore"></app-table-contrato>
+
+                </div>
+
+                <div class="exportData">
+                    <app-export-table [tableId]="'finContract'"></app-export-table>
+                </div>
+            </mat-tab>
+            <mat-tab label="entre inicio y fin contrato">
+                <p class="title">busca todo los contratos que esten entre un fecha de inicio y un fin de contrado </p>
+                <div class="encabezado">
+                    
+
+                    <div class="buscar">
+                        <mat-form-field color="accent">
+                            <mat-label>inicio de Contrato</mat-label>
+                            <input matInput [matDatepicker]="picker3" [formControl]="startDate" readonly>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <mat-datepicker #picker3 color="primary"></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field color="accent">
+                            <mat-label>fin de Contrato</mat-label>
+                            <input matInput [matDatepicker]="picker4" [formControl]="finishDate" readonly>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+                            <mat-datepicker #picker4 color="primary"></mat-datepicker>
+                        </mat-form-field>
+                        <button class="search" 
+                            (click)="getContractBetwen()"><mat-icon>search</mat-icon></button>
+
+
+                    </div>
+                </div>
+                <div class="data">
+                    <app-table-contrato [tableId]="'betwen'" [contratos]="contratosBetwen"></app-table-contrato>
+
+                </div>
+                <div class="exportData">
+                    <app-export-table [tableId]="'betwen'"></app-export-table>
+
+                </div>
+
+
+
+
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+</div>

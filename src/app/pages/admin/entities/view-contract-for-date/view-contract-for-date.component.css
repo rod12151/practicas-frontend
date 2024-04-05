@@ -1,0 +1,88 @@
+.titulo {
+    font-size: medium;
+    color: #0056b3;
+    text-align: center;
+    font-weight: bold;
+    margin-top: -1em;
+  }
+  
+  .title {
+    font-size: small;
+    color: #0056b3;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 2em;
+    display: -webkit-box;
+    /* Para navegadores WebKit */
+    -webkit-line-clamp: 2;
+    /* Número máximo de líneas que se mostrarán */
+    -webkit-box-orient: vertical;
+    /* Orientación del contenido */
+    overflow: hidden;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+  }
+  
+  .grupo {
+    border-top: -2em;
+  }
+  
+  
+  
+  pp-table-contrato .main {
+    max-height: 100px;
+  
+  }
+  
+  .data {
+    height: 308px;
+    overflow: hidden;
+  }
+  
+  .buscar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+     
+  
+  }
+  .buscar mat-form-field{
+    margin-inline: 2em;
+  }
+  
+  button {
+    padding: 0.5em;
+    border: none;
+    border-radius: 30%;
+    cursor: pointer;
+    background: none;
+  
+  }
+  
+  mat-icon:hover {
+  
+    background: linear-gradient(90deg, #219ebc 0%, #8ecae6 50%, #219ebc 100%);
+  
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 40px;
+    border-radius: 50%;
+  
+  }
+  
+  
+  @media (max-width: 768px) {
+  
+    .main {
+  
+      margin-right: 3em;
+  
+    }
+  }

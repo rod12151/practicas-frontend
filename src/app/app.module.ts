@@ -64,6 +64,7 @@ import { TableUserAsigServicioComponent } from './pages/table-user-asig-servicio
 import { ListUserServiceComponent } from './pages/list-user-service/list-user-service.component';
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-serv-reg-con.component';
+import { ViewContractForDateComponent } from './pages/admin/entities/view-contract-for-date/view-contract-for-date.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +99,7 @@ import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-se
     ListUserServiceComponent,
     EditProfileComponent,
     EditServRegConComponent,
+    ViewContractForDateComponent,
   
   ],
   imports: [

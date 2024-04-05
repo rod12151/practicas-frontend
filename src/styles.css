@@ -112,34 +112,36 @@ body {
 
 /* stilos para el alert en las notificaciones*/
 .alert.mat-mdc-snack-bar-container .mdc-snackbar__surface {
-    background: linear-gradient(45deg, #90e0ef 0%, #caf0f8 50%, #90e0ef 100%);
+    background: linear-gradient(45deg, #ffbf69 0%, #ff9f1c 50%, #ffbf69 100%);
     margin-top: 150px;
 }
 
 .alert.mat-mdc-snack-bar-container .mdc-snackbar__label {
 
     font-size: large;
-    color: #053b53;
-    text-shadow: 0 0 15px rgb(15, 201, 31);
+    color: #ff0000;
+    text-shadow: 0 0 15px rgb(252, 252, 252);
 
 }
 
 .alert.mat-mdc-snack-bar-container .mdc-button {
-    background: linear-gradient(90deg, #219ebc 0%, #8ecae6 50%, #219ebc 100%);
-    color: #0f5306;
+    background: linear-gradient(145deg, #ff9505 0%, #e2711d 50%, #ff9505 100%);
+    color: #fafafa;
+    border: 2px solid white
 }
 
 .alert.mat-mdc-snack-bar-container .mdc-button:hover {
-    background: linear-gradient(90deg, #0077b6 0%, #00b4d8 50%, #0077b6 100%);
-    color: #0f5306;
+    background: linear-gradient(145deg, #ff9505 0%, #e2711d 50%, #cc5803 100%);
+    color: #fffff6;
+    border: 2px solid rgb(238, 85, 85);
 }
 
 .alert.mat-mdc-snack-bar-container .material-icons {
-    color: #023047;
+    color: #fae900;
     width: 50%;
     height: 100%;
     font-size: 40px;
-    text-shadow: 0 0 15px rgb(86, 84, 218);
+    text-shadow: 0 0 15px rgb(255, 8, 8);
 
 }
 

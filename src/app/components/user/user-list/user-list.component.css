@@ -1,126 +1,156 @@
-h2 {
-    text-align: center;
-    color: brown;
-    text-shadow: #64dfdf;
-}
-
-.table {
-    width: 96%;
-
-    margin: 20px;
-    align-items: center;
-
-}
-/* Estilo básico para la tabla */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-/* Estilo para las celdas del encabezado */
-th {
-    background-color: #f2f2f2;
-    border: 1px solid #dddddd;
-    padding: 8px;
-    text-align: left;
-}
-
-/* Estilo para las celdas del cuerpo */
-td {
-    border: 1px solid #dddddd;
-    padding: 8px;
-    text-align: left;
-}
-
-/* Estilo para filas impares */
-tbody tr:nth-child(odd) {
-    background-color: #f9f9f9;
-}
 
 button {
-    align-items: center;
-    margin-left: 2px;
-    width: auto;
-    height: auto;
-    font-size: 10px;
-    border-radius: 10px;
+
+
+    padding: 0.5em;
+    border: none;
+    border-radius: 30%;
+    cursor: pointer;
+    background: none;
+  
+  }
+  
+  .btn-update mat-icon:hover {
+    background:
+      linear-gradient(45deg,
+        #64dfdf 0%,
+        #56cfe1 25%,
+        #48bfe3 50%,
+        #4ea8de 75%,
+        #5390d9 100%);
+        width: 30px;
+        height: 30px;
     color: white;
-}
-
-.btn-update {
-
+    font-size: 30px;
+    
+    border-radius: 50%;
+  }
+  
+  .btn-delete mat-icon:hover {
     background:
-        linear-gradient(45deg,
-            #64dfdf 0%,
-            #56cfe1 25%,
-            #48bfe3 50%,
-            #4ea8de 75%,
-            #5390d9 100%);
-    width: 80px;
-}
-
-.btn-delete {
-
-    background:
-        linear-gradient(45deg,
-            #f7b267 0%,
-            #f79d65 25%,
-            #f4845f 50%,
-            #f27059 75%,
-            #f25c54 100%);
-    width: 80px;
-}
-
-button:hover {
-    background: linear-gradient(45deg,
-    #ccff33 0%,
-    #9ef01a 25%,
-    #70e000 50%,
-    #38b000 75%,
-    #008000 100%);
-    border-color: rgb(150, 189, 10);
-    border-bottom: 5px;
-    color: black;
-}
-
-@media (max-width: 768px) {
-    h2 {
-        text-align: center;
-        color: brown;
-        text-shadow: #64dfdf;
-        font-size: small;
+      linear-gradient(45deg,
+        #f7b267 0%,
+        #f79d65 25%,
+        #f4845f 50%,
+        #f27059 75%,
+        #f25c54 100%);
+        width: 30px;
+        height: 30px;
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+    
+  }
+  
+  
+  
+  
+  .main {
+    max-width: 1000px;
+    max-height: 400px;
+    margin:5px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  
+  .main::-webkit-scrollbar {
+    width: 5px; /* Ancho del scrollbar */
+  }
+  
+  /* Estilizar el scrollbar thumb */
+  .main::-webkit-scrollbar-thumb {
+    background-color: #44b6eb; /* Color del thumb */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor:pointer ;
+  }
+  
+  /* Cambiar el color del track */
+  .main::-webkit-scrollbar-track {
+    background-color: #99b4b0; /* Color del track */
+  }
+  
+  /* Cambiar el color del thumb cuando está siendo arrastrado */
+  .main::-webkit-scrollbar-thumb:hover {
+    background-color: #064394;
+     /* Color del thumb al pasar el mouse */
+  }
+  .main table thead th{
+    position: sticky;
+    top: 0; /* Fija el encabezado en la parte superior del contenedor */
+    z-index: 1; /* Asegura que el encabezado esté por encima del contenido de la tabla */
+    background-color: white;}
+  
+  .main table tbody td:first-child{
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: #b1eaff;/* Ajusta el color de fondo según tu diseño */
+  }
+  .main table thead th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2; 
+  }
+  
+  
+  h1 {
+    text-align: center;
+    margin-top: 5px;
+    color: #0f5298;
+    position: relative;
+  }
+  
+  
+  
+  .tabla table {
+    min-width: 740px;
+    width: auto;
+    table-layout: auto;
+  }
+  
+  .tabla table thead th {
+    background: #0f5298;
+    font-size: smaller;
+    color: #fff;
+  }
+  
+  .tabla table tbody td {
+    padding: 1em;
+    color: #000000;
+    white-space: nowrap;
+    align-content: center;
+  }
+  
+  .tabla table tbody tr:nth-child(even) {
+    background: #b1eaff
+  }
+  
+  .tabla table tbody tr:nth-child(odd) {
+    background: #d5f3fe
+  }
+  
+  @media (max-width: 768px) {
+    .tabla table thead th {
+      display: none;
     }
-    /* Ajustar el ancho de la tabla para que se adapte al tamaño de la pantalla */
-    table {
-        width: 30%;
+  
+    .tabla table tbody td {
+  
+      display: block;
+      padding: 0.5em;
     }
-
-    /* Ocultar el encabezado de la tabla para pantallas pequeñas */
-    thead {
-        display: none;
+  
+    .tabla table tbody td::before {
+      content: attr(data-title) " ";
+      color: #0086b7;
+      display: inline;
     }
-
-    /* Mostrar las celdas de la tabla como bloques para que se apilen verticalmente */
-    td {
-        display: block;
-        border: none;
+  
+    .tabla table tbody tr {
+      margin-bottom: 1em;
+      padding: 1em;
+      display:block;
+      width: 400px;
     }
-
-    /* Estilo adicional para resaltar las celdas del cuerpo */
-    td {
-        border-bottom: 1px solid #dddddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    /* Estilo para filas impares */
-    tbody tr:nth-child(odd) {
-        background-color: #f9f9f9;
-    }
-
-    /* Estilo para los botones en las celdas */
-    td button {
-        margin-bottom: 5px; /* Agregar espacio entre los botones */
-        width: 50%; /* Hacer que los botones ocupen todo el ancho de la celda */
-    }
-}
+  }

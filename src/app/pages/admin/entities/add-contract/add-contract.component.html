@@ -1,226 +1,234 @@
-<h1>Crear Contrato</h1>
-<mat-horizontal-stepper labelPosition="bottom" #stepper  [selectedIndex]="currentStepIndex">
+<h1 class="title">CREAR CONTRATO</h1>
+<div class="main">
+    <mat-horizontal-stepper class="mat-step-horizontal" labelPosition="end" #stepper [selectedIndex]="currentStepIndex">
 
-    <mat-step>
+        <mat-step label="Indique el usuario">
 
-        <ng-template matStepLabel>Indique el usuario</ng-template>
-        <div class="flex flex-colum p-2">
-            <h3>Usuarios</h3>
-            <mat-form-field>
-                <mat-label>Buscar Usuario</mat-label>
-                <input type="text" matInput [formControl]="searchUserInput" />
-            </mat-form-field>
-            <button class="search" mat-button (click)="searchUsuario()"><mat-icon>search</mat-icon></button>
-            
-            <button mat-button (click)="navegarAStep(4)" [disabled]="!sonTodasEntradasValidas()">volver</button><br>
-            
-            <br>
-            <div>
-                <button mat-button matStepperNext [disabled]="!uSelected">siguiente</button>
+
+            <div class="flex flex-colum p-2">
+
+                <div class="cabezaEstep">
+                    <mat-form-field>
+                        <mat-label>Buscar Usuario</mat-label>
+                        <input type="text" matInput [formControl]="searchUserInput" (ngModelChange)="searchUsuario()" />
+                    </mat-form-field>
+                    <button class="search" (click)="searchUsuario()"><mat-icon>search</mat-icon></button>
+
+
+
+                </div>
+                <div class="tabla">
+                    <table class="tabla-result">
+                        <thead>
+                            <tr>
+                                <th>seleccion</th>
+                                <th>DNI</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of usuarios">
+                                <td><label>
+                                        <input type="radio" [checked]="UserSelect===usuario" 
+                                            (change)="usuarioSeleccionado(usuario)" /></label></td>
+                                <td>{{ usuario.dni }}</td>
+                                <td>{{ usuario.name+ ' '+usuario.lastName }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>select</th>
-                        <th>DNI</th>
-                        <th>Nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let usuario of usuarios">
-                        <td><label>
-                                <input type="radio" [checked]="UserSelect===usuario"
-                                    (change)="usuarioSeleccionado(usuario)" /></label></td>
-                        <td>{{ usuario.dni }}</td>
-                        <td>{{ usuario.name+ ' '+usuario.lastName }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="cola-step">
+                <button class="btnbtn" mat-button matStepperNext [disabled]="!uSelected">siguiente</button>
+            </div>
 
-        </div>
-        <div>
-            <button mat-button matStepperNext [disabled]="!uSelected">siguiente</button>
-        </div>
+        </mat-step>
 
-    </mat-step>
-
-    <mat-step *ngIf="uSelected">
-
-        <ng-template matStepLabel>Condicion Laboral</ng-template>
-        <div class="flex flex-colum p-2">
-            <h3>Condicion Laboral</h3>
-            <mat-form-field>
-                <mat-label>Buscar condicion Laboral</mat-label>
-                <input type="text" matInput [formControl]="workconditionInput" />
-            </mat-form-field>
-            <button class="search" mat-button (click)="searchworkCondition()"><mat-icon>search</mat-icon></button>
-            
-            <button mat-button (click)="navegarAStep(4)" [disabled]="!sonTodasEntradasValidas()">volver</button><br>
-            <table>
-                <thead>
-                    <tr>
-                        <th>select</th>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let work of workCondition">
-                        <td><label>
-                                <input type="radio" [checked]="workConditionSelect===work"
-                                    (change)="workConditionSeleccionado(work)" /></label></td>
-                        <td>{{ work.code }}</td>
-                        <td>{{ work.name }}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-        <div>
-            <button mat-button matStepperPrevious>atras</button>
-            <button mat-button matStepperNext [disabled]="!wSelected">siguiente</button>
-        </div>
-
-    </mat-step>
-
-    <mat-step *ngIf="wSelected">
-
-        <ng-template matStepLabel>Regimen Laboral</ng-template>
-        <div class="flex flex-colum p-2">
-            <h3>Regimen Laboral</h3>
-            <mat-form-field>
-                <mat-label>Buscar Regimen Laboral</mat-label>
-                <input type="text" matInput [formControl]="laborRegimeInput" />
-            </mat-form-field>
-            <button class="search" mat-button (click)="searchLaborRegime()"><mat-icon>search</mat-icon></button>
-            <button mat-button (click)="navegarAStep(4)" [disabled]="!sonTodasEntradasValidas()">Volver</button>
-            <br>
-            <table>
-                <thead>
-                    <tr>
-                        <th>select</th>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let regimen of laborRegime">
-                        <td><label>
-                                <input type="radio" [checked]="laborRegimeSelect===regimen"
-                                    (change)="laborRegimeSeleccionado(regimen)" /></label></td>
-                        <td>{{ regimen.code }}</td>
-                        <td>{{ regimen.name }}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-
-        <div>
-            <button mat-button matStepperPrevious>atras</button>
-            <button mat-button matStepperNext [disabled]="!lRSelected">siguiente</button>
-        </div>
-
-    </mat-step>
-    <mat-step *ngIf="lRSelected">
-        <ng-template matStepLabel>Datos Adicionales</ng-template>
-        <!--Puesto-->
-        <mat-form-field>
-            <mat-label>Puesto</mat-label>
-            <input type="text" matInput [formControl]="formPuesto" (blur)="asigPpuesto()" />
-        </mat-form-field>
-        <br>
-        <!--fin Puesto-->
-        <!--salario-->
-        <mat-form-field floatLabel="always">
-            <mat-label>Salario</mat-label>
-            <input matInput type="number" class="example-right-align" placeholder="0" 
-                [formControl]="formSalario" (blur)="asigSalario()">
-            <span matTextPrefix>S/&nbsp;</span>
-        </mat-form-field>
-        <br>
-        <!--salario-->
-
-        <!--fecha-->
-        <mat-form-field color="accent">
-            <mat-label>Inicio de Contrato</mat-label>
-            <input matInput [matDatepicker]="picker1" [formControl]="fechaInicio" (ngModelChange)="dateI()" readonly>
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1 color="primary"></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field color="accent">
-            <mat-label>Fin de Contrato</mat-label>
-            <input matInput [matDatepicker]="picker2" [formControl]="fechaFinal" (ngModelChange)="dateF()" readonly>
-            <mat-hint>DD/MM/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2 color="primary"></mat-datepicker>
-        </mat-form-field>
-        <!--fin fecha-->
-
-        <br>
-        <!--<button (click)="datosAdicionales()">go</button>-->
-        <br>
-        
-        <div>
-            <button mat-button matStepperPrevious>atras</button>
-            <button mat-button mat-button matStepperNext [disabled]="!sonTodasEntradasValidas()" (click)="navegarAStep(4)">siguiente</button>
-        </div>
-    </mat-step>
-
-    <mat-step *ngIf="sonTodasEntradasValidas()" >
-        <ng-template matStepLabel>confirmar datos</ng-template>
-        <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        
-                        <table class="table text-center">
+        <mat-step *ngIf="uSelected" label="Condicion Laboral">
+            <div class="flex flex-colum p-2">
+                <div class="cabezaEstep">
+                    <mat-form-field>
+                        <mat-label>Buscar condicion Laboral</mat-label>
+                        <input type="text" matInput [formControl]="workconditionInput" (ngModelChange)="searchworkCondition()"/>
+                    </mat-form-field>
+                    <button class="search" (click)="searchworkCondition()"><mat-icon>search</mat-icon></button>
+                </div>
+                <div class="tabla">
+                    <table class="tabla-result">
+                        <thead>
                             <tr>
-                                <td > DNI Usuario</td>
-                                <td>{{contracto.dniUser}}</td>
-                                <td><button mat-button (click)="navegarAStep(0)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
-                                
+                                <th>seleccion</th>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
                             </tr>
-                            <tr>
-                                <td > Regimen laboral</td>
-                                <td>{{contracto.codeLaborRegime}}</td>
-                                <td><button mat-button (click)="navegarAStep(1)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let work of workCondition">
+                                <td><label>
+                                        <input type="radio" [checked]="workConditionSelect===work"
+                                            (change)="workConditionSeleccionado(work)" /></label></td>
+                                <td>{{ work.code }}</td>
+                                <td>{{ work.name }}</td>
                             </tr>
-                            <tr>
-                                <td >Condicion Laboral</td>
-                                <td>{{contracto.codeWorkCondition}}</td>
-                                <td><button mat-button (click)="navegarAStep(2)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
-                            </tr>
-                            <tr>
-                                <td >Puesto</td>
-                                <td>{{contracto.position}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
-                            </tr>
-                            <tr>
-                                <td >Salario</td>
-                                <td>{{contracto.salary}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
-                            </tr>
-                            <tr>
-                                <td >Inicio de contrato</td>
-                                <td>{{contracto.startDate}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
-                            </tr>
-                            <tr>
-                                <td >Fin de Contrato</td>
-                                <td>{{contracto.finishDate}}</td>
-                                <td><button mat-button (click)="navegarAStep(3)"><mat-icon class="icon-style">edit_note</mat-icon>editar</button></td>
-                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="cola-step">
+                <button class="btnbtn" mat-button matStepperPrevious>atras</button>
+                <button class="btnbtn" mat-button matStepperNext [disabled]="!wSelected">siguiente</button>
+            </div>
 
-                        </table>
-                        <p class="text-danger">{{ formError }}</p>
+        </mat-step>
+
+        <mat-step *ngIf="wSelected" label="Regimen Laboral">
+
+            <div class="flex flex-colum p-2">
+                <div class="cabezaEstep">
+                    <mat-form-field>
+                        <mat-label>Buscar Regimen Laboral</mat-label>
+                        <input type="text" matInput [formControl]="laborRegimeInput" (ngModelChange)="searchLaborRegime()"/>
+                    </mat-form-field>
+                    <button class="search" (click)="searchLaborRegime()"><mat-icon>search</mat-icon></button>
+
+                </div>
+                <div class="tabla">
+                    <table>
+                        <thead class="tabla-result">
+                            <tr>
+                                <th>seleccion/th>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let regimen of laborRegime">
+                                <td><label>
+                                        <input type="radio" [checked]="laborRegimeSelect===regimen"
+                                            (change)="laborRegimeSeleccionado(regimen)" /></label></td>
+                                <td>{{ regimen.code }}</td>
+                                <td>{{ regimen.name }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class=" cola-step">
+                <button class="btnbtn" mat-button matStepperPrevious>atras</button>
+                <button class="btnbtn" mat-button matStepperNext [disabled]="!lRSelected">siguiente</button>
+            </div>
+
+        </mat-step>
+        <mat-step *ngIf="lRSelected" label="Datos Adicionales">
+            <!--Puesto-->
+            <div class="datos-adicionales">
+                <mat-form-field>
+                    <mat-label>Puesto</mat-label>
+                    <input type="text" matInput [formControl]="formPuesto" (blur)="asigPpuesto()" />
+                </mat-form-field>
+
+                <!--fin Puesto-->
+                <!--salario-->
+                <mat-form-field floatLabel="always">
+                    <mat-label>Salario</mat-label>
+                    <input matInput type="number" class="example-right-align" placeholder="0"
+                        [formControl]="formSalario" (blur)="asigSalario()">
+                    <span matTextPrefix>S/&nbsp;</span>
+                </mat-form-field>
+
+                <!--salario-->
+
+                <!--fecha-->
+                <mat-form-field color="accent">
+                    <mat-label>Inicio de Contrato</mat-label>
+                    <input matInput [matDatepicker]="picker1" [formControl]="fechaInicio" (ngModelChange)="dateI()"
+                        readonly>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <mat-form-field color="accent">
+                    <mat-label>Fin de Contrato</mat-label>
+                    <input matInput [matDatepicker]="picker2" [formControl]="fechaFinal" (ngModelChange)="dateF()"
+                        readonly>
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                </mat-form-field>
+                <!--fin fecha-->
+
+            </div>
+            <!--<button (click)="datosAdicionales()">go</button>-->
+
+
+            <div class="cola-step">
+                <button class="btnbtn" mat-button matStepperPrevious>atras</button>
+                <button class="btnbtn" mat-button class="btnbtn" mat-button matStepperNext [disabled]="!sonTodasEntradasValidas()"
+                    (click)="navegarAStep(4)">siguiente</button>
+            </div>
+        </mat-step>
+
+        <mat-step *ngIf="sonTodasEntradasValidas()">
+            <ng-template matStepLabel>confirmar datos</ng-template>
+            <div class="datosfinales">
+                <div class="vertical-table">
+                    <div class="fila">
+                        <div class="datos-title">usuario</div>
+                        <div class="cell">{{nameUser}}</div>
+                        <div class="cell2"><button (click)="navegarAStep(0)"><mat-icon
+                                    class="icon-style">edit</mat-icon></button></div>
+                    </div>
+                    <div class="fila">
+                        <div class="datos-title">Condicion Laboral</div>
+                        <div class="cell">{{nameWork}}</div>
+                        <div class="cell2"><button (click)="navegarAStep(2)"><mat-icon
+                                    class="icon-style">edit</mat-icon></button></div>
+                    </div>
+                    <div class="fila">
+                        <div class="datos-title">Regimen Laboral</div>
+                        <div class="cell">{{nameRegimen}}</div>
+                        <div class="cell2"><button (click)="navegarAStep(1)"><mat-icon
+                                    class="icon-style">edit</mat-icon></button></div>
+                    </div>
+                    <div class="fila">
+                        <div class="datos-title">Puesto</div>
+                        <div class="cell">{{contracto.position}}</div>
+                        <div class="cell2"><button (click)="navegarAStep(3)"><mat-icon
+                                    class="icon-style">edit</mat-icon></button></div>
+                    </div>
+                    <div class="fila">
+                        <div class="datos-title">Salario</div>
+                        <div class="cell">{{contracto.salary}}</div>
+                        <div class="cell2"><button (click)="navegarAStep(3)"><mat-icon
+                                    class="icon-style">edit</mat-icon></button></div>
+                    </div>
+                    <div class="fila">
+                        <div class="datos-title">Inicio de Contrato</div>
+                        <div class="cell">{{contracto.startDate}}</div>
+                        <div class="cell2"><button (click)="navegarAStep(3)"><mat-icon
+                                    class="icon-style">edit</mat-icon></button></div>
+                    </div>
+                    <div class="fila">
+                        <div class="datos-title">Finalizacion de Contrato</div>
+                        <div class="cell">{{contracto.finishDate}}</div>
+                        <div class="cell2"><button (click)="navegarAStep(3)"><mat-icon
+                                    class="icon-style">edit</mat-icon></button></div>
                     </div>
                 </div>
-        <div>
-            <button mat-button matStepperPrevious>atras</button>
-            <button mat-button (click)="guardarContrato()">Guardar</button>
-            
-        </div>
-    </mat-step>
 
-</mat-horizontal-stepper>
+            </div>
+
+            <div  class="cola-step">
+                <button class="btnbtn" mat-button matStepperPrevious>atras</button>
+                <button class="btnbtn" mat-button (click)="guardarContrato()">Guardar</button>
+
+            </div>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+</div>

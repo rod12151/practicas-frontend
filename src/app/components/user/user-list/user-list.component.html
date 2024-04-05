@@ -1,32 +1,41 @@
 <div *ngIf="!actualizarUser">
-    <h2> USUARIOS ACTIVOS EN LA ORGANIZACIÓN</h2>
-    <table class = "table table-striped" id="userList">
-        <thead>
-            <tr>
-            
-                <th>DNI</th>
-                <th>Nombre y Apellidos</th>
-                <th>Correo</th>
-                <th>accion</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let u of users">
-            
-                <td>{{u.dni}}</td>
-                
-                <td>{{u.name + ' '+ u.lastName}}</td>
-                <td>{{u.username}}</td>
-                <td>
-                    <button class="btn-update" (click)="updateUser(u)">update</button>
-                    <button class="btn-delete" (click)="changeStatus(u.dni)">delete</button>
-                    
-                </td>
-                
-            </tr>
-        </tbody>
-        
-    </table>
+    <h1> USUARIOS ACTIVOS EN LA ORGANIZACIÓN</h1>
+    <div class="main">
+        <section class="tabla">
+
+
+            <table class="tableusers" id="userList">
+                <thead>
+                    <tr>
+
+
+                        <th>Nombre y Apellidos</th>
+                        <th>DNI</th>
+                        <th>Correo</th>
+                        <th>accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let u of users">
+
+
+
+                        <td data-title="Nombres y apellidos">{{u.name + ' '+ u.lastName}}</td>
+                        <td data-title="DNI">{{u.dni}}</td>
+                        <td data-title="Correo">{{u.username}}</td>
+                        <td class="botones">
+                            <button class="btn-update" (click)="updateUser(u)"><mat-icon>edit</mat-icon></button>
+                            <button class="btn-delete"
+                                (click)="changeStatus(u.dni)"><mat-icon>delete</mat-icon></button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+    </div>
     <app-export-table [tableId]="'userList'"></app-export-table>
 </div>
 <div *ngIf="actualizarUser">

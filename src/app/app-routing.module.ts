@@ -25,6 +25,7 @@ import { AsigUserServiceComponent } from './pages/asig-user-service/asig-user-se
 import { ListUserServiceComponent } from './pages/list-user-service/list-user-service.component';
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-serv-reg-con.component';
+import { ViewContractForDateComponent } from './pages/admin/entities/view-contract-for-date/view-contract-for-date.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
@@ -82,6 +83,9 @@ const routes: Routes = [
       {
         path:'viewContract',
         component:ViewContractComponent
+      },{
+        path:'viewContractDate',
+        component:ViewContractForDateComponent
       },
       {
         path:'listJefes',

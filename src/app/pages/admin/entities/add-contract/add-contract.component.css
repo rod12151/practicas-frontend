@@ -1,63 +1,263 @@
-mat-icon{
-    color: rgba(1, 8, 8, 0.986);
-    border-bottom: 5px;
-    
+.search {
+  background: rgba(180, 181, 192, 0.568);
+  border: none;
+  padding: 0.5em;
+  margin-bottom: 5px;
+  border-radius: 50%;
+
 }
 
-button:hover {
-    background-color: rgba(13, 50, 216, 0.87);
+.search:hover {
+  background:
+    linear-gradient(45deg,
+      #64dfdf 0%,
+      #56cfe1 25%,
+      #48bfe3 50%,
+      #4ea8de 75%,
+      #5390d9 100%);
+  mat-icon {
+    border-radius: 50%;
+    font-size: 200%;
+    color: white;
+  }
 }
-.search{background-color: rgba(59, 193, 226, 0.336);
+
+.tabla::-webkit-scrollbar {
+  width: 5px;
+  /* Ancho del scrollbar */
 }
-/* Estilos para la tabla */
-table {
-    width: 80%;
-    border-collapse: collapse;
-    margin-top: 20px; /* Margen superior para separar la tabla de otros elementos */
-  }
-  
-  /* Estilos para las celdas de encabezado */
-  th {
-    background-color: #072fe088;
-    text-align: left;
-    padding: 5px;
-  }
-  
-  /* Estilos para las filas de datos impares */
-  tbody tr:nth-child(odd) {
-    background-color: #0dcce63d;
-  }
-  
-  /* Estilos para las celdas de datos */
-  td {
-    padding: 10px;
-  }
-  
-  /* Estilos para los radio buttons */
-  input[type="radio"] {
-    margin-right: 5px; /* Espaciado a la derecha de los radio buttons */
-  }
-  h1{
-    align-items: center;
-    text-align: center;
-    font-size: x-large;
-    font-style: italic;
-    color: blue;
-    background-color: rgba(3, 23, 209, 0.404);
-  }
-  .table{
-    width: 100%;
-    border-collapse: collapse;
+
+/* Estilizar el scrollbar thumb */
+.tabla::-webkit-scrollbar-thumb {
+  background-color: #44b6eb;
+  /* Color del thumb */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  cursor: pointer;
 }
-.table tr td{
-    padding: 15px 10px;
-    border: 0.5px solid rgb(6, 23, 116);
+
+/* Cambiar el color del track */
+.tabla::-webkit-scrollbar-track {
+  background-color: #99b4b0;
+  /* Color del track */
 }
-.icon-style{
-  font-size: 24px; /* Cambia el tamaño del icono */
-  color: #007BFF; /* Cambia el color del icono */
-  margin-right: 8px; /* Agrega un margen a la derecha del icono */
-}.icon-style:hover{
+
+/* Cambiar el color del thumb cuando está siendo arrastrado */
+.tabla::-webkit-scrollbar-thumb:hover {
+  background-color: #064394;
+  /* Color del thumb al pasar el mouse */
+}
+
+.tabla table thead th {
+  position: sticky;
+  top: 0;
+  /* Fija el encabezado en la parte superior del contenedor */
+  z-index: 1;
+  /* Asegura que el encabezado esté por encima del contenido de la tabla */
+  background-color: rgb(0, 136, 248);
+}
+
+
+
+.cabezaEstep {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1em;
+  margin-left: 2em;
+
+}
+.cola-step{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabla table {
+  width: auto;
+  table-layout: auto;
+}
+
+.tabla table thead th {
+  background: #0f5298;
+  font-size: smaller;
+  color: #fff;
+}
+
+.tabla table tbody td {
+  padding: 1em;
+  color: #000000;
+  align-content: center;
+}
+
+.tabla table tbody tr:nth-child(even) {
+  background: #b1eaff
+}
+
+.tabla table tbody tr:nth-child(odd) {
+  background: #d5f3fe
+}
+
+/* Estilos para los radio buttons */
+input[type="radio"] {
+  margin-right: 5px;
+  /* Espaciado a la derecha de los radio buttons */
+}
+
+.title {
+  text-align: center;
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+  margin-top: -1.5em;
+
+}
+.datos-adicionales{
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+
+}
+
+
+
+
+
+.icon-style {
+  font-size: 24px;
+  /* Cambia el tamaño del icono */
+  color: #1003c9;
+  /* Cambia el color del icono */
+  margin-right: 8px;
+  /* Agrega un margen a la derecha del icono */
+}
+
+.icon-style:hover {
   color: aliceblue;
   cursor: pointer;
+}
+
+.main {
+  margin-top: -1em;
+
+}
+
+.mat-step-horizontal {
+  max-height: 490px;
+}
+
+.tabla {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  min-width: min-content;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.vertical-table {
+  display: flex;
+  flex-direction: column;
+  
+}
+.datosfinales{
+  height: 365px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fila {
+  max-width: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: solid 1px black;
+  margin: 0.2em;
+  align-items: center;
+  background: linear-gradient(90deg, #219dbc91 0%, #8ecae677 50%, #219dbc6c 100%);
+  padding-left: 2px;
+}
+.fila button {
+
+  
+  padding: 0.5em;
+  border: none;
+  border-radius: 30%;
+  cursor: pointer;
+  background: none;
+
+}
+
+.fila mat-icon:hover {
+  background:
+    linear-gradient(45deg,
+      #64dfdf 0%,
+      #56cfe1 25%,
+      #48bfe3 50%,
+      #4ea8de 75%,
+      #5390d9 100%);
+    
+  color: white;
+  
+  border-radius: 50%;
+}
+.datos-title{
+  width: 165px;
+  font-weight: bold;
+  color: #0d3504;text-align: left;
+    
+}
+.cell{
+  text-align: left;
+  width: 250px;
+  padding-left: 1em;
+  color: #064394;
+}
+
+.btnbtn{
+  width: 80px;
+  margin: 0.4em;
+  background:
+    linear-gradient(45deg,
+      #64dfdf 0%,
+      #56cfe1 25%,
+      #48bfe3 50%,
+      #4ea8de 75%,
+      #5390d9 100%);
+    
+  color: rgb(255, 255, 255);
+  
+  border-radius: 10px;
+}
+.btnbtn:hover{
+  background:
+    linear-gradient(45deg,
+      #5390d9 0%,
+      #4ea8de 25%,
+      #48bfe3 50%,
+      #56cfe1 75%,
+      #64dfdf 100%);
+      color: white;
+      border:2px solid rgba(31, 35, 228, 0.849);
+
+}
+
+
+@media (max-width: 768px) {
+  .mat-step-horizontal {
+    max-height: 480px;
+    width: 400px;
+  }
+  .fila {
+    width: 310px
+  }
+
 }
