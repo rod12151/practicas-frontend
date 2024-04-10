@@ -21,6 +21,7 @@ export class ViewContractForDateComponent {
   public contratosStarDateAfter: contratoResponse[] = [];
   public contratosFinishDateBefore: contratoResponse[] = [];
   public contratosBetwen: contratoResponse[] = [];
+
   public startDate = new FormControl([Validators.required, Validators.nullValidator]);
   convertirFechaString(date: Date) {
 
@@ -58,6 +59,7 @@ export class ViewContractForDateComponent {
           
     }
   }
+  
   public finishDate = new FormControl([Validators.required, Validators.nullValidator]);
 
   getContractBeforeFinishDate() {

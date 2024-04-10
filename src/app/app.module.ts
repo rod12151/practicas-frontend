@@ -65,6 +65,8 @@ import { ListUserServiceComponent } from './pages/list-user-service/list-user-se
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-serv-reg-con.component';
 import { ViewContractForDateComponent } from './pages/admin/entities/view-contract-for-date/view-contract-for-date.component';
+import { ViewDetalleServiceComponent } from './pages/componentShare/view-detalle-service/view-detalle-service.component';
+import { ViewDetalleUserComponent } from './pages/componentShare/view-detalle-user/view-detalle-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +102,8 @@ import { ViewContractForDateComponent } from './pages/admin/entities/view-contra
     EditProfileComponent,
     EditServRegConComponent,
     ViewContractForDateComponent,
+    ViewDetalleServiceComponent,
+    ViewDetalleUserComponent,
   
   ],
   imports: [

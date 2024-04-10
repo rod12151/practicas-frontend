@@ -26,6 +26,7 @@ import { ListUserServiceComponent } from './pages/list-user-service/list-user-se
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-serv-reg-con.component';
 import { ViewContractForDateComponent } from './pages/admin/entities/view-contract-for-date/view-contract-for-date.component';
+import { ViewDetalleServiceComponent } from './pages/componentShare/view-detalle-service/view-detalle-service.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
@@ -75,6 +76,10 @@ const routes: Routes = [
       {
         path:'Services',
         component:ViewServiceComponent
+      },
+      {
+        path:'ServiceDetalle',
+        component:ViewDetalleServiceComponent
       },
       {
         path:'addContract',

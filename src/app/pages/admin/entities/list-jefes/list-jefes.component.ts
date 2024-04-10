@@ -7,61 +7,63 @@ import Swal from 'sweetalert2';
   templateUrl: './list-jefes.component.html',
   styleUrls: ['./list-jefes.component.css']
 })
-export class ListJefesComponent implements OnInit{
-  response : any=[];
-  errorResponse:any=[];
-  
+export class ListJefesComponent implements OnInit {
+  response: any = [];
+  errorResponse: any = [];
+
   constructor(
-    private headService:HeadServiceServiceService
-    ){}
+    private headService: HeadServiceServiceService
+  ) { }
 
   ngOnInit(): void {
     this.getHeadServices()
-      
+
 
   }
-  getHeadServices(){
+  getHeadServices() {
     this.headService.listHeadService('true').subscribe({
-      next:(data)=>{
-        this.response=(data)},
-      error:(e)=>console.error(e.error),
-      complete:()=>console.log(this.response)
+      next: (data) => {
+        this.response = (data)
+      },
+      error: (e) => console.error(e.error),
+      complete: () => console.log(this.response)
 
     })
   }
-  deleteJefeService(code:string,dni:string){
-    this.headService.deleteHeadService(code,dni)
+  deleteJefeService(code: string, dni: string) {
+    this.headService.deleteHeadService(code, dni)
   }
-  
-  changeStatus(code:string ,dni:string){
+
+  changeStatus(code: string, dni: string) {
     Swal.fire({
       title: '¡Atención!',
-    text: 'Esta acción puede ser peligrosa. ¿quieres continuar?',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Sí, continuar',
-    cancelButtonText: 'Cancelar'
-    }).then((result)=>{
-      if(result.isConfirmed){
+      text: 'Esta acción puede ser peligrosa. ¿quieres continuar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, continuar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
 
-        this.headService.deleteHeadService(code,dni).subscribe(
-          ()=>{
-            this.successAlert();
-            this.getHeadServices();
-          },
-          (error)=>{
-            console.error('error al eliminar usuario',error)
-            this.errorAlert(error.message);
+        this.headService.deleteHeadService(code, dni).subscribe({
+          next: (data) => {
+            if (data.status == "ok") {
+              this.successAlert(data.message);
+              this.getHeadServices();
+            }else{
+              this.errorAlert(data.message)
+            }
+
           }
-        )
+        })
       }
     })
-    
-  
-    
+
+
+
   }
- 
-  errorAlert(error:string) {
+
+  errorAlert(error: string) {
     Swal.fire({
       title: '¡advertencia!',
       text: error,
@@ -69,9 +71,9 @@ export class ListJefesComponent implements OnInit{
       confirmButtonText: 'OK'
     });
   }
-  successAlert() {
+  successAlert(mensaje:string) {
     Swal.fire({
-      text: 'acción Exitosa',
+      text: mensaje,
       icon: 'success',
       confirmButtonText: 'OK'
     });

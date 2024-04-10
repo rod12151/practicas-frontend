@@ -15,9 +15,9 @@ import { SnackbarnotifierService } from 'src/app/services/notifier/snackbarnotif
 })
 export class ViewContractComponent implements OnInit {
   constructor(
-    
+
     private _contratoService: ContractService,
-    
+
     private notifierService: SnackbarnotifierService
   ) { }
 
@@ -25,7 +25,7 @@ export class ViewContractComponent implements OnInit {
 
   }
 
- 
+
 
   public errorInput = '';
   public contratos: contratoResponse[] = [];
@@ -58,7 +58,7 @@ export class ViewContractComponent implements OnInit {
             this.notifierService.showNotification("no existen resultados para el dni ingresado", "ok", "alert");
           }
         });
-    } 
+    }
   }
   //fin busqueda dni
 
@@ -67,11 +67,10 @@ export class ViewContractComponent implements OnInit {
 
     '',
     [Validators.required,
-    Validators.nullValidator,
     Validators.maxLength(8),
-    Validators.minLength(8)
     ]);
   searchContractByLaborRegime() {
+    console.log(this.regimenLabInput.value);
     if (this.regimenLabInput.value && this.regimenLabInput.valid) {
       ;
       const code: string = this.regimenLabInput.value;
@@ -89,12 +88,10 @@ export class ViewContractComponent implements OnInit {
           } else {
 
             this.contratosReLa = [];
-            this.notifierService.showNotification("no existen resultados para el regimen ingresado","ok","alert")
+            this.notifierService.showNotification("no existen resultados para el regimen ingresado", "ok", "alert")
           }
         });
-    } else {
-      this.notifierService.showNotification("ingrese un codigo valido ","ok","error");
-    }
+    } 
   }
   //fin
 
@@ -103,7 +100,7 @@ export class ViewContractComponent implements OnInit {
 
     '',
     [Validators.required,
-    Validators.nullValidator
+    Validators.maxLength(8),
     ]);
   searchContractByworkcondition() {
     if (this.workConditionInput.value && this.workConditionInput.valid) {
@@ -123,11 +120,11 @@ export class ViewContractComponent implements OnInit {
           } else {
 
             this.contratosCoLa = [];
-            this.notifierService.showNotification("no existen resultados para el regimen ingresado","ok","alert")
+            this.notifierService.showNotification("no existen resultados para el regimen ingresado", "ok", "alert")
           }
         });
     } else {
-      this.notifierService.showNotification("ingrese un codigo valido ","ok","error");
+      this.notifierService.showNotification("ingrese un codigo valido ", "ok", "error");
     }
   }
 

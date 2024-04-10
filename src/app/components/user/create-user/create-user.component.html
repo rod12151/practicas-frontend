@@ -78,6 +78,19 @@
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker disabled="false" ></mat-datepicker>
         </mat-form-field>
+
+        <mat-form-field appearance="fill" class="inputs">
+            <mat-label>Genero</mat-label>
+            <mat-select [(ngModel)]="generoValue">
+                <mat-option class="option" *ngFor="let gen of generos"
+                [value]="gen.value"  >{{gen.viewValue}}
+
+                </mat-option>
+            </mat-select>
+
+        </mat-form-field>
+        
+        
     </div>
     <div class="botones">
         <button class="botonAct" mat-button (click)="guardar()" [disabled]="!formularioValid()" >GUARDAR</button>

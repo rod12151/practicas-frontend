@@ -36,7 +36,8 @@
                     <div class="buscar">
                         <mat-form-field class="input">
                             <mat-label>ingrese el codigo</mat-label>
-                            <input type="text" matInput [formControl]="regimenLabInput" maxlength="8" minlength="8" />
+                            <input type="text" matInput [formControl]="regimenLabInput" maxlength="8"
+                            (ngModelChange)="searchContractByLaborRegime()" />
                         </mat-form-field>
                         <button class="search" 
                             (click)="searchContractByLaborRegime()"><mat-icon>search</mat-icon></button>
@@ -63,8 +64,9 @@
                     <div class="buscar">
                         <mat-form-field class="input">
                             <mat-label>ingrese el codigo</mat-label>
-                            <input type="text" matInput [formControl]="workConditionInput" maxlength="8"
-                                minlength="8" />
+                            <input type="text" matInput [formControl]="workConditionInput" 
+                            maxlength="8" (ngModelChange)="searchContractByworkcondition()"
+                                />
                         </mat-form-field>
                         <button class="search" (click)="searchContractByworkcondition()"><mat-icon>search</mat-icon></button>
 

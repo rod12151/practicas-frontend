@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServicioResponse } from 'src/app/models/servicios';
+import { DataServiceDataService } from 'src/app/services/data/data-service-data.service';
 import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
@@ -13,7 +15,10 @@ export class ViewServiceComponent implements OnInit{
   dataUpdate:any=[]
   dataKey:string='service'
 
-  constructor(private serviceService:ServicesService){}
+  constructor(private serviceService:ServicesService,
+    private servicioData:DataServiceDataService,
+    private router:Router
+  ){}
 
   ngOnInit(): void {
 
@@ -45,6 +50,13 @@ export class ViewServiceComponent implements OnInit{
     }
     )
     this.viewUpdate=false;
+  }
+
+  DetalleService(service:ServicioResponse){
+    this.servicioData.setData(service);
+    this.router.navigate(['admin/ServiceDetalle'])
+
+
   }
 
 

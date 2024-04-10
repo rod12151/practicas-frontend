@@ -4,6 +4,7 @@ export class UserRequest {
     lastName?: string;
     profession?: string;
     birthDate?: string;
+    genero?:Genero;
   }
   
   export interface UserResponse {
@@ -15,5 +16,19 @@ export class UserRequest {
     profession:string
     status:boolean
   }
+
+
+  export enum Genero {
+    Masculino = "MASCULINO",
+    Femenino = "fEMENINO",
+    None = 'NONE'
+}
+
+export  interface GeneroValue{
+  viewValue:string;
+  value:string;
+  
+
+}
   
   

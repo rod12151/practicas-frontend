@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ServicioResponse } from 'src/app/models/servicios';
 import { UserResponse } from 'src/app/models/usuario';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,8 +13,8 @@ export class UserListComponent implements OnInit{
   users: UserResponse[]=[]
   constructor(
     
-    private _userService : UserService,
-    
+    private _userService : UserService
+
   ){}
   actualizarUser:boolean=false;
   userUpdate:any;

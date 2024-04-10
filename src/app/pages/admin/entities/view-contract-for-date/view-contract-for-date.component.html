@@ -78,7 +78,7 @@
 
                         <mat-form-field color="accent">
                             <mat-label>fin de Contrato</mat-label>
-                            <input matInput [matDatepicker]="picker4" [formControl]="finishDate" readonly>
+                            <input matInput [matDatepicker]="picker4" [formControl]="finishDate" readonly [min]="startDate.value">
                             <mat-hint>MM/DD/YYYY</mat-hint>
                             <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
                             <mat-datepicker #picker4 color="primary"></mat-datepicker>

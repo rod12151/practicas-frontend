@@ -65,8 +65,16 @@ h1 {
         font-size: medium;
         color: darkgreen;
     }
-
 }
+.option{
+    color: #5390d9;
+    
+}
+mat-select {
+    font-size: medium;
+    color: darkgreen;}
+
+
 .inputs:hover{
     box-shadow: 0 0 15px rgb(85, 250, 228);
 }

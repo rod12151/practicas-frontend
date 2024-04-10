@@ -59,7 +59,7 @@ export class AddJefesComponent {
   searchUserInput = new FormControl('');
   optenerUsuarios() {
     const value: string = this.searchUserInput.value || '';
-    return this._userService.getSuggestions(value).subscribe({
+    return this._userService.findUserSAsingmentsService(value).subscribe({
       next: (data) => {
         this.listUser = data
       
@@ -69,7 +69,7 @@ export class AddJefesComponent {
   }
   usuarioSeleccionado(res: any) {
     this.dniUser = res.dni;
-    this.nameUser=res.fullName;
+    this.nameUser=res.name + ' '+ res.lastName;
     this.headService.dniUser=this.dniUser;
     console.log(this.dniUser)
     console.log(this.nameUser)

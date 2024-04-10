@@ -1,36 +1,191 @@
+.search {
+  background: rgba(180, 181, 192, 0.568);
+  border: none;
+  padding: 0.5em;
+  margin-bottom: 5px;
+  border-radius: 50%;
 
-
-button:hover {
-  background-color: #072fe088;
-  color: rgb(252, 252, 252);
-  transition: background-color 0.3s ease
 }
-mat-form-field {
-padding: 10px;
-}
-table {
 
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+.search:hover {
+  background:
+    linear-gradient(45deg,
+      #64dfdf 0%,
+      #56cfe1 25%,
+      #48bfe3 50%,
+      #4ea8de 75%,
+      #5390d9 100%);
+  mat-icon {
+    border-radius: 50%;
+    font-size: 200%;
+    color: white;
+  }
+}
+
+.tabla::-webkit-scrollbar {
+  width: 5px;
+  /* Ancho del scrollbar */
+}
+
+/* Estilizar el scrollbar thumb */
+.tabla::-webkit-scrollbar-thumb {
+  background-color: #44b6eb;
+  /* Color del thumb */
+  border-radius: 5px;
+  /* Bordes redondeados */
+  cursor: pointer;
+}
+
+/* Cambiar el color del track */
+.tabla::-webkit-scrollbar-track {
+  background-color: #99b4b0;
+  /* Color del track */
+}
+
+/* Cambiar el color del thumb cuando está siendo arrastrado */
+.tabla::-webkit-scrollbar-thumb:hover {
+  background-color: #064394;
+  /* Color del thumb al pasar el mouse */
+}
+
+.tabla table thead th {
+  position: sticky;
+  top: 0;
+  /* Fija el encabezado en la parte superior del contenedor */
+  z-index: 1;
+  /* Asegura que el encabezado esté por encima del contenido de la tabla */
+  background-color: rgb(0, 136, 248);
+}
+
+
+
+.cabezaEstep {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  /* Margen superior para separar la tabla de otros elementos */
+  justify-content: center;
+  margin-top: -0.5em;
+  margin-left: 2em;
+
+}
+.cola-step{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Estilos para las celdas de encabezado */
-th {
-  background-color: #072fe088;
-  text-align: left;
-  padding: 5px;
+.tabla table {
+  width: auto;
+  table-layout: auto;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: #0dcce63d;
+.tabla table thead th {
+  background: #0f5298;
+  font-size: smaller;
+  color: #fff;
 }
 
-/* Estilos para las celdas de datos */
-td {
-  padding: 10px;
+.tabla table tbody td {
+  padding: 1em;
+  color: #000000;
+  align-content: center;
+}
+
+.tabla table tbody tr:nth-child(even) {
+  background: #b1eaff
+}
+
+.tabla table tbody tr:nth-child(odd) {
+  background: #d5f3fe
+}
+
+/* Estilos para los radio buttons */
+input[type="radio"] {
+  margin-right: 5px;
+  /* Espaciado a la derecha de los radio buttons */
+}
+
+.title {
+  text-align: center;
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+  margin-top: -1.5em;
+
+}
+.datos-adicionales{
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+
+}
+
+
+
+
+
+.icon-style {
+  font-size: 24px;
+  /* Cambia el tamaño del icono */
+  color: #1003c9;
+  /* Cambia el color del icono */
+  margin-right: 8px;
+  /* Agrega un margen a la derecha del icono */
+}
+
+.icon-style:hover {
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.main {
+  margin-top: -1em;
+
+}
+
+.mat-step-horizontal {
+  max-height: 490px;
+}
+
+.tabla {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  min-width: min-content;
+  max-height: 280px;
+  overflow-y: auto;
+}
+.btnbtn{
+  width: 80px;
+  margin: 0.4em;
+  background:
+    linear-gradient(45deg,
+      #64dfdf 0%,
+      #56cfe1 25%,
+      #48bfe3 50%,
+      #4ea8de 75%,
+      #5390d9 100%);
+    
+  color: rgb(255, 255, 255);
+  
+  border-radius: 10px;
+}
+.btnbtn:hover{
+  background:
+    linear-gradient(45deg,
+      #5390d9 0%,
+      #4ea8de 25%,
+      #48bfe3 50%,
+      #56cfe1 75%,
+      #64dfdf 100%);
+      color: white;
+      border:2px solid rgba(31, 35, 228, 0.849);
+
 }
 
 .card{
@@ -46,6 +201,10 @@ td {
 .card p{
   color:rgb(17, 0, 255);
   text-decoration:double;
+}
+.result h3{
+
+  width: 170px;
 }
 .card h3{
   color: #034b07;
@@ -69,5 +228,11 @@ mat-stepper{
 mat-divider{
   border: 1px solid blue;
   width: 100%;
+}
+.result{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 

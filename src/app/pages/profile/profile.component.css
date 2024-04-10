@@ -42,15 +42,11 @@ mat-card {
     width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: end;
 }
 
 @media (max-width: 768px) {
     .container {
         width: 300px;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
     }
     .profile-image {
         width: 60px;

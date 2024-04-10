@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
-import { UserRequest } from 'src/app/models/usuario';
+import { Genero, GeneroValue, UserRequest } from 'src/app/models/usuario';
 import { UserService } from 'src/app/services/user.service';
 import { DateAStringService } from 'src/app/services/data/date-astring.service';
 import { SnackbarnotifierService } from 'src/app/services/notifier/snackbarnotifier.service';
@@ -41,8 +41,7 @@ export class CreateUserComponent implements OnInit {
   lastNameForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/)]);
   professionForm = new FormControl('',[Validators.required, Validators.nullValidator,Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/)]);
   fechaCumple = new FormControl([Validators.required, Validators.nullValidator]);
-  
-  
+  generoValue:Genero= Genero.None;
  
   
   guardar() {
@@ -53,19 +52,23 @@ export class CreateUserComponent implements OnInit {
         this.guardarUser(request)
 
       }
+      console.log(request)
     }
     
     else{
+      console.log("algo salio mal")
     }
   }
   datos(){
+    
     if(this.formularioValid()){
       this.user.dni=this.dniForm.value||'';
       this.user.name=this.nameForm.value||'';
       this.user.lastName=this.lastNameForm.value||'';
       this.user.profession=this.professionForm.value||'';
       const fecha= this.dateAString.dateI(this.fechaCumple.value)
-      this.user.birthDate=fecha
+      this.user.birthDate=fecha;
+      this.user.genero = this.generoValue
       return this.user;
     }else{
       this.snacAlert.showNotification('complete el formulario','ok','alert');
@@ -108,5 +111,11 @@ export class CreateUserComponent implements OnInit {
     // Prevent Saturday and Sunday from being selected.
     return date1 <date2
   };
+
+   generos: GeneroValue[]=[
+    {viewValue:'Masculino',value:'MASCULINO'},
+    {viewValue:'Femenino',value:'FEMENINO'},
+    {viewValue:'Prefiero no Decirlo',value:'NONE'}
+   ]
 
 }
