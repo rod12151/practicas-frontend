@@ -24,4 +24,8 @@ export class HeadServiceServiceService {
   public saveHeadService(request:headserviceRequest):Observable<object>{
     return this.http.post(`${baserUrl}/boss/create`,request);
   }
+  public getJefeService(code:string):Observable<HeadserviceResponse[]>{
+    return this.http.get<HeadserviceResponse[]>(`${baserUrl}/boss/find/${code}/true`)
+
+  }
 }

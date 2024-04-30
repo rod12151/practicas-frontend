@@ -1,1 +1,30 @@
-<h1>Bienvenido al panel de administrador</h1>
+<div class="body" >
+    <div class="ver">
+        <button (click)="vergrafica()"  *ngIf="vergrafica">{{vergraficas?"Ocultar Datos Estadisticos":"Ver Datos Estadisticos"}}</button>
+
+    </div>
+    
+    
+    <div ng *ngIf="vergraficas" class="graficas">
+        <div>
+            <div>
+                <app-grafic-genero-for-servicio [datos]="dataAllGeneroGrafic"></app-grafic-genero-for-servicio>
+    
+            </div>
+            <div>
+                <app-grafic-for-service [label]="'servicio'" [title]="'Usuarios Asignados Por Servicio'" [datos]="dataContractAllServiceGrafic" [canvasId]="'char1'"></app-grafic-for-service>
+
+            </div>
+            <div>
+                <app-grafic-for-service [label]="'regimen'" [title]="'Usuarios Asignados Por regimen'" [datos]="dataContractAllregime" [canvasId]="'char2'"></app-grafic-for-service>
+
+            </div>
+            <div>
+                <app-grafic-for-service [label]="'condicion'" [title]="'Usuarios Asignados Por Condicion'" [datos]="dataContractAllCondicion" [canvasId]="'char3'"></app-grafic-for-service>
+
+            </div>
+        </div>
+       </div>
+</div>
+
+

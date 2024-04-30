@@ -59,8 +59,10 @@ export class AddJefesComponent {
   searchUserInput = new FormControl('');
   optenerUsuarios() {
     const value: string = this.searchUserInput.value || '';
-    return this._userService.findUserSAsingmentsService(value).subscribe({
+    console.log(value);
+    return this._userService.findBossAsingmentsService(value).subscribe({
       next: (data) => {
+        console.log(data)
         this.listUser = data
       
       },

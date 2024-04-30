@@ -22,8 +22,10 @@
             placeholder="Ingrese el DNI"
             type="text"
             [formControl]="dniForm"
-            required>
-
+            required
+            (input)="filtrarNumeros($event)"
+>
+            
             <mat-hint align="end">{{(dni.value || '').length}} / 8</mat-hint>
     <mat-error *ngIf="dniForm.invalid && (dniForm.dirty || dniForm.touched)">
         Ingrese un DNI válido.
@@ -41,7 +43,8 @@
             placeholder="Ingrese el Nombre"
             type="text"
             [formControl]="nameForm"
-            required>
+            required
+            (input)="filtrarLetras($event)">
             <mat-hint align="end">{{name.value.length}} /20
             </mat-hint>
 
@@ -55,7 +58,8 @@
             placeholder=" Ingrese los Apellidos"
             type="text"
             [formControl]="lastNameForm"
-            required>
+            required
+            (input)="filtrarLetras($event)">
             <mat-hint align="end">{{lastName.value.length}} /40
             </mat-hint>
             
@@ -69,7 +73,8 @@
             placeholder="Ingrese la Profeción"
             type="text"
             [formControl]="professionForm"
-            required>
+            required
+            (input)="filtrarLetras($event)">
         </mat-form-field>
         <mat-form-field appearance="outline"  class="inputs">
             <mat-label >FECHA DE NACIMIENTO</mat-label>

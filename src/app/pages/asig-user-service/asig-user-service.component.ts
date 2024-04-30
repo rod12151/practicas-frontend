@@ -170,7 +170,7 @@ export class AsigUserServiceComponent {
       error:(error)=>{this.snackAlert.showNotification(error.error.message,'ok','error')
     },
     complete:()=>{
-      /*this.router.navigate(['/admin/addUserService'],{ replaceUrl: true })*/
+      this.router.navigate(['/admin/listUserService'])
       console.log()
     }
       })

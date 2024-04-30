@@ -1,0 +1,43 @@
+.graficos{
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 0 4px 8px 0 rgb(0, 228, 245);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.encabezado{
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    
+}
+.datos{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    padding: 1em;
+    
+    
+}
+.pie{
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+}
+canvas{
+   
+    box-shadow: 0 4px 8px 0 rgb(23, 76, 250);
+    transition: 0.3s;
+
+}

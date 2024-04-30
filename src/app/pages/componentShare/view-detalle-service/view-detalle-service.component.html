@@ -1,6 +1,99 @@
-<p>view-detalle-service works!</p>
-<div>{{data?.code}}</div>
-<div>{{data?.description}}</div>
-<div>{{data?.name}}</div>
-<div>{{data?.id}}</div>
-<button (click)="volver()">volver</button>
+<div class="main">
+    <div class="title">
+        <h1>INFORMACIÓN DEL SERVICIO</h1>
+    </div>
+    <div class="encabezado">
+        <div class="card">
+            <div class="container-head">
+                <div class="img">
+                    <img src="../../../../assets/service.jpg" alt="Avatar">
+                </div>
+                <div class="container-title">
+                    <div class="container-subtitle">
+                        <h4>Nombre: </h4>
+                        <p> {{dataServicio?.name}}</p>
+                    </div>
+
+                    <div class="container-subtitle">
+                        <h4>Codigo: </h4>
+                        <p>{{dataServicio?.code}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-body">
+                <h4>Descripción</h4>
+                <p>{{dataServicio?.description}}</p>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div><button (click)="viewDatos()">ver informacion adicional</button></div>
+    <div class="cuerpo" *ngIf="verDatos">
+        <div class="cuerpo-hijo">
+            <div class="title">
+                <p>información jefe de Servicio</p>
+            </div>
+            <div class="cuerpo-hijo-hijo">
+                <div *ngIf="existJefe" class="datosJefe">
+                    <div class="nameJefe">
+                        <p>{{dataJefeServicio?.user?.name + ' '+ dataJefeServicio?.user?.lastName}}</p>
+
+                    </div>
+                    <div class="datosCuerpoJefe">
+                        <h5>Profesión </h5>
+                        <p>{{dataJefeServicio?.user?.profession}}</p>
+                        <h5>Fecha Inicio de cargo</h5>
+                        <p>{{dataJefeServicio?.startDate}}</p>
+                        <h5>Fecha Finalización de Cargo</h5>
+                        <p>{{dataJefeServicio?.finishDate}}</p>
+
+                    </div>
+
+                </div>
+                <div *ngIf="!existJefe">
+                    <p>este servicio no tiene jefe,asignelo pronto</p>
+                </div>
+            </div>
+
+        </div>
+        <div *ngIf="graficExist()" class="cuerpo-hijo">
+            <div class="title">
+                <p>numero de hombres y mujeres en el servicio</p>
+            </div>
+            <app-grafic-all-genero [datas]="dataGeneroGrafic"
+                [label]="'cantidad'"></app-grafic-all-genero>
+
+
+
+        </div>
+
+        <div *ngIf="graficExist()" class="cuerpo-hijo">
+            <div class="title">
+                <p>información contratos por regimen laboral</p>
+                
+            </div>
+            <app-grafic-for-service [canvasId]="'char1'" [datos]="dataRegimeGrafic" [label]="'regimen'"></app-grafic-for-service>
+           
+        </div>
+
+        <div *ngIf="graficExist()" class="cuerpo-hijo">
+            <div class="title">
+                <p>información contratos por condicion laboral</p>
+
+
+            </div>
+            <app-grafic-for-service [canvasId]="'char2'" [datos]="dataConditionGrafic" [label]="'condicion'"></app-grafic-for-service>
+
+
+        </div>
+
+           
+
+    </div>
+    
+       
+
+    <div><button (click)="volver()">volver</button></div>
+</div>

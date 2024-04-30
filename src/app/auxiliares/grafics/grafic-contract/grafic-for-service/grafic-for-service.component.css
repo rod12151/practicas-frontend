@@ -1,0 +1,38 @@
+.graficos{
+   /* margin: 2em;*/
+    padding: 0.1em;
+    box-shadow: 0 4px 8px 0 rgb(0, 228, 245);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.encabezado{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    color: blue;
+    
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    
+    
+}
+.pie{
+    /*margin: 1em;*/
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+}
+canvas{
+   
+    box-shadow: 0 4px 8px 0 rgb(23, 76, 250);
+    transition: 0.3s;
+
+}

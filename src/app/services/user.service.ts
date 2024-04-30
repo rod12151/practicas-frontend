@@ -25,8 +25,8 @@ export class UserService {
     return this.httpClient.post(`${baserUrl}/user/create`,userRequest);
   }
 
-  getSuggestions(query: string):Observable<UserResponse[]>{
-    return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/share?query=${query}`);
+  getUsuariosSinContrato(query: string):Observable<UserResponse[]>{
+    return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/no/contract?query=${query}`);
   }
 
   changeStatus(dni:string):Observable<any>{
@@ -35,6 +35,9 @@ export class UserService {
   
   public findUserSAsingmentsService(query:String):Observable<any>{
     return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/user/assign?query=${query}`)
+  };
+  public findBossAsingmentsService(query:String):Observable<any>{
+    return this.httpClient.get<UserResponse[]>(`${baserUrl}/user/boss/assign?query=${query}`)
   };
 
   public actualizarUsuario(dni:string,user:UserRequest):Observable<UserResponse>{

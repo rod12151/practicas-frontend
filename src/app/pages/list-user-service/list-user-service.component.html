@@ -16,10 +16,10 @@
     <mat-form-field>
       <mat-label>nombre {{ mostrarValueselect}}</mat-label>
 
-      <input type="text" matInput [formControl]="inputBuscarPorCondicion" [value]="selectedValue2" (input)="buscarPorcondicion()"   />
-      <mat-select #selectedMenu [(ngModel)]="selectedValue2" name="selection" >
+      <input type="text" matInput [formControl]="inputBuscarPorCondicion" [value]="selectedValue2" (input)="buscarPorcondicion()" />
+      <mat-select *ngIf="abrir" #selectedMenu [(ngModel)]="selectedValue2" name="selection" (selectionChange)="abrir=false">
         
-        <mat-option  *ngFor="let selection of responseBusqueda" [value]="selection.name" >
+        <mat-option  *ngFor="let selection of responseBusqueda" [value]="selection.name">
           {{selection.name}}
         </mat-option>
       </mat-select>

@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { ExportAsModule } from 'ngx-export-as';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
 import { AppComponent } from './app.component';
 
 import { NadvarComponent } from './components/nadvar/nadvar.component';
@@ -66,7 +65,11 @@ import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.
 import { EditServRegConComponent } from './pages/admin/edit-serv-reg-con/edit-serv-reg-con.component';
 import { ViewContractForDateComponent } from './pages/admin/entities/view-contract-for-date/view-contract-for-date.component';
 import { ViewDetalleServiceComponent } from './pages/componentShare/view-detalle-service/view-detalle-service.component';
-import { ViewDetalleUserComponent } from './pages/componentShare/view-detalle-user/view-detalle-user.component';
+import { GraficGeneroForServicioComponent } from './auxiliares/grafics/grafic-genero/grafic-genero-for-servicio/grafic-genero-for-servicio.component';
+import { GraficAllGeneroComponent } from './auxiliares/grafics/grafic-genero/grafic-all-genero/grafic-all-genero.component';
+import { GraficForServiceComponent } from './auxiliares/grafics/grafic-contract/grafic-for-service/grafic-for-service.component';
+import { GraficForRegimenComponent } from './auxiliares/grafics/grafic-contract/grafic-for-regimen/grafic-for-regimen.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +106,11 @@ import { ViewDetalleUserComponent } from './pages/componentShare/view-detalle-us
     EditServRegConComponent,
     ViewContractForDateComponent,
     ViewDetalleServiceComponent,
-    ViewDetalleUserComponent,
+    GraficGeneroForServicioComponent,
+    GraficForRegimenComponent,
+    GraficAllGeneroComponent,
+    GraficForServiceComponent,
+    
   
   ],
   imports: [
@@ -130,9 +137,9 @@ import { ViewDetalleUserComponent } from './pages/componentShare/view-detalle-us
     MatTabsModule,
     ExportAsModule,
     SweetAlert2Module,
-    
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

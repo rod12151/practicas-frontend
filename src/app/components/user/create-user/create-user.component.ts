@@ -43,7 +43,19 @@ export class CreateUserComponent implements OnInit {
   fechaCumple = new FormControl([Validators.required, Validators.nullValidator]);
   generoValue:Genero= Genero.None;
  
-  
+  //no permitir letras en el campo dni
+  filtrarNumeros(event: any) {
+    const inputValue = event.target.value;
+    const numericInput = inputValue.replace(/[^0-9]/g, ''); // Filtra solo los números
+    event.target.value = numericInput; // Asigna el valor filtrado de nuevo al campo de entrada
+  }
+
+  filtrarLetras(event: any) {
+    const inputValue = event.target.value;
+    const alphaInput = inputValue.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]/g, ''); // Filtra solo las letras y caracteres con acentos
+    event.target.value = alphaInput; // Asigna el valor filtrado de nuevo al campo de entrada
+  }
+
   guardar() {
     if (this.formularioValid()) {
 
@@ -82,7 +94,12 @@ export class CreateUserComponent implements OnInit {
       next:void{
         },
       error:(e)=>{
-        this.snacAlert.showNotification(e.error.message,'ok','error')
+        if(e.error.errors){
+          this.snacAlert.showNotification(e.error.errors,'ok','error')
+        }else{
+          this.snacAlert.showNotification(e.error.message,'ok','error')
+        }
+        
       },
       complete:()=>{
         this.redirectUserList();

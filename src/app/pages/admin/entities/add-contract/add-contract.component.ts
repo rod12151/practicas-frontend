@@ -59,7 +59,7 @@ export class AddContractComponent implements OnInit {
   searchUsuario() {
     const value: string = this.searchUserInput.value || '';
 
-    this.userService.getSuggestions(value)
+    this.userService.getUsuariosSinContrato(value)
       .subscribe(data => {
         this.usuarios = data;
 
