@@ -9,7 +9,10 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background: #f5f5f5;
-    overflow: hidden;
+    font-family: sans-serif;
+    background-color: #f8fafc;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .text-center {
@@ -57,25 +60,9 @@ body {
     margin-left: 70px !important;
 }
 
-html,
-body {
-    height: 100%;
-}
 
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
-html,
-body {
-    height: 100%;
-}
 
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 /* stilos para el error en las notificaciones*/
 .error.mat-mdc-snack-bar-container .mdc-snackbar__surface {

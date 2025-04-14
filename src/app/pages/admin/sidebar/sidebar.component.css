@@ -1,8 +1,9 @@
 .avatar {
-  width: 140px;
+  width: 150px;
   height: 70px;
   border-radius: 50%;
   margin-left: 25px;
+  align-items: center;
 }
 
 mat-divider {
